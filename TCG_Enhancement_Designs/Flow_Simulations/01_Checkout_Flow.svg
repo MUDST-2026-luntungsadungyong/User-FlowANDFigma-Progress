@@ -1,0 +1,82 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg" style="background-color: #FFFFFF; font-family: sans-serif;">
+        <!-- Header -->
+        <rect width="100%" height="80" fill="#2C3E50" />
+        <text x="30" y="50" fill="white" font-size="28" font-weight="bold">User Flow Simulation: Checkout with Lock &amp; Fees</text>
+        
+        <!-- Legend -->
+        <g transform="translate(800, 25)">
+            <rect x="0" y="0" width="20" height="20" fill="#B3E5FC" />
+            <text x="30" y="15" font-size="14">Buyer</text>
+            <rect x="90" y="0" width="20" height="20" fill="#FFCC80" />
+            <text x="120" y="15" font-size="14">Seller</text>
+            <rect x="180" y="0" width="20" height="20" fill="#C8E6C9" />
+            <text x="210" y="15" font-size="14">System</text>
+            <rect x="280" y="0" width="20" height="20" fill="#E1BEE7" />
+            <text x="310" y="15" font-size="14">QC Hub</text>
+        </g>
+
+        <!-- Swimlane Backgrounds -->
+        <g transform="translate(0, 80)">
+            <rect x="0" y="0" width="1200" height="180" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" />
+            <text x="20" y="95" font-size="18" font-weight="bold" fill="#757575" transform="rotate(-90 20,95)">BUYER</text>
+            
+            <rect x="0" y="180" width="1200" height="180" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1" />
+            <text x="20" y="275" font-size="18" font-weight="bold" fill="#757575" transform="rotate(-90 20,275)">SYSTEM</text>
+
+            <rect x="0" y="360" width="1200" height="180" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1" />
+            <text x="20" y="455" font-size="18" font-weight="bold" fill="#757575" transform="rotate(-90 20,455)">SELLER</text>
+
+            <rect x="0" y="540" width="1200" height="180" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1" />
+            <text x="20" y="635" font-size="18" font-weight="bold" fill="#757575" transform="rotate(-90 20,635)">QC HUB</text>
+        </g>
+        
+        <!-- Nodes -->
+        <g transform="translate(60, 80)">
+            
+    <rect x="50" y="40" width="160" height="60" fill="#B3E5FC" rx="8" stroke="#333" stroke-width="2" />
+    <text x="130.0" y="67.0" font-size="14" fill="#333" text-anchor="middle">เข้าหน้า Checkout</text>
+    
+    <line x1="130" y1="100" x2="130" y2="220" stroke="#333" stroke-width="2" />
+    <polygon points="130,220 120,215 120,225" fill="#333" />
+    
+    <rect x="50" y="220" width="160" height="60" fill="#C8E6C9" rx="8" stroke="#333" stroke-width="2" />
+    <text x="130.0" y="247.0" font-size="14" fill="#333" text-anchor="middle">Lock Stock (10 นาที)</text>
+    
+    <line x1="210" y1="250" x2="280" y2="250" stroke="#333" stroke-width="2" />
+    <polygon points="280,250 270,245 270,255" fill="#333" />
+    
+    <rect x="280" y="220" width="160" height="60" fill="#C8E6C9" rx="8" stroke="#333" stroke-width="2" />
+    <text x="360.0" y="239.0" font-size="14" fill="#333" text-anchor="middle">คำนวณ Security Fee</text><text x="360.0" y="259.0" font-size="14" fill="#333" text-anchor="middle">&amp; Shipping (Leg 2)</text>
+    
+    <line x1="360" y1="220" x2="360" y2="100" stroke="#333" stroke-width="2" />
+    <polygon points="360,100 350,95 350,105" fill="#333" />
+    
+    <rect x="280" y="40" width="160" height="60" fill="#B3E5FC" rx="8" stroke="#333" stroke-width="2" />
+    <text x="360.0" y="59.0" font-size="14" fill="#333" text-anchor="middle">ตรวจสอบยอดและ</text><text x="360.0" y="79.0" font-size="14" fill="#333" text-anchor="middle">จ่ายเงิน</text>
+    
+    <line x1="440" y1="70" x2="520" y2="70" stroke="#333" stroke-width="2" />
+    <polygon points="520,70 510,65 510,75" fill="#333" />
+    
+    <polygon points="580.0,35 640,70.0 580.0,105 520,70.0" fill="#FFF9C4" stroke="#333" stroke-width="2" />
+    <text x="580.0" y="75.0" font-size="14" fill="#333" text-anchor="middle">จ่ายสำเร็จ?</text>
+    
+    <line x1="580" y1="105" x2="580" y2="220" stroke="#333" stroke-width="2" />
+    <polygon points="580,220 570,215 570,225" fill="#333" />
+    
+    <rect x="500" y="220" width="160" height="60" fill="#C8E6C9" rx="8" stroke="#333" stroke-width="2" />
+    <text x="580.0" y="247.0" font-size="14" fill="#333" text-anchor="middle">Unlock Stock คืนระบบ</text>
+    
+    <line x1="640" y1="70" x2="720" y2="70" stroke="#333" stroke-width="2" />
+    <polygon points="720,70 710,65 710,75" fill="#333" />
+    
+    <rect x="720" y="40" width="160" height="60" fill="#B3E5FC" rx="8" stroke="#333" stroke-width="2" />
+    <text x="800.0" y="67.0" font-size="14" fill="#333" text-anchor="middle">ชำระเงินสำเร็จ</text>
+    
+    <line x1="800" y1="100" x2="800" y2="220" stroke="#333" stroke-width="2" />
+    <polygon points="800,220 790,215 790,225" fill="#333" />
+    
+    <rect x="720" y="220" width="160" height="60" fill="#C8E6C9" rx="8" stroke="#333" stroke-width="2" />
+    <text x="800.0" y="247.0" font-size="14" fill="#333" text-anchor="middle">สร้าง Order &amp; Escrow</text>
+    
+        </g>
+    </svg>
