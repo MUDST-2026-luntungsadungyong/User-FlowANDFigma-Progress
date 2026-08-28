@@ -1,0 +1,21 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" style="background-color: #F8FAFC; font-family: sans-serif;">
+        <!-- Header -->
+        <rect width="100%" height="60" fill="#0F172A" />
+        <text x="20" y="38" fill="white" font-size="24" font-weight="bold">Figma Simulation: 04. Checkout Fees</text>
+        
+        <!-- Canvas -->
+        <g transform="translate(40, 90)">
+            
+    <rect x="0" y="0" width="500" height="300" fill="white" rx="8" stroke="#E2E8F0" />
+    <text x="30" y="40" font-size="22" font-weight="bold" fill="#1E293B">Order Summary (Page 30)</text>
+    <rect x="30" y="60" width="440" height="200" fill="#F8FAFC" rx="4" stroke="#E2E8F0" />
+    
+    <text x="50" y="90" font-size="16" fill="#0F172A">Leg 2 Shipping (Hub to You)</text>
+    <text x="400" y="90" font-size="16" fill="#0F172A" text-anchor="end">฿50</text>
+    
+    <rect x="40" y="110" width="420" height="40" fill="#ECFCCB" rx="4" />
+    <text x="50" y="135" font-size="16" font-weight="bold" fill="#4D7C0F">Security &amp; Authentication Fee</text>
+    <text x="400" y="135" font-size="16" font-weight="bold" fill="#4D7C0F" text-anchor="end">฿150</text>
+
+        </g>
+    </svg>
