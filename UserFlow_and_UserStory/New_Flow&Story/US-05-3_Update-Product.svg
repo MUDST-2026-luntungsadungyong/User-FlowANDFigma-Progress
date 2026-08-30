@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 580" width="1600" height="580">
+<defs>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;display=swap');
+            text {
+                font-family: 'Sarabun', 'Segoe UI', Tahoma, sans-serif;
+                font-size: 13px;
+                fill: #1e293b;
+                text-anchor: middle;
+                dominant-baseline: central;
+            }
+            .title { font-size: 20px; font-weight: 700; fill: #0f172a; text-anchor: start; }
+            .legend-text { font-size: 13px; fill: #475569; text-anchor: start; }
+            .lane-label { font-size: 15px; font-weight: 600; fill: #64748b; }
+            .edge-label { font-size: 12px; font-weight: 600; fill: #475569; }
+            
+            .node-start-end { fill: #86efac; stroke: #22c55e; stroke-width: 1.5; }
+            .node-customer { fill: #d8b4fe; stroke: #a855f7; stroke-width: 1.5; }
+            .node-seller { fill: #fef08a; stroke: #eab308; stroke-width: 1.5; }
+            .node-system { fill: #fed7aa; stroke: #f97316; stroke-width: 1.5; }
+            .node-error { fill: #fca5a5; stroke: #ef4444; stroke-width: 1.5; }
+            .node-decision { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+            
+            .lane-line { stroke: #cbd5e1; stroke-width: 1.5; stroke-dasharray: 6 4; }
+            .flow-line { stroke: #64748b; stroke-width: 1.8; fill: none; }
+        </style>
+    
+
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b" />
+        </marker>
+    
+</defs>
+<rect width="1600" height="580" fill="#ffffff" />
+<text x="40" y="45" class="title">US-05-3: Update Product (Seller)</text>
+<circle cx="40" cy="85" r="9" fill="#fef08a" />
+<text x="58" y="85" class="legend-text">Seller actions</text>
+<circle cx="190" cy="85" r="9" fill="#1e293b" />
+<text x="208" y="85" class="legend-text">Decisions</text>
+<circle cx="300" cy="85" r="9" fill="#fed7aa" />
+<text x="318" y="85" class="legend-text">System actions</text>
+<circle cx="440" cy="85" r="9" fill="#fca5a5" />
+<text x="458" y="85" class="legend-text">Error</text>
+<text x="45" y="250" class="lane-label" transform="rotate(-90 45 250)">Seller</text>
+<line x1="80" y1="370" x2="1560" y2="370" class="lane-line" />
+<text x="45" y="465" class="lane-label" transform="rotate(-90 45 465)">System</text>
+<polyline points="170,240 210,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="350,240 390,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="530,240 570,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="710,240 750,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="890,240 1000,240 1000,420" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1000,420 1000,360" class="flow-line" marker-end="url(#arrow)" />
+<rect x="1001" y="380" width="28" height="20" fill="#ffffff" rx="4" />
+<text x="1015" y="390" class="edge-label">No</text>
+<polyline points="930,335 640,335 640,270" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1070,460 1110,460" class="flow-line" marker-end="url(#arrow)" />
+<rect x="1072" y="435" width="36" height="20" fill="#ffffff" rx="4" />
+<text x="1090" y="445" class="edge-label">Yes</text>
+<polyline points="1260,460 1300,460" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1375,430 1375,270" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1450,240 1490,240" class="flow-line" marker-end="url(#arrow)" />
+<rect x="100" y="220" width="70" height="40" rx="20" ry="20" class="node-start-end" />
+<text x="135" y="240">start</text>
+<rect x="210" y="210" width="140" height="60" rx="8" ry="8" class="node-seller" />
+<text x="280" y="232">เข้าหน้า</text>
+<text x="280" y="248">&quot;Product List&quot;</text>
+<rect x="390" y="210" width="140" height="60" rx="8" ry="8" class="node-seller" />
+<text x="460" y="232">กด &quot;Edit&quot;</text>
+<text x="460" y="248">แก้ไขข้อมูล</text>
+<rect x="570" y="210" width="140" height="60" rx="8" ry="8" class="node-seller" />
+<text x="640" y="232">กรอกข้อมูลใหม่</text>
+<text x="640" y="248">เช่น ราคา, สต๊อก</text>
+<rect x="750" y="210" width="140" height="60" rx="8" ry="8" class="node-seller" />
+<text x="820" y="240">กด &quot;Save&quot;</text>
+<polygon points="1000,420 1070,460 1000,500 930,460" class="node-decision" />
+<text x="1000" y="452">Validate</text>
+<text x="1000" y="468">ฟอร์มถูกต้อง?</text>
+<rect x="930" y="310" width="140" height="50" rx="8" ry="8" class="node-error" />
+<text x="1000" y="335">แจ้ง Error inline</text>
+<rect x="1110" y="430" width="150" height="60" rx="8" ry="8" class="node-system" />
+<text x="1185" y="460">อัปเดต Record</text>
+<rect x="1300" y="430" width="150" height="60" rx="8" ry="8" class="node-system" />
+<text x="1375" y="460">แจ้งสำเร็จ</text>
+<rect x="1300" y="210" width="150" height="60" rx="8" ry="8" class="node-seller" />
+<text x="1375" y="240">กลับหน้า Product List</text>
+<rect x="1490" y="220" width="70" height="40" rx="20" ry="20" class="node-start-end" />
+<text x="1525" y="240">End</text>
+</svg>
