@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph Seller
+        start([Start]) --> viewOrder[View 'My Sales' Orders]
+        viewOrder --> selectOrder[Select a Pending Order]
+        selectOrder --> action{Update Status}
+        action -- Fulfilled --> btnFulfill[Mark as Fulfilled]
+        action -- Cancelled --> btnCancel[Mark as Cancelled]
+    end
+    
+    subgraph System
+        btnFulfill -.-> dbFulfill[Update Order Status: Fulfilled]
+        dbFulfill --> stFulfill[Reduce onHand\nReduce Reserved\nReduce Collection]
+        
+        btnCancel -.-> dbCancel[Update Order Status: Cancelled]
+        dbCancel --> stCancel[Reduce Reserved\nRestore Available Stock]
+    end

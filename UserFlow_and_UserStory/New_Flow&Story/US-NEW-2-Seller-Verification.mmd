@@ -1,0 +1,12 @@
+flowchart TD
+    subgraph Customer
+        start([Start]) --> viewApply[Go to 'Become a Seller']
+        viewApply --> fillForm[Fill Shop Name & Contact Info]
+        fillForm --> submitForm[Submit Seller Profile]
+    end
+    
+    subgraph System
+        submitForm -.-> valForm{Validate Info}
+        valForm -- Pass --> updateRole[Update sellerStatus = VERIFIED]
+        updateRole -.-> retSuccess[Return Success. User can now sell.]
+    end

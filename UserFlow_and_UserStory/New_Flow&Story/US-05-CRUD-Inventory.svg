@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 760" width="1450" height="760">
+<defs>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&amp;display=swap');
+            text {
+                font-family: 'Sarabun', 'Segoe UI', Tahoma, sans-serif;
+                font-size: 13px;
+                fill: #1e293b;
+                text-anchor: middle;
+                dominant-baseline: central;
+            }
+            .title { font-size: 20px; font-weight: 700; fill: #0f172a; text-anchor: start; }
+            .legend-text { font-size: 13px; fill: #475569; text-anchor: start; }
+            .lane-label { font-size: 15px; font-weight: 600; fill: #64748b; }
+            .edge-label { font-size: 12px; font-weight: 600; fill: #475569; }
+            
+            .node-start-end { fill: #86efac; stroke: #22c55e; stroke-width: 1.5; }
+            .node-customer { fill: #d8b4fe; stroke: #a855f7; stroke-width: 1.5; }
+            .node-seller { fill: #fef08a; stroke: #eab308; stroke-width: 1.5; }
+            .node-system { fill: #fed7aa; stroke: #f97316; stroke-width: 1.5; }
+            .node-error { fill: #fca5a5; stroke: #ef4444; stroke-width: 1.5; }
+            .node-decision { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+            
+            .lane-line { stroke: #cbd5e1; stroke-width: 1.5; stroke-dasharray: 6 4; }
+            .flow-line { stroke: #64748b; stroke-width: 1.8; fill: none; }
+        </style>
+    
+
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b" />
+        </marker>
+        <marker id="circle-start" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+            <circle cx="5" cy="5" r="4" fill="#64748b" />
+        </marker>
+    
+</defs>
+<rect width="1450" height="760" fill="#ffffff" />
+<text x="40" y="45" class="title">US-05: CRUD Inventory Management System (Seller Self-Management)</text>
+<circle cx="40" cy="85" r="9" fill="#fef08a" />
+<text x="58" y="85" class="legend-text">Seller actions</text>
+<circle cx="180" cy="85" r="9" fill="#1e293b" />
+<text x="198" y="85" class="legend-text">Decisions</text>
+<circle cx="290" cy="85" r="9" fill="#fed7aa" />
+<text x="308" y="85" class="legend-text">System actions</text>
+<circle cx="430" cy="85" r="9" fill="#fca5a5" />
+<text x="448" y="85" class="legend-text">Error</text>
+<text x="45" y="280" class="lane-label" transform="rotate(-90 45 280)">Seller</text>
+<line x1="80" y1="430" x2="1410" y2="430" class="lane-line" />
+<text x="45" y="585" class="lane-label" transform="rotate(-90 45 585)">System</text>
+<polyline points="170,240 210,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="350,240 390,240" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="460,200 460,175 570,175" class="flow-line" marker-end="url(#arrow)" />
+<rect x="492" y="150" width="36" height="20" fill="#ffffff" rx="4" />
+<text x="510" y="160" class="edge-label">Add</text>
+<polyline points="720,175 750,175" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="890,175 1005,175 1005,440" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="530,240 530,255 660,255" class="flow-line" marker-end="url(#arrow)" />
+<rect x="558" y="230" width="44" height="20" fill="#ffffff" rx="4" />
+<text x="580" y="240" class="edge-label">Edit</text>
+<polyline points="810,255 1005,255 1005,510" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="460,280 460,335 570,335" class="flow-line" marker-end="url(#arrow)" />
+<rect x="480" y="310" width="60" height="20" fill="#ffffff" rx="4" />
+<text x="510" y="320" class="edge-label">Delete</text>
+<polyline points="710,335 820,335 820,570" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="820,570 820,520" class="flow-line" marker-end="url(#arrow)" />
+<rect x="817" y="535" width="36" height="20" fill="#ffffff" rx="4" />
+<text x="835" y="545" class="edge-label">Yes</text>
+<polyline points="890,610 930,610" class="flow-line" marker-end="url(#arrow)" />
+<rect x="896" y="585" width="28" height="20" fill="#ffffff" rx="4" />
+<text x="910" y="595" class="edge-label">No</text>
+<polyline points="420,270 420,405 570,405" class="flow-line" marker-end="url(#arrow)" />
+<rect x="438" y="380" width="84" height="20" fill="#ffffff" rx="4" />
+<text x="480" y="390" class="edge-label">Hide/Show</text>
+<polyline points="710,405 1005,405 1005,660" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1080,467 1110,467 1110,560 1140,560" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1080,537 1140,537" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1080,612 1110,612 1110,560 1140,560" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1080,685 1110,685 1110,560 1140,560" class="flow-line" marker-end="url(#arrow)" />
+<polyline points="1290,560 1330,560" class="flow-line" marker-end="url(#arrow)" />
+<rect x="100" y="220" width="70" height="40" rx="20" ry="20" class="node-start-end" />
+<text x="135" y="240">start</text>
+<rect x="210" y="210" width="140" height="60" rx="8" ry="8" class="node-seller" />
+<text x="280" y="232">Seller เข้าหน้า</text>
+<text x="280" y="248">&quot;My Inventory&quot;</text>
+<polygon points="460,200 530,240 460,280 390,240" class="node-decision" />
+<text x="460" y="240">เลือกคำสั่ง</text>
+<rect x="570" y="150" width="150" height="55" rx="8" ry="8" class="node-seller" />
+<text x="645" y="169">เลือกการ์ดจาก</text>
+<text x="645" y="185">My Collection</text>
+<rect x="750" y="150" width="140" height="55" rx="8" ry="8" class="node-seller" />
+<text x="820" y="169">กำหนดราคาขาย</text>
+<text x="820" y="185">และจำนวนสต็อก</text>
+<rect x="930" y="440" width="150" height="55" rx="8" ry="8" class="node-system" />
+<text x="1005" y="459">บันทึก Product</text>
+<text x="1005" y="475">(owner = sellerId)</text>
+<rect x="660" y="230" width="150" height="55" rx="8" ry="8" class="node-seller" />
+<text x="735" y="249">แก้ไขราคา / สต็อก /</text>
+<text x="735" y="265">รายละเอียดสินค้า</text>
+<rect x="930" y="510" width="150" height="55" rx="8" ry="8" class="node-system" />
+<text x="1005" y="537">อัปเดตข้อมูลสินค้า</text>
+<rect x="570" y="310" width="140" height="55" rx="8" ry="8" class="node-seller" />
+<text x="640" y="337">กดยืนยันการลบ</text>
+<polygon points="820,570 890,610 820,650 750,610" class="node-decision" />
+<text x="820" y="602">มีใน Order</text>
+<text x="820" y="618">Pending?</text>
+<rect x="750" y="470" width="140" height="50" rx="8" ry="8" class="node-error" />
+<text x="820" y="495">แจ้งเตือนไม่สามารถลบ</text>
+<rect x="930" y="585" width="150" height="55" rx="8" ry="8" class="node-system" />
+<text x="1005" y="604">ลบ / Archive</text>
+<text x="1005" y="620">สินค้าออกจากร้าน</text>
+<rect x="570" y="380" width="140" height="50" rx="8" ry="8" class="node-seller" />
+<text x="640" y="397">กด Toggle</text>
+<text x="640" y="413">Show/Hide</text>
+<rect x="930" y="660" width="150" height="50" rx="8" ry="8" class="node-system" />
+<text x="1005" y="685">เปลี่ยนสถานะการมองเห็น</text>
+<rect x="1140" y="530" width="150" height="60" rx="8" ry="8" class="node-system" />
+<text x="1215" y="552">รีเฟรชหน้ารายการ</text>
+<text x="1215" y="568">สินค้าของ Seller</text>
+<rect x="1330" y="540" width="70" height="40" rx="20" ry="20" class="node-start-end" />
+<text x="1365" y="560">End</text>
+</svg>

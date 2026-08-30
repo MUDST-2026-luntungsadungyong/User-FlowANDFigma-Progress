@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph Customer_or_Seller
+        start([Start]) --> viewCol[Go to My Collection]
+        viewCol --> action{Choose Action}
+        
+        action -- Add Card --> searchCat[Search Card Catalog]
+        searchCat --> fillCard[Select Condition, Foil, Lang]
+        fillCard --> submitAdd[Add to Collection]
+        
+        action -- Edit/Delete --> modifyCol[Update details or Remove]
+    end
+    
+    subgraph System
+        submitAdd -.-> dbAdd[Save to Collection DB]
+        modifyCol -.-> dbMod[Update Collection DB]
+    end
