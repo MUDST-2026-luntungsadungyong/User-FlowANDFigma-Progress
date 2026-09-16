@@ -1,0 +1,683 @@
+const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+
+const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mythix TCG Platform — Database ER Diagram</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 3950px;
+    height: 1980px;
+    background: #090d16;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Background Grid */
+  .grid-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Header */
+  .header {
+    position: absolute;
+    top: 24px;
+    left: 40px;
+    right: 40px;
+    height: 100px;
+    background: linear-gradient(135deg, #131b2e 0%, #1e293b 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .title-group h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .title-group p {
+    font-size: 14.5px;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+  .domain-pills {
+    display: flex;
+    gap: 12px;
+  }
+  .pill {
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+  }
+  .pill-blue { background: rgba(59,130,246,0.15); border-color: #3b82f6; color: #93c5fd; }
+  .pill-amber { background: rgba(245,158,11,0.15); border-color: #f59e0b; color: #fcd34d; }
+  .pill-emerald { background: rgba(16,185,129,0.15); border-color: #10b981; color: #6ee7b7; }
+  .pill-purple { background: rgba(139,92,246,0.15); border-color: #8b5cf6; color: #d8b4fe; }
+  .pill-rose { background: rgba(244,63,94,0.15); border-color: #f43f5e; color: #fda4af; }
+  .pill-cyan { background: rgba(6,182,212,0.15); border-color: #06b6d4; color: #67e8f9; }
+
+  /* Table Cards */
+  .table-card {
+    position: absolute;
+    background: #111827;
+    border-radius: 12px;
+    border: 1.5px solid #1f2937;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .table-header {
+    padding: 12px 18px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(255,255,255,0.08);
+  }
+  .table-header .table-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .table-header .table-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* Table Color Variants */
+  .c-blue .table-header { background: linear-gradient(90deg, #1e3a8a, #1d4ed8); color: #e0f2fe; }
+  .c-blue { border-color: #2563eb; }
+  .c-amber .table-header { background: linear-gradient(90deg, #78350f, #b45309); color: #fef3c7; }
+  .c-amber { border-color: #d97706; }
+  .c-emerald .table-header { background: linear-gradient(90deg, #064e3b, #047857); color: #d1fae5; }
+  .c-emerald { border-color: #059669; }
+  .c-purple .table-header { background: linear-gradient(90deg, #4c1d95, #6d28d9); color: #ede9fe; }
+  .c-purple { border-color: #7c3aed; }
+  .c-cyan .table-header { background: linear-gradient(90deg, #083344, #0e7490); color: #cffafe; }
+  .c-cyan { border-color: #0891b2; }
+  .c-rose .table-header { background: linear-gradient(90deg, #881337, #be123c); color: #ffe4e6; }
+  .c-rose { border-color: #e11d48; }
+
+  /* Columns List */
+  .column-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .column-row {
+    display: grid;
+    grid-template-columns: 80px 185px 125px auto;
+    padding: 7px 16px;
+    font-size: 13px;
+    align-items: center;
+    border-bottom: 1px solid #1f2937;
+  }
+  .column-row:last-child { border-bottom: none; }
+  .column-row:nth-child(even) { background: rgba(255,255,255,0.015); }
+  .column-row:hover { background: rgba(255,255,255,0.04); }
+
+  /* Badges */
+  .badge-key {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .key-pk { background: #f59e0b; color: #000; font-weight: 800; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+  .key-fk { background: #38bdf8; color: #000; font-weight: 800; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+  .key-uk { background: #c084fc; color: #000; font-weight: 800; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+
+  .col-name {
+    font-weight: 600;
+    color: #f8fafc;
+    font-family: 'Consolas', monospace;
+  }
+  .col-type {
+    color: #94a3b8;
+    font-size: 12px;
+    font-family: 'Consolas', monospace;
+  }
+  .col-desc {
+    color: #64748b;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .col-desc span.req { color: #f87171; font-weight: 700; margin-right: 4px; }
+  .col-desc span.def { color: #38bdf8; font-family: monospace; }
+
+  /* SVG Connectors */
+  #connections-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Info Panels */
+  .info-panel {
+    position: absolute;
+    background: #111827;
+    border-radius: 14px;
+    border: 1px solid #1f2937;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 22px 26px;
+    color: #e2e8f0;
+  }
+  .info-panel h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .info-panel p, .info-panel li {
+    font-size: 13.5px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  .info-panel ul {
+    margin-left: 20px;
+    margin-top: 8px;
+  }
+  .step-badge {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    text-align: center;
+    line-height: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-right: 6px;
+  }
+  .highlight-tag {
+    background: rgba(56,189,248,0.15);
+    color: #38bdf8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12.5px;
+  }
+  .compare-table th {
+    background: #1e293b;
+    color: #f8fafc;
+    text-align: left;
+    padding: 8px 12px;
+    border: 1px solid #334155;
+  }
+  .compare-table td {
+    padding: 8px 12px;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="title-group">
+    <h1>🗄️ MYTHIX TCG PLATFORM — DATABASE ARCHITECTURE &amp; SCHEMA (REV 5)</h1>
+    <p>Target DBMS: PostgreSQL 16 | Scope: Platform Admin Role, Global vs Local Cards Marketplace, Audit Logs &amp; Order Tracking</p>
+  </div>
+  <div class="domain-pills">
+    <div class="pill pill-blue">👤 1. Identity &amp; Admin</div>
+    <div class="pill pill-amber">🌐 2. Global Catalog</div>
+    <div class="pill pill-emerald">🏷️ 3. Local Marketplace</div>
+    <div class="pill pill-purple">📦 4. Orders &amp; Fulfillment</div>
+    <div class="pill pill-cyan">🛡️ 5. Audit &amp; Tracking Logs</div>
+    <div class="pill pill-rose">🎴 6. Personal Collection</div>
+  </div>
+</div>
+
+<!-- ==================== COLUMN 1: USERS & SELLER PROFILES & AUDIT ==================== -->
+
+<!-- 1. USERS TABLE -->
+<div class="table-card c-blue" style="top: 170px; left: 40px; width: 660px;">
+  <div class="table-header">
+    <div class="table-name">👤 users</div>
+    <div class="table-tag">Core Identity &amp; Auth</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Primary User Key</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-uk">UK</span></div><div class="col-name">email</div><div class="col-type">VARCHAR(255)</div><div class="col-desc"><span class="req">NOT NULL</span> Login Email (Unique)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">password</div><div class="col-type">VARCHAR(255)</div><div class="col-desc"><span class="req">NOT NULL</span> BCrypt Hashed Password</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">full_name</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Display / Full Name</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">phone</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">Contact Phone Number</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">contact_line</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">LINE ID for Buyer/Seller Chat</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">contact_facebook</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Facebook Profile URL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">avatar_url</div><div class="col-type">VARCHAR(500)</div><div class="col-desc">User Profile Image URL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">role</div><div class="col-type">VARCHAR(20)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'USER'</span> | <span class="def">'ADMIN'</span></div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">seller_status</div><div class="col-type">VARCHAR(20)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'NONE'</span>, <span class="def">'PENDING'</span>, <span class="def">'APPROVED'</span>, <span class="def">'REJECTED'</span></div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Account Creation Time</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Last Profile Update Time</div></div>
+  </div>
+</div>
+
+<!-- 2. SELLER_PROFILES TABLE -->
+<div class="table-card c-blue" style="top: 680px; left: 40px; width: 660px;">
+  <div class="table-header">
+    <div class="table-name">🏪 seller_profiles</div>
+    <div class="table-tag">Seller KYC &amp; Bank Info</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Primary Key</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">user_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) ON DELETE CASCADE [1:1]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">shop_name</div><div class="col-type">VARCHAR(255)</div><div class="col-desc"><span class="req">NOT NULL</span> Store Display Name</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">shop_description</div><div class="col-type">TEXT</div><div class="col-desc">Store Bio, Policies &amp; Terms</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">id_card_number</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">KYC Citizen ID / Passport for Admin Audit</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">id_card_image_url</div><div class="col-type">VARCHAR(500)</div><div class="col-desc">KYC Document Attachment URL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">bank_name</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">Bank for Payout (e.g. KBANK, SCB)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">bank_account_number</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">Payout Bank Account Number</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">bank_account_name</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Account Holder Name (Match KYC)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">requested_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc">Application Submission Date</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">verified_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc">Admin Approval Timestamp</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">approved_by</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) [Admin Actor ID]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">rejected_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc">Admin Rejection Timestamp</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">rejected_by</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) [Admin Actor ID]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">rejection_reason</div><div class="col-type">TEXT</div><div class="col-desc">Reason note provided to applicant</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Record Creation Time</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Record Last Update Time</div></div>
+  </div>
+</div>
+
+<!-- 3. AUDIT_LOGS TABLE -->
+<div class="table-card c-cyan" style="top: 1540px; left: 40px; width: 660px;">
+  <div class="table-header">
+    <div class="table-name">🛡️ audit_logs</div>
+    <div class="table-tag">Platform Security Audit Trail</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Audit Record ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">actor_id</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) ON DELETE SET NULL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">action</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> APPROVE_SELLER, CREATE_CARD, etc.</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">target_type</div><div class="col-type">VARCHAR(50)</div><div class="col-desc"><span class="req">NOT NULL</span> SELLER_PROFILE, GLOBAL_CARD, USER...</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">target_id</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> Target Entity Identifier</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">details</div><div class="col-type">JSONB</div><div class="col-desc">Old &amp; New State Delta Payload</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">ip_address</div><div class="col-type">VARCHAR(45)</div><div class="col-desc">Client IPv4 / IPv6 Address</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Event Timestamp (Indexed DESC)</div></div>
+  </div>
+</div>
+
+<!-- ==================== COLUMN 2: GLOBAL CARDS & LOCAL CARDS & CART ==================== -->
+
+<!-- 4. GLOBAL_CARDS TABLE -->
+<div class="table-card c-amber" style="top: 170px; left: 740px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">🌐 global_cards</div>
+    <div class="table-tag">Master Catalog (Ownerless)</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> API Code (e.g. <span class="def">base1-4</span>)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">name</div><div class="col-type">VARCHAR(255)</div><div class="col-desc"><span class="req">NOT NULL</span> Official Pokémon Name (Charizard)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">supertype</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">Pokémon, Trainer, Energy</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">subtypes</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">Basic, Stage 2, EX, VMAX, etc.</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">hp</div><div class="col-type">VARCHAR(10)</div><div class="col-desc">Hit Points (e.g. 120)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">types</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">Fire, Water, Lightning, Grass...</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">rarity</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">Rare Holo, Secret Rare, Promo...</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">set_name</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Expansion Set Name (e.g. Base Set, 151)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">card_number</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">Collector Number (e.g. 4/102)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">artist</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Card Illustrator Credit</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">image_small</div><div class="col-type">VARCHAR(500)</div><div class="col-desc">Thumbnail Official Artwork URL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">image_large</div><div class="col-type">VARCHAR(500)</div><div class="col-desc">High-Res Official Artwork URL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">market_price</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="def">0.00</span> Benchmark Market Price</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">is_active</div><div class="col-type">BOOLEAN</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">TRUE</span> Admin Visibility Control</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">created_by_admin_id</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) [Admin Author]</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">updated_by_admin_id</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) [Admin Modifier]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Added to Catalog Timestamp</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Modified Timestamp</div></div>
+  </div>
+</div>
+
+<!-- 5. LOCAL_CARDS TABLE -->
+<div class="table-card c-emerald" style="top: 900px; left: 740px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">🏷️ local_cards</div>
+    <div class="table-tag">Seller Marketplace Listings</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Primary Listing Key</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">seller_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) ON DELETE CASCADE [Owner]</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">global_card_id</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> → global_cards(id) [Model]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">custom_image_url</div><div class="col-type">VARCHAR(500)</div><div class="col-desc">Real Condition Photo Taken by Seller</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">condition</div><div class="col-type">VARCHAR(50)</div><div class="col-desc"><span class="req">NOT NULL</span> NM, LP, MP, HP, DMG</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">language</div><div class="col-type">VARCHAR(50)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'EN'</span>, 'JP', 'TH'</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">price</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> Seller Selling Price (฿)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">cost</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">0.00</span> Seller Acquisition Cost</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">on_hand</div><div class="col-type">INT</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">1</span> Stock on hand (CHECK &gt;= 0)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">reserved</div><div class="col-type">INT</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">0</span> In pending checkout (&lt;= on_hand)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">status</div><div class="col-type">VARCHAR(20)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'SHOW'</span> | 'HIDE' | 'OUT_OF_STOCK'</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Listing Created Time</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Listing Updated Time</div></div>
+  </div>
+</div>
+
+<!-- 6. CART_ITEMS TABLE -->
+<div class="table-card c-emerald" style="top: 1540px; left: 740px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">🛒 cart_items</div>
+    <div class="table-tag">Buyer Shopping Cart</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Cart Item ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">user_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">local_card_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → local_cards(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">quantity</div><div class="col-type">INT</div><div class="col-desc"><span class="req">NOT NULL</span> CHECK (quantity &gt; 0)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Item Added Timestamp</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Quantity Modified Timestamp</div></div>
+  </div>
+</div>
+
+<!-- ==================== COLUMN 3: ORDERS & ORDER ITEMS & TIMELINE ==================== -->
+
+<!-- 7. ORDERS TABLE -->
+<div class="table-card c-purple" style="top: 170px; left: 1460px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">📦 orders</div>
+    <div class="table-tag">Transactions &amp; Checkout</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Order Primary ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">buyer_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-uk">UK</span></div><div class="col-name">order_number</div><div class="col-type">VARCHAR(50)</div><div class="col-desc"><span class="req">NOT NULL</span> Public Code (e.g. ORD-2026-001)</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-uk">UK</span></div><div class="col-name">idempotency_key</div><div class="col-type">VARCHAR(100)</div><div class="col-desc">Unique with buyer_id (Prevent Double Pay)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">status</div><div class="col-type">VARCHAR(20)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'PENDING'</span>, 'PAID', 'FULFILLED', 'CANCELLED'</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">total_amount</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> Gross Merchandise Value (GMV)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">platform_fee</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">0.00</span> Platform Commission Revenue</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">seller_net_amount</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">0.00</span> Net Payout Payable to Seller</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Order Created Time</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Order Status Last Changed</div></div>
+  </div>
+</div>
+
+<!-- 8. ORDER_ITEMS TABLE -->
+<div class="table-card c-purple" style="top: 680px; left: 1460px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">🧾 order_items</div>
+    <div class="table-tag">Immutable Purchase Snapshot</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Item Row ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">order_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → orders(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">local_card_id</div><div class="col-type">BIGINT</div><div class="col-desc">→ local_cards(id) (Listing Ref)</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">seller_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) [Target Seller]</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">global_card_id</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> Master Card Key Snapshot</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">card_name_snapshot</div><div class="col-type">VARCHAR(255)</div><div class="col-desc"><span class="req">NOT NULL</span> Card Name at Purchase Date</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">shop_name_snapshot</div><div class="col-type">VARCHAR(255)</div><div class="col-desc">Store Name at Purchase Date</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">price_at_purchase</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> Locked Sale Price per Unit</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">cost_at_purchase</div><div class="col-type">DECIMAL(12,2)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">0.00</span> Locked Cost for Profit calc</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">quantity</div><div class="col-type">INT</div><div class="col-desc"><span class="req">NOT NULL</span> CHECK (quantity &gt; 0)</div></div>
+  </div>
+</div>
+
+<!-- 9. ORDER_STATUS_LOGS TABLE -->
+<div class="table-card c-cyan" style="top: 1220px; left: 1460px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">⏱️ order_status_logs</div>
+    <div class="table-tag">Order Timeline &amp; History Display</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Log Primary ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">order_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → orders(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">from_status</div><div class="col-type">VARCHAR(30)</div><div class="col-desc">Previous Order Status (e.g. PENDING)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">to_status</div><div class="col-type">VARCHAR(30)</div><div class="col-desc"><span class="req">NOT NULL</span> New Status (e.g. PAID, FULFILLED)</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span></div><div class="col-name">changed_by</div><div class="col-type">BIGINT</div><div class="col-desc">→ users(id) ON DELETE SET NULL</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">changed_by_role</div><div class="col-type">VARCHAR(30)</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">'SYSTEM'</span> | 'ADMIN' | 'SELLER' | 'BUYER'</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">note</div><div class="col-type">TEXT</div><div class="col-desc">Tracking Code, Carrier, Cancellation Reason</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Event Occurred Timestamp</div></div>
+  </div>
+</div>
+
+<!-- ==================== COLUMN 4: COLLECTION & ARCHITECTURE PANELS ==================== -->
+
+<!-- 10. COLLECTION_ITEMS TABLE -->
+<div class="table-card c-rose" style="top: 170px; left: 2180px; width: 680px;">
+  <div class="table-header">
+    <div class="table-name">🎴 collection_items</div>
+    <div class="table-tag">Personal Collector Binder</div>
+  </div>
+  <div class="column-list">
+    <div class="column-row"><div class="badge-key"><span class="key-pk">PK</span></div><div class="col-name">id</div><div class="col-type">BIGSERIAL</div><div class="col-desc"><span class="req">NOT NULL</span> Collection Item ID</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">user_id</div><div class="col-type">BIGINT</div><div class="col-desc"><span class="req">NOT NULL</span> → users(id) ON DELETE CASCADE</div></div>
+    <div class="column-row"><div class="badge-key"><span class="key-fk">FK</span><span class="key-uk">UK</span></div><div class="col-name">global_card_id</div><div class="col-type">VARCHAR(100)</div><div class="col-desc"><span class="req">NOT NULL</span> → global_cards(id) (Model Ref)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">condition</div><div class="col-type">VARCHAR(50)</div><div class="col-desc">Card Condition (NM, LP, MP, HP)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">language</div><div class="col-type">VARCHAR(50)</div><div class="col-desc"><span class="def">'EN'</span>, 'JP', 'TH'</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">quantity</div><div class="col-type">INT</div><div class="col-desc"><span class="req">NOT NULL</span> <span class="def">1</span> CHECK (quantity &gt; 0)</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">created_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Added to Binder Timestamp</div></div>
+    <div class="column-row"><div class="badge-key"></div><div class="col-name">updated_at</div><div class="col-type">TIMESTAMP</div><div class="col-desc"><span class="req">NOT NULL</span> Last Modified Timestamp</div></div>
+  </div>
+</div>
+
+<!-- ARCHITECTURE INFO PANEL 1: PLATFORM ADMIN & APPROVAL -->
+<div class="info-panel" style="top: 570px; left: 2180px; width: 1720px; border-left: 4px solid #3b82f6;">
+  <h2>🛡️ 1. Platform Admin &amp; Seller Approval Architecture</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+    <div>
+      <p><b>สิทธิ์และการจัดการ Admin:</b></p>
+      <ul>
+        <li>ฟิลด์ <span class="highlight-tag">users.role</span> รองรับ <code>'USER'</code> และ <code>'ADMIN'</code> (Platform Admin)</li>
+        <li>Admin มีอำนาจแต่งตั้ง User อื่นให้เป็น Admin ได้ โดยทุกการกระทำจะถูกบันทึกลง <span class="highlight-tag">audit_logs</span></li>
+        <li>Admin สามารถจัดการการ์ด Global (เพิ่ม/แก้ไข/ระงับ <span class="highlight-tag">is_active</span>) ในระบบแคตตาล็อกกลาง</li>
+      </ul>
+    </div>
+    <div>
+      <p><b>Seller Verification Gate (การอนุมัติผู้ขาย):</b></p>
+      <div style="display: flex; gap: 10px; margin-top: 8px;">
+        <div style="background: #1e293b; padding: 10px 14px; border-radius: 8px; flex: 1;">
+          <span class="step-badge">1</span> <b>Buyer ยื่นขอ:</b> กรอกชื่อร้าน, เลขบัตร/เอกสารยืนยันตัวตน, และเลขบัญชีธนาคารรับเงิน → สถานะเป็น <code>PENDING</code>
+        </div>
+        <div style="background: #1e293b; padding: 10px 14px; border-radius: 8px; flex: 1;">
+          <span class="step-badge">2</span> <b>Admin ตรวจสอบ:</b> อนุมัติ (<code>APPROVED</code> พร้อมบันทึก <code>approved_by</code>) หรือ ปฏิเสธ (<code>REJECTED</code> พร้อมระบุ <code>rejection_reason</code>)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHITECTURE INFO PANEL 2: GLOBAL VS LOCAL CARDS -->
+<div class="info-panel" style="top: 820px; left: 2180px; width: 1720px; border-left: 4px solid #f59e0b;">
+  <h2>🌐 2. Global Cards vs 🏷️ Local Cards Marketplace Model</h2>
+  <p style="margin-bottom: 8px;"><b>หัวใจสำคัญ:</b> การ์ด Global ทั้งระบบ <i>"ไม่จำเป็นต้องมีเจ้าของ"</i> แต่การ์ด Local ทุกใบที่ขายในระบบ <i>"ต้องมี Seller เป็นเจ้าของเสมอ 100%"</i></p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th style="width: 20%;">มิติเปรียบเทียบ</th>
+        <th style="width: 40%;">🌐 Global Cards (global_cards)</th>
+        <th style="width: 40%;">🏷️ Local Cards (local_cards)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>ความเป็นเจ้าของ</b></td>
+        <td><span class="highlight-tag" style="background:rgba(245,158,11,0.2);color:#fcd34d;">ไม่มีเจ้าของ (Ownerless)</span> เป็นสารบรรณการ์ดกลางของระบบ</td>
+        <td><span class="highlight-tag" style="background:rgba(16,185,129,0.2);color:#6ee7b7;">ต้องมีเจ้าของเสมอ 100% (seller_id)</span></td>
+      </tr>
+      <tr>
+        <td><b>ผู้จัดการข้อมูล</b></td>
+        <td>Platform Admin (หรือ Import จาก Pokémon TCG API)</td>
+        <td>Seller แต่ละร้านค้า เป็นผู้ตั้งราคาและจัดการสต็อกของตน</td>
+      </tr>
+      <tr>
+        <td><b>รูปภาพ &amp; สภาพ</b></td>
+        <td>รูป Official Artwork มาตรฐานจากการ์ดชุดนั้น</td>
+        <td><b>รูปถ่ายสภาพจริง (custom_image_url)</b> ที่ Seller ถ่ายจากของจริง พร้อมระบุสภาพ (NM, LP, etc.)</td>
+      </tr>
+      <tr>
+        <td><b>การแสดงผลในเว็บ</b></td>
+        <td><b>หน้า Search/Catalog กลาง:</b> เมื่อ Buyer คลิกดูการ์ด Global 1 ใบ จะมี <i>"List of Available Sellers"</i> แสดงร้านค้าทั้งหมดที่ขายการ์ดนี้</td>
+        <td><b>หน้ารายการสินค้าของร้านค้า:</b> ผู้ซื้อสามารถเปรียบเทียบราคา, สภาพ, รูปถ่ายจริง, และกดเลือกซื้อจากร้านที่ต้องการได้โดยตรง</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ARCHITECTURE INFO PANEL 3: DASHBOARD & CONSTRAINTS -->
+<div class="info-panel" style="top: 1180px; left: 2180px; width: 1720px; border-left: 4px solid #10b981;">
+  <h2>📊 3. Platform Admin Dashboard &amp; Transaction Integrity</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+    <div>
+      <p><b>Admin Dashboard High-Speed Metrics:</b></p>
+      <ul>
+        <li><b>จำนวนการ์ดในระบบ:</b> <code>COUNT(*) FROM global_cards WHERE is_active = true</code></li>
+        <li><b>จำนวน User แยก Buyer / Seller:</b>
+          <br>• Buyer: <code>COUNT(*) WHERE role = 'USER' AND seller_status != 'APPROVED'</code>
+          <br>• Seller: <code>COUNT(*) WHERE seller_status = 'APPROVED'</code>
+        </li>
+        <li><b>ยอดเงินทั้งหมดในระบบ (GMV):</b> <code>SUM(total_amount) FROM orders WHERE status = 'PAID'</code></li>
+        <li><b>รายได้ค่าธรรมเนียม Platform:</b> <code>SUM(platform_fee) FROM orders WHERE status = 'PAID'</code></li>
+      </ul>
+    </div>
+    <div>
+      <p><b>Data Integrity &amp; Safety Guarantees:</b></p>
+      <ul>
+        <li><b>Stock Over-selling Prevention:</b> มี Database Check Constraints บังคับ <code>on_hand &gt;= 0</code> และ <code>reserved &lt;= on_hand</code> เสมอ</li>
+        <li><b>Double-Payment Prevention:</b> กำกับ <code>UNIQUE (buyer_id, idempotency_key)</code> ที่ตาราง <code>orders</code></li>
+        <li><b>Snapshot Pattern:</b> ตาราง <code>order_items</code> คัดลอกชื่อสินค้า, ชื่อร้าน, และราคา ณ วันที่ซื้อแบบ Immutable เพื่อป้องกันข้อมูลเพี้ยนหากผู้ขายแก้โปรไฟล์</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SVG CONNECTIONS OVERLAY ==================== -->
+<svg id="connections-svg" viewBox="0 0 3950 1980">
+  <defs>
+    <!-- Arrowhead markers -->
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#3b82f6" />
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#8b5cf6" />
+    </marker>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#06b6d4" />
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f43f5e" />
+    </marker>
+  </defs>
+
+  <!-- 1. USERS -> SELLER_PROFILES (1:0..1) -->
+  <path d="M 370 590 L 370 680" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-blue)" />
+  <rect x="325" y="625" width="90" height="24" rx="12" fill="#1e3a8a" stroke="#3b82f6" />
+  <text x="370" y="641" fill="#93c5fd" font-size="11" font-weight="bold" text-anchor="middle">1 : 0..1 (KYC)</text>
+
+  <!-- 2. USERS -> AUDIT_LOGS (1:N) -->
+  <path d="M 220 1390 L 220 1540" fill="none" stroke="#06b6d4" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+  <rect x="175" y="1455" width="90" height="24" rx="12" fill="#083344" stroke="#06b6d4" />
+  <text x="220" y="1471" fill="#67e8f9" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Actor)</text>
+
+  <!-- 3. USERS -> LOCAL_CARDS (1:N, Seller) -->
+  <path d="M 700 320 C 725 320, 725 960, 740 960" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-emerald)" />
+  <rect x="675" y="630" width="95" height="24" rx="12" fill="#064e3b" stroke="#10b981" />
+  <text x="722" y="646" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Seller)</text>
+
+  <!-- 4. GLOBAL_CARDS -> LOCAL_CARDS (1:N, Catalog Model) -->
+  <path d="M 1080 740 L 1080 900" fill="none" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-amber)" />
+  <rect x="1025" y="810" width="110" height="24" rx="12" fill="#78350f" stroke="#f59e0b" />
+  <text x="1080" y="826" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Model Ref)</text>
+
+  <!-- 5. LOCAL_CARDS -> CART_ITEMS (1:N) -->
+  <path d="M 1080 1390 L 1080 1540" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-emerald)" />
+  <rect x="1035" y="1455" width="90" height="24" rx="12" fill="#064e3b" stroke="#10b981" />
+  <text x="1080" y="1471" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">1 : N (In Cart)</text>
+
+  <!-- 6. USERS -> ORDERS (1:N, Buyer) - ROUTED IN TOP LANE (Y=145) TO AVOID ANY TEXT OVERLAP -->
+  <path d="M 700 190 L 715 145 L 1445 145 L 1460 190" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arrow-purple)" />
+  <rect x="1025" y="133" width="110" height="24" rx="12" fill="#4c1d95" stroke="#8b5cf6" />
+  <text x="1080" y="149" fill="#d8b4fe" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Buyer Order)</text>
+
+  <!-- 7. ORDERS -> ORDER_ITEMS (1:N, Contains) -->
+  <path d="M 1800 570 L 1800 680" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arrow-purple)" />
+  <rect x="1750" y="615" width="100" height="24" rx="12" fill="#4c1d95" stroke="#8b5cf6" />
+  <text x="1800" y="631" fill="#d8b4fe" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Contains)</text>
+
+  <!-- 8. ORDERS -> ORDER_STATUS_LOGS (1:N, Timeline) - ROUTED ON RIGHT MARGIN (X=2155) -->
+  <path d="M 2140 350 L 2160 350 L 2160 1280 L 2140 1280" fill="none" stroke="#06b6d4" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+  <rect x="2110" y="800" width="100" height="24" rx="12" fill="#083344" stroke="#06b6d4" />
+  <text x="2160" y="816" fill="#67e8f9" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Timeline)</text>
+
+  <!-- 9. LOCAL_CARDS -> ORDER_ITEMS (1:N, Bought) -->
+  <path d="M 1420 1020 C 1445 1020, 1445 850, 1460 850" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-emerald)" />
+  <rect x="1405" y="920" width="90" height="24" rx="12" fill="#064e3b" stroke="#10b981" />
+  <text x="1450" y="936" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Bought)</text>
+
+  <!-- 10. GLOBAL_CARDS -> COLLECTION_ITEMS (1:N, Binder) - ROUTED IN TOP LANE (Y=145) -->
+  <path d="M 1420 190 L 1435 145 L 2165 145 L 2180 190" fill="none" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#arrow-rose)" />
+  <rect x="1750" y="133" width="110" height="24" rx="12" fill="#881337" stroke="#f43f5e" />
+  <text x="1805" y="149" fill="#fda4af" font-size="11" font-weight="bold" text-anchor="middle">1 : N (Binder Ref)</text>
+
+</svg>
+
+</body>
+</html>`;
+
+const outHtmlPath = path.join(__dirname, 'database_architecture_detailed.html');
+const outPngPath = path.join(__dirname, 'database_er_diagram.png');
+
+fs.writeFileSync(outHtmlPath, htmlContent, 'utf8');
+console.log('Written refined HTML to:', outHtmlPath);
+
+// Execute Edge headless to capture 4K PNG screenshot with exact dimensions
+const edgePath = "C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe";
+console.log('Rendering 4K ultra-detailed PNG with headless Edge...');
+
+const cmd = `"${edgePath}" --headless=new --disable-gpu --hide-scrollbars --window-size=3950,1980 --screenshot="${outPngPath}" "file:///${outHtmlPath.replace(/\\\\/g, '/')}"`;
+
+try {
+  execSync(cmd, { stdio: 'inherit' });
+  console.log('Successfully generated PNG at:', outPngPath);
+} catch (err) {
+  console.error('Error generating PNG:', err);
+}
