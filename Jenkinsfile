@@ -29,6 +29,7 @@ pipeline {
                         dir('Code_devops/tcg-store-frontend') {
                             echo '=== Running Frontend Tests & Typecheck ==='
                             sh 'npm ci || npm install'
+                            sh 'npm run audit'
                             sh 'npm test'
                             sh 'npm run build'
                         }

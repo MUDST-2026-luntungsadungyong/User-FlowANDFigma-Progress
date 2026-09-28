@@ -205,6 +205,91 @@ erDiagram
 
 ---
 
+### 2.3 สถาปัตยกรรม Collection (Personal Binder) และความสัมพันธ์ 1:N ของตาราง `users`
+
+#### 1) การรองรับ Collection ของทั้ง Buyer และ Seller
+- ในระบบ Mythix แพลตฟอร์มใช้ Entity แม่เพียงตารางเดียวคือ `users` ในการระบุตัวตนของผู้ใช้ทุกคน
+- **ไม่ว่าผู้ใช้จะเป็น Buyer ทั่วไป หรือ Seller ที่ได้รับการยืนยันตัวตนแล้ว** ผู้ใช้ทุกคนต่างมีสิทธิ์เป็น "นักสะสม (Collector)"
+- ข้อมูลการ์ดสะสมส่วนตัว (Personal Binder) จะถูกจัดเก็บแยกในตาราง **`collection_items`** ซึ่งเชื่อมโยงการ์ดต้นแบบระดับสากล (`global_cards`) เข้ากับผู้ใช้แต่ละคน พร้อมระบุสภาพ (`condition`), ภาษา (`language`) และจำนวนการ์ดที่ครอบครอง (`quantity`)
+
+#### 2) เหตุผลเชิงสถาปัตยกรรมที่ตาราง `users` ไม่มีฟิลด์ `collection_item_id`
+ในการออกแบบฐานข้อมูลเชิงสัมพันธ์ระดับองค์กร (Relational Database Design) ตามมาตรฐาน **3rd Normal Form (3NF)**:
+1. **ความสัมพันธ์แบบ 1 ต่อ กลุ่ม (1:N One-to-Many Relationship):**
+   - ผู้ใช้ 1 คน (`users`) สามารถมีรายการสะสมในสมุดสะสมการ์ดได้หลายร้อยหลายพันรายการ ($1 \text{ User} \rightarrow N \text{ Collection Items}$)
+   - เช่นเดียวกับคำสั่งซื้อ ($1 \text{ User} \rightarrow N \text{ Orders}$) หรือการลงขายสินค้า ($1 \text{ Seller} \rightarrow N \text{ Local Cards}$)
+2. **การปฏิบัติตามกฎ First Normal Form (1NF):**
+   - หากเรานำฟิลด์ `collection_item_id` ไปใส่ในตาราง `users` จะทำให้ผู้ใช้แต่ละคนผูกการ์ดสะสมได้เพียงใบเดียวเท่านั้น หรือหากเก็บเป็น Array/Comma-separated จะเป็นการละเมิดหลัก 1NF (Atomic Values) อย่างรุนแรง ทำให้ไม่สามารถทำ Indexing, Foreign Key Integrity Constraint หรือ Query กรองข้อมูลสภาพการ์ดได้อย่างมีประสิทธิภาพ
+3. **หลักการ Foreign Key Placement ของสถาปัตยกรรม Parent-Child:**
+   - **ตารางแม่ (Parent Table: `users`)**: ทำหน้าที่เก็บข้อมูล Identity, Credential และ Profile กลาง มี Primary Key คือ `id`
+   - **ตารางลูก (Child Tables)**: เป็นฝ่ายถือ Foreign Key ชี้กลับมาหา `users.id` เสมอ ได้แก่:
+     - `collection_items.user_id` $\rightarrow$ บ่งบอกว่าการ์ดสะสมใบนี้อยู่ในแฟ้มของใคร
+     - `orders.buyer_id` $\rightarrow$ บ่งบอกว่าออเดอร์นี้เป็นของผู้ซื้อคนใด
+     - `local_cards.seller_id` $\rightarrow$ บ่งบอกว่าสินค้าใบนี้ลงขายโดยร้านค้าใด
+     - `cart_items.user_id` $\rightarrow$ บ่งบอกว่าตะกร้าใบนี้เป็นของผู้ใช้คนใด
+
+```mermaid
+classDiagram
+    direction LR
+    class USERS {
+        +bigint id [PK]
+        +varchar email
+        +varchar full_name
+        +varchar role
+        +varchar seller_status
+    }
+    class COLLECTION_ITEMS {
+        +bigint id [PK]
+        +bigint user_id [FK]
+        +varchar global_card_id [FK]
+        +varchar condition
+        +varchar language
+        +int quantity
+    }
+    class ORDERS {
+        +bigint id [PK]
+        +bigint buyer_id [FK]
+        +varchar order_number
+        +decimal total_amount
+    }
+    class LOCAL_CARDS {
+        +bigint id [PK]
+        +bigint seller_id [FK]
+        +varchar global_card_id [FK]
+        +decimal price
+        +int on_hand
+    }
+    USERS "1" <-- "0..*" COLLECTION_ITEMS : user_id
+    USERS "1" <-- "0..*" ORDERS : buyer_id
+    USERS "1" <-- "0..*" LOCAL_CARDS : seller_id
+```
+
+#### 3) ตัวอย่างการสืบค้นข้อมูล Collection ของผู้ใช้งาน (Query Pattern)
+เมื่อระบบต้องการแสดงหน้ารายการสมุดสะสมการ์ด (Binder) ของผู้ใช้ (ไม่ว่าจะเป็น Buyer หรือ Seller) Backend Service จะใช้คำสั่ง SQL ผ่าน Foreign Key ดังนี้:
+
+```sql
+-- ดึงรายการสมุดสะสมการ์ดของผู้ใช้งาน ID = 1 พร้อมข้อมูลการ์ดระดับสากล
+SELECT 
+    ci.id AS collection_item_id,
+    ci.user_id,
+    u.full_name AS owner_name,
+    gc.id AS global_card_id,
+    gc.name AS card_name,
+    gc.set_name,
+    gc.rarity,
+    gc.image_small,
+    ci.condition,
+    ci.language,
+    ci.quantity,
+    ci.created_at
+FROM collection_items ci
+JOIN users u ON ci.user_id = u.id
+JOIN global_cards gc ON ci.global_card_id = gc.id
+WHERE ci.user_id = 1
+ORDER BY ci.created_at DESC;
+```
+
+---
+
 ## 📊 3. พจนานุกรมข้อมูลฉบับสมบูรณ์ (Data Dictionary)
 
 ### 3.1 ตารางกลุ่ม Identity & Authentication
@@ -224,6 +309,13 @@ erDiagram
 | `seller_status` | VARCHAR(20) | NOT NULL, DEFAULT `'NONE'` | สถานะร้านค้า: `'NONE'`, `'PENDING'`, `'APPROVED'`, `'REJECTED'` |
 | `created_at` | TIMESTAMP | NOT NULL, DEFAULT `CURRENT_TIMESTAMP` | วันที่สมัครสมาชิก |
 | `updated_at` | TIMESTAMP | NOT NULL, DEFAULT `CURRENT_TIMESTAMP` | วันที่อัปเดตข้อมูลล่าสุด |
+
+> 💡 **หมายเหตุเชิงสถาปัตยกรรม (Architectural Note):**  
+> ตาราง `users` ไม่ได้มีคอลัมน์ `collection_item_id`, `order_id` หรือ `local_card_id` เนื่องจากความสัมพันธ์เป็นแบบ **1:N (One-to-Many)** โดย `users` ทำหน้าที่เป็น Parent Entity กลาง ข้อมูลความสัมพันธ์จะเก็บไว้ที่ตารางลูกเสมอผ่าน Foreign Key:
+> - `collection_items.user_id` $\rightarrow$ แฟ้มสะสมการ์ดส่วนตัวของ User
+> - `orders.buyer_id` $\rightarrow$ ประวัติคำสั่งซื้อของ User
+> - `local_cards.seller_id` $\rightarrow$ รายการสินค้าที่ User วางขาย
+> - `cart_items.user_id` $\rightarrow$ สินค้าในตะกร้าของ User
 
 ---
 
