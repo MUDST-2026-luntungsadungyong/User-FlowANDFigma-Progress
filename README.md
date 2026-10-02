@@ -1,4 +1,4 @@
-﻿# 🎴 Mythix TCG Platform — User Flow, UI & Architecture Specification
+# 🎴 Mythix TCG Platform — User Flow, UI & Architecture Specification
 
 ยินดีต้อนรับสู่ Repository สำหรับจัดเก็บและติดตามความคืบหน้าของ **User Flow, Figma UI/UX Design System, User Stories และ Architecture Requirements** ของโปรเจกต์ **Mythix TCG Platform (DevOps Project)**
 
@@ -40,7 +40,8 @@
 │
 ├── UserFlow_and_UserStory/           # ผังการทำงาน (User Flow) และ User Story
 │   ├── Old_User_Flow.pdf             # แผนผัง User Flow เวอร์ชันเดิม (Reference)
-│   ├── USER_STORIES_TODO.md          # รายการและรายละเอียด User Stories (US-01 ถึง US-10)
+│   ├── USER_STORIES.md           # ข้อกำหนด User Stories ฉบับสมบูรณ์ (US-01 ถึง US-12 รวม 38 ข้อ)
+│   ├── USER_STORIES_TODO.md          # รายการ Checklist สถานะการปรับแก้ User Stories
 │   └── New_Flow&Story/               # User Flows ฉบับปรับปรุงใหม่ (Mermaid source + Exported SVG)
 │       ├── New_Flows_Preview.md      # เอกสารสรุปพรีวิวและรายละเอียด Flow ทั้งหมด
 │       ├── US-01-1_Register-Login.svg# Flow: การสมัครสมาชิกและการเข้าสู่ระบบ
@@ -97,7 +98,9 @@
 | **US-07** | Order Management | ผู้ขายตรวจสอบรายการคำสั่งซื้อ, ปรับสถานะ (Pending → Fulfilled/Cancelled) |
 | **US-08** | User Profile Management | แก้ไขชื่อ ที่อยู่ เบอร์โทรศัพท์ และข้อมูลติดต่อ |
 | **US-09** | Order History & Tracking | ผู้ซื้อดูประวัติการสั่งซื้อ และตรวจสอบสถานะการจัดส่ง |
-| **US-10** | Card Collection & Verification | ระบบสร้าง Collection การ์ดสะสมส่วนตัว และยื่นยืนยันตัวตน Seller |
+| **US-10** | Card Collection & Verification | ระบบสร้าง Collection การ์ดสะสมส่วนตัว, ยื่นยืนยันตัวตน Seller และ Leaderboard |
+| **US-11** | In-App Notifications | ระบบแจ้งเตือนในระบบ (เมื่อมีคนจองการ์ด, อัปเดตสถานะ, แจ้งเตือนสิทธิ์) |
+| **US-12** | Platform Administration | ระบบผู้ดูแลระบบส่วนกลาง (Admin Dashboard, คิวอนุมัติ Seller, User & Audit Logs) |
 
 ---
 

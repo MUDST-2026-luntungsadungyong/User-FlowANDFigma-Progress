@@ -25,8 +25,10 @@
   * As a customer, I want to fill out a seller profile form and get instantly verified so that I can start selling my cards without waiting for manual admin approval.
 - [x] **US-10-5: Stock Reservation Semantics (ระบบจองสต๊อก)**
   * As a system, I want to validate cart quantity against `onHand - reserved` stock and reserve the stock when an order is placed, so that overselling is prevented.
-- [ ] **US-10-6: หน้า admin สำหรับการ monitor (เกิน requirement)**
-  * จำนวน user และ seller ทั้งหมด , จำนวนการซื้อขายทั้งหมด , เก็บ LOG การซื้อขาย
+- [x] **US-10-6 / US-12: หน้า admin สำหรับการ monitor (ขยายเป็น US-12-1 ถึง US-12-5)**
+  * จำนวน user และ seller ทั้งหมด , จำนวนการซื้อขายทั้งหมด , เก็บ LOG การซื้อขาย และ Audit Logs (เสร็จสมบูรณ์แล้ว ดูรายละเอียดใน `USER_STORIES.md`)
+
+> 📖 **เอกสารฉบับสมบูรณ์ (Complete Specification):** อ่าน User Stories ทั้งหมด 38 ข้อได้ที่ [USER_STORIES.md](./USER_STORIES.md)
 
 
 ## ✅ กลุ่มที่ 4: US ที่คงไว้เหมือนเดิม (Keep - ทำใน Flow เดิมเสร็จแล้ว)
