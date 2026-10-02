@@ -22,7 +22,18 @@
 ```text
 .
 ├── Architecture/                     # เอกสารสถาปัตยกรรมและข้อกำหนดของระบบ
-│   └── CORE_REQUIREMENTS_CROSSCHECK.md # ตรวจสอบและ Cross-check Core Requirements กับขอบเขตงานจริง
+│   ├── build_detailed_erd.js         # สคริปต์สำหรับสร้าง ER Diagram แบบละเอียด
+│   ├── CORE_REQUIREMENTS_CROSSCHECK.md # ตรวจสอบและ Cross-check Core Requirements
+│   ├── database_architecture_detailed.html # ไฟล์ HTML สำหรับแสดงผล ER Diagram
+│   ├── DATABASE_DESIGN.md            # เอกสารการออกแบบฐานข้อมูล
+│   └── database_er_diagram.png       # รูปภาพ ER Diagram ของระบบ
+│
+├── Docker_compose_DB/                # การตั้งค่า Docker และฐานข้อมูลจำลอง (Local DB)
+│   ├── docker-compose.yml            # ไฟล์สำหรับรัน PostgreSQL ด้วย Docker
+│   ├── LOCAL_DATABASE_GUIDE.md       # คู่มือการใช้งานและเชื่อมต่อฐานข้อมูล Local
+│   └── init-db/                      # โฟลเดอร์เก็บสคริปต์สำหรับสร้างและจำลองข้อมูลเริ่มต้น
+│       ├── 01-schema.sql             # สคริปต์สร้างตาราง (Tables schema)
+│       └── 02-data.sql               # สคริปต์เพิ่มข้อมูลตัวอย่าง (Mock data)
 │
 ├── FIgma/                            # การออกแบบ UI/UX, Assets และ Catalog หน้าจอ
 │   ├── FIGMA_UI_TODO.md              # รายการสิ่งที่ต้องทำและสถานะความคืบหน้าของ UI
@@ -30,30 +41,17 @@
 │   ├── TCG DevOp Project_ui_Parsed.md# ข้อมูลสรุปและโครงสร้างที่สกัดจากไฟล์ UI PDF
 │   ├── UI_FRAMES_CATALOG.md          # แคตตาล็อกแจกแจงรายละเอียดและ Flow ของทุก Frame
 │   └── SVG/                          # ภาพ SVG แยกหมวดหมู่ตามหน้าจอและ Flow การใช้งาน
-│       ├── auth/                     # หน้าจอระบบ Authentication (Login, Register, Reset Password)
-│       ├── Buyer Account & Storefront/# หน้าจอฝั่ง Buyer, หน้าร้านค้า และ Storefront
-│       ├── Checkout Flow/            # หน้าจอกระบวนการสั่งซื้อ ชำระเงิน และยืนยันคำสั่งซื้อ
+│       ├── auth/                     # หน้าจอระบบ Authentication
+│       ├── Buyer Account & Storefront/# หน้าจอฝั่ง Buyer และ Storefront
+│       ├── Checkout Flow/            # หน้าจอกระบวนการสั่งซื้อ ชำระเงิน
 │       ├── platform-admin/           # หน้าจอจัดการระบบระดับ Platform
-│       ├── profile/                  # หน้าจอการจัดการโปรไฟล์และข้อมูลส่วนตัวของผู้ใช้
-│       ├── seller/                   # หน้าจอ Seller Dashboard, จัดการสต็อก/สินค้า และออเดอร์
-│       └── Shop & Browse/            # หน้าจอค้นหา เลือกดูการ์ด และ Filter แคตตาล็อก
+│       ├── profile/                  # หน้าจอการจัดการโปรไฟล์
+│       ├── seller/                   # หน้าจอ Seller Dashboard, จัดการสต็อก/สินค้า
+│       └── Shop & Browse/            # หน้าจอค้นหา เลือกดูการ์ด และ Filter
 │
-├── UserFlow_and_UserStory/           # ผังการทำงาน (User Flow) และ User Story
-│   ├── Old_User_Flow.pdf             # แผนผัง User Flow เวอร์ชันเดิม (Reference)
-│   ├── USER_STORIES.md           # ข้อกำหนด User Stories ฉบับสมบูรณ์ (US-01 ถึง US-12 รวม 38 ข้อ)
-│   ├── USER_STORIES_TODO.md          # รายการ Checklist สถานะการปรับแก้ User Stories
-│   └── New_Flow&Story/               # User Flows ฉบับปรับปรุงใหม่ (Mermaid source + Exported SVG)
-│       ├── New_Flows_Preview.md      # เอกสารสรุปพรีวิวและรายละเอียด Flow ทั้งหมด
-│       ├── US-01-1_Register-Login.svg# Flow: การสมัครสมาชิกและการเข้าสู่ระบบ
-│       ├── US-02-1_Browse-Cards.svg  # Flow: การค้นหาและดูรายละเอียดสินค้า/การ์ด
-│       ├── US-03-*.svg               # Flow: การจัดการตะกร้าสินค้า (เพิ่ม/ลด/ลบ)
-│       ├── US-04-*.svg / .mmd        # Flow: การสั่งซื้อสินค้า (Cart & Direct Purchase)
-│       ├── US-05-*.svg / .mmd        # Flow: การจัดการสต็อกและสินค้าของผู้ขาย (CRUD Inventory)
-│       ├── US-06-*.svg / .mmd        # Flow: หน้า Seller Dashboard & รายงานยอดขาย
-│       ├── US-07-*.svg / .mmd        # Flow: การจัดการคำสั่งซื้อและสถานะออเดอร์ (Order Management)
-│       ├── US-08-*.svg / .mmd        # Flow: การแก้ไขข้อมูลโปรไฟล์ผู้ใช้
-│       ├── US-09-*.svg               # Flow: การดูและกรองประวัติการสั่งซื้อ (Order History)
-│       └── US-10-*.svg / .mmd        # Flow: คลังสะสม (Collection) & Seller Verification
+├── User Story & Flow/                # ผังการทำงาน (User Flow) และ User Story
+│   ├── USER_STORIES.md               # ข้อกำหนด User Stories ฉบับสมบูรณ์ (US-01 ถึง US-12 รวม 38 ข้อ)
+│   └── User Flow/                    # โฟลเดอร์สำหรับจัดเก็บแผนผัง User Flow
 │
 └── README.md                         # คำอธิบายโครงสร้างโปรเจกต์และเอกสารอ้างอิง
 ```
@@ -65,23 +63,21 @@
 ### 1. `Architecture/`
 รวบรวมเอกสารทางด้านข้อกำหนดและการวิเคราะห์เชิงเทคนิค
 - **`CORE_REQUIREMENTS_CROSSCHECK.md`**: เอกสารสำคัญที่ระบุการ Cross-check ระหว่าง Requirement บังคับ 8 ข้อของ Course PDF กับสถานะการออกแบบและพัฒนาจริง (เช่น Auth, Catalog, Cart, Order, Seller Dashboard, Cost/Profit calculation, Fulfillment, Inventory)
+- **`DATABASE_DESIGN.md`**: รายละเอียดตารางและความสัมพันธ์ของฐานข้อมูล
 
 ### 2. `FIgma/`
 รวบรวมการออกแบบ UI/UX, Style Guide และโครงสร้างหน้าจอทั้งหมด
 - **`UI_FRAMES_CATALOG.md` & `FIGMA_UI_TODO.md`**: บันทึกรายการ Frame ทั้งหมดกว่า 70+ Frames พร้อม Checklist สถานะการออกแบบ
-- **`SVG/`**: แบ่งโฟลเดอร์ย่อยตาม Module เพื่อให้ง่ายต่อการนำ Asset ไปต่อยอดใน Frontend:
-  - **`auth`**: Login, Register, Forgot Password, Reset Password
-  - **`Shop & Browse`**: Catalog, Search & Multi-filter, Card Detail Modal
-  - **`Checkout Flow`**: Cart View, Shipping Address, Direct Checkout, Order Confirmation
-  - **`seller`**: Seller Dashboard, Add/Edit Listing, Order Fulfillment, Stock Adjustment
-  - **`profile`**: User Profile, Security Settings, Order History
-  - **`Buyer Account & Storefront`**: หน้าร้านค้าของผู้ขายแต่ละคน มุมมองของ Buyer
-  - **`platform-admin`**: หน้าจอผู้ดูแลระบบ
+- **`SVG/`**: แบ่งโฟลเดอร์ย่อยตาม Module เพื่อให้ง่ายต่อการนำ Asset ไปต่อยอดใน Frontend (เช่น auth, Shop & Browse, Checkout Flow, seller, profile, Buyer Account & Storefront, platform-admin)
 
-### 3. `UserFlow_and_UserStory/`
-แผนผังการไหลของข้อมูลและพฤติกรรมผู้ใช้ (User Flows)
-- **`USER_STORIES_TODO.md`**: สเปกความต้องการของผู้ใช้แบ่งตาม User Story รหัส US-01 ถึง US-10
-- **`New_Flow&Story/`**: รวบรวมไฟล์ Diagram ในรูปแบบ **Mermaid (`.mmd`)** สำหรับแก้ไขโค้ดไดอะแกรม และ **SVG (`.svg`)** สำหรับนำไปแสดงผลหรือแปะในเอกสาร พร้อมไฟล์ **`New_Flows_Preview.md`** สำหรับเปิดดูพรีวิวรวมทั้งหมด
+### 3. `User Story & Flow/`
+รวบรวมสเปกและพฤติกรรมผู้ใช้ของระบบ
+- **`USER_STORIES.md`**: สเปกความต้องการของผู้ใช้แบ่งตาม User Story รหัส US-01 ถึง US-12 รวม 38 ข้อ แบบละเอียด
+- **`User Flow/`**: โฟลเดอร์สำหรับนำภาพหน้าจอที่อธิบาย Flow ต่าง ๆ เข้ามาเก็บไว้
+
+### 4. `Docker_compose_DB/`
+เครื่องมือจำลองฐานข้อมูลสำหรับ Local Development
+- **`LOCAL_DATABASE_GUIDE.md`**: คู่มือวิธีรัน `docker-compose up` และการเชื่อมต่อ DBeaver/DataGrip
 
 ---
 
@@ -106,6 +102,6 @@
 
 ## 🤝 การมีส่วนร่วมและแนวทางการใช้งาน
 
-1. **การอัปเดต User Flow:** แนะนำให้แก้ไขผ่านไฟล์ Mermaid (`.mmd`) ใน `UserFlow_and_UserStory/New_Flow&Story/` แล้ว Export เป็น `.svg` เพื่อความสม่ำเสมอ
+1. **การอัปเดต User Flow:** ให้นำภาพแผนผังหรือหน้าจอที่มีการอัปเดตล่าสุดมาบันทึกไว้ในโฟลเดอร์ `User Story & Flow/User Flow/`
 2. **การอัปเดต UI/UX:** นำภาพที่ Export จาก Figma มาบันทึกไว้ใน `FIgma/SVG/<module>/` ให้ตรงตามหมวดหมู่
 3. **การติดตามความรับผิดชอบ:** โปรดอ้างอิงและอัปเดตสถานะงานตาม [DACI Framework บน Canva](https://canva.link/jze669c3fkham3h)
