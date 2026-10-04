@@ -66,9 +66,6 @@
 | **US-12-4** | Administrative & Security Audit Logs | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-4 - Administrative & Security Audit Logs.pdf |
 | **US-12-5** | Platform-wide Order Logs Monitoring | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-5 - Platform-wide Order Logs Monitoring.pdf |
 | **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-11-4 - Review Seller Application Decision.pdf |
-| **US-13-1** | System Health Check Endpoint | System / DevOps | Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-13-2** | Error Boundary & 404 Not Found Page | Guest / User (All) | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-13-3** | Idempotent Order Creation (Duplicate Prevention) | System | Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 
 ---
 
