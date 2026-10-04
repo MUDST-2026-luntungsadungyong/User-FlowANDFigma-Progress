@@ -17,7 +17,7 @@
 
 ---
 
-## 📊 ตารางสรุปภาพรวม User Stories ทั้งหมดในระบบ (44 ข้อ)
+## 📊 ตารางสรุปภาพรวม User Stories ทั้งหมดในระบบ (43 ข้อ)
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | ผู้ใช้หลัก (Actor) | ฝั่งที่เกี่ยวข้อง | สถานะ | สถานะ User Flow | ชื่อไฟล์ User Flow |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -38,7 +38,6 @@
 | **US-05-3** | Update Product Listing Details | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-3 - Update-Product.pdf<br>[WF] US-05-3 - Update-Product.pdf |
 | **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-4 - View & Filter Seller Inventory List.pdf |
 | **US-05-5** | Toggle Listing Visibility (Show / Hide) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-5 - Toggle Listing Visibility (Show  Hide).pdf |
-| **US-05-6** | Upload & Manage Product Image | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-06-1** | Seller Dashboard (Cost & Profit Metrics) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-06-1 - Seller Dashboard (Cost & Profit Metrics).pdf |
 | **US-06-2** | Public Storefront & Custom Store Settings | Seller / Buyer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-06-2 - Public Storefront & Custom Store Settings.pdf |
 | **US-07-1** | View Seller Orders & Status Filter | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
@@ -172,12 +171,6 @@
   * **EN:** As a seller, I want to toggle a product's visibility between `SHOW` and `HIDE` without deleting it.
   * **TH:** ในฐานะผู้ขาย ฉันต้องการเปิด/ปิดสถานะการมองเห็นของการ์ดบนหน้าร้านได้
   * **Endpoints:** `PATCH /seller/products/{id}/status`
-
-* **US-05-6: Upload & Manage Product Image**
-  * **EN:** As a seller, I want to upload and replace product images (JPEG, PNG, WEBP up to 5MB) for my listings so that buyers can see clear photos of the cards I'm selling.
-  * **TH:** ในฐานะผู้ขาย ฉันต้องการอัปโหลดหรือเปลี่ยนรูปภาพสินค้า (JPEG, PNG, WEBP ขนาดไม่เกิน 5MB) สำหรับการ์ดที่วางขาย เพื่อให้ผู้ซื้อเห็นภาพถ่ายจริงของการ์ด
-  * **Endpoints:** `POST /seller/products/{id}/image`
-  * **Key Criteria:** รองรับไฟล์ JPEG, PNG, WEBP ขนาดไม่เกิน 5MB, จัดเก็บในระบบไฟล์ท้องถิ่นและให้บริการผ่าน `/seller-images/**`
 
 ---
 
