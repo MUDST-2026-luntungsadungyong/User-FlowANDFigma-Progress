@@ -65,7 +65,7 @@
 | **US-12-3** | Admin User & Role Management | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-3 - Admin User & Role Management.pdf |
 | **US-12-4** | Administrative & Security Audit Logs | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-4 - Administrative & Security Audit Logs.pdf |
 | **US-12-5** | Platform-wide Order Logs Monitoring | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-5 - Platform-wide Order Logs Monitoring.pdf |
-| **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-11-4 - Review Seller Application Decision.pdf |
+| **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-6 Review Seller Application Decision.pdf |
 
 ---
 
