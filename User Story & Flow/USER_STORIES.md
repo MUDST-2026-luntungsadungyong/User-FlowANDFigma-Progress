@@ -23,7 +23,6 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-01-3** | Seller Application Status Check | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-02-1** | Browse TCG Cards with Multi-Filters | Customer / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-02-1 - Browse TCG Cards with Multi-Filters.pdf |
 | **US-02-2** | Multi-Seller Listing Comparison on Card Detail | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-02-3** | Similar Cards Recommendation | Customer | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
