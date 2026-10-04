@@ -2,7 +2,7 @@
 
 > **Repository:** `User-FlowANDFigma-Progress`  
 > **Source Baseline:** Synchronized with `main` branches of `tcg-store-frontend` and `tcg-store-backend`  
-> **Version:** 2.0 (Complete System Scope)  
+> **Version:** 3.0 (Complete System Scope — Updated with 10 additional discovered features)  
 > **Architecture Model:** C2C Trading & Reservation Marketplace (P2P Settlement & Logistics)
 
 ---
@@ -17,15 +17,17 @@
 
 ---
 
-## 📊 ตารางสรุปภาพรวม User Stories ทั้งหมดในระบบ (38 ข้อ)
+## 📊 ตารางสรุปภาพรวม User Stories ทั้งหมดในระบบ (48 ข้อ)
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | ผู้ใช้หลัก (Actor) | ฝั่งที่เกี่ยวข้อง | สถานะ | สถานะ User Flow | ชื่อไฟล์ User Flow |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-01-3** | Seller Application Status Check | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-02-1** | Browse TCG Cards with Multi-Filters | Customer / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-02-1 - Browse TCG Cards with Multi-Filters.pdf |
 | **US-02-2** | Multi-Seller Listing Comparison on Card Detail | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-02-3** | Similar Cards Recommendation | Customer | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-02-4** | Homepage & Featured Cards Display | Guest / Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-03-1** | Add Cards to Cart | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-03-2** | Delete Cards from Cart | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-03-3** | Decrease Quantity in Cart (Auto-remove at 0) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
@@ -37,6 +39,7 @@
 | **US-05-3** | Update Product Listing Details | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-3 - Update-Product.pdf<br>[WF] US-05-3 - Update-Product.pdf |
 | **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-05-5** | Toggle Listing Visibility (Show / Hide) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-05-6** | Upload & Manage Product Image | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-06-1** | Seller Dashboard (Cost & Profit Metrics) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-06-2** | Public Storefront & Custom Store Settings | Seller / Buyer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-07-1** | View Seller Orders & Status Filter | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
@@ -45,6 +48,7 @@
 | **US-08-1** | Edit Contact Information | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
 | **US-08-2** | Edit Display Name | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
 | **US-08-3** | Edit Phone Number | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
+| **US-08-4** | Edit Profile Avatar | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-09-1** | View Buyer Order History | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-09-2** | Filter Order History by Status | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-10-1** | View Personal Collection Album | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
@@ -53,13 +57,18 @@
 | **US-10-4** | Self-serve Seller Verification Form | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-4 - Seller Verification.pdf |
 | **US-10-5** | Atomic Stock Reservation Semantics | System | Backend / Database | ✅ Implemented | ✅ มีแล้ว | US-10-5 - Atomic Stock Reservation Semantics.pdf |
 | **US-10-6** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-10-7** | Add Card to Collection from Product Listing | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-11-1** | In-App Notifications Inbox & Status Alerts | User (All) | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-11-2** | Notification Badge & Unread Count | User (All) | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-12-1** | Platform Admin Dashboard & Metrics | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-1 - Platform Admin Dashboard & Metrics.pdf |
 | **US-12-2** | Seller Application Review Queue | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-2 - Seller Application Review Queue.pdf |
 | **US-12-3** | Admin User & Role Management | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-3 - Admin User & Role Management.pdf |
 | **US-12-4** | Administrative & Security Audit Logs | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-4 - Administrative & Security Audit Logs.pdf |
 | **US-12-5** | Platform-wide Order Logs Monitoring | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-5 - Platform-wide Order Logs Monitoring.pdf |
 | **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-11-4 - Review Seller Application Decision.pdf |
+| **US-13-1** | System Health Check Endpoint | System / DevOps | Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-13-2** | Error Boundary & 404 Not Found Page | Guest / User (All) | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-13-3** | Idempotent Order Creation (Duplicate Prevention) | System | Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 
 ---
 
@@ -77,6 +86,12 @@
   * **TH:** ในฐานะผู้ใช้ที่ลืมรหัสผ่าน ฉันต้องการขอรับลิงก์รีเซ็ตรหัสผ่านและตั้งรหัสผ่านใหม่ เพื่อเข้าถึงบัญชีได้อีกครั้ง
   * **Endpoints:** `POST /auth/forgot-password`, `POST /auth/reset-password`
 
+* **US-01-3: Seller Application Status Check**
+  * **EN:** As a customer who has applied to become a seller, I want to check the current status of my seller application (Pending, Approved, or Rejected) from my profile so that I can track whether I have been approved.
+  * **TH:** ในฐานะลูกค้าที่ได้ยื่นคำขอเปิดร้าน ฉันต้องการตรวจสอบสถานะของคำขอเป็นผู้ขาย (รออนุมัติ, อนุมัติแล้ว, ปฏิเสธ) จากหน้าโปรไฟล์ เพื่อติดตามว่าได้รับการอนุมัติหรือยัง
+  * **Endpoints:** `GET /api/sellers/verify/status`
+  * **UI Components:** `ProfileInfoSection`, `SellerVerificationPage`
+
 ---
 
 ### 🔍 หมวด US-02: Browse Products & Catalog Discovery
@@ -93,6 +108,12 @@
 * **US-02-3: Similar Cards Recommendation**
   * **EN:** As a customer, I want to see recommended similar cards on the card detail page so that I can discover related cards for my deck or collection.
   * **TH:** ในฐานะลูกค้า ฉันต้องการเห็นการ์ดแนะนำที่มีความเกี่ยวข้อง เพื่อช่วยในการค้นหาการ์ดเพิ่มเติมเข้าชุดสะสม
+
+* **US-02-4: Homepage & Featured Cards Display**
+  * **EN:** As a guest or customer, I want to see a visually engaging homepage with a hero banner, featured cards, and high-value card highlights so that I can discover trending content and navigate to browse or register.
+  * **TH:** ในฐานะผู้เยี่ยมชมหรือลูกค้า ฉันต้องการเห็นหน้าแรกที่มี Hero Banner, การ์ดแนะนำ และการ์ดมูลค่าสูง เพื่อค้นพบสินค้าที่น่าสนใจและเข้าสู่ระบบหรือเริ่มเลือกซื้อ
+  * **UI Components:** `HomePage` — Hero Section, Featured Cards Grid, Expensive Cards Showcase, CTA Sections
+  * **Endpoints:** `GET /cards` (สำหรับดึงรายการการ์ดมาแสดงหน้าแรก)
 
 ---
 
@@ -156,6 +177,12 @@
   * **TH:** ในฐานะผู้ขาย ฉันต้องการเปิด/ปิดสถานะการมองเห็นของการ์ดบนหน้าร้านได้
   * **Endpoints:** `PATCH /seller/products/{id}/status`
 
+* **US-05-6: Upload & Manage Product Image**
+  * **EN:** As a seller, I want to upload and replace product images (JPEG, PNG, WEBP up to 5MB) for my listings so that buyers can see clear photos of the cards I'm selling.
+  * **TH:** ในฐานะผู้ขาย ฉันต้องการอัปโหลดหรือเปลี่ยนรูปภาพสินค้า (JPEG, PNG, WEBP ขนาดไม่เกิน 5MB) สำหรับการ์ดที่วางขาย เพื่อให้ผู้ซื้อเห็นภาพถ่ายจริงของการ์ด
+  * **Endpoints:** `POST /seller/products/{id}/image`
+  * **Key Criteria:** รองรับไฟล์ JPEG, PNG, WEBP ขนาดไม่เกิน 5MB, จัดเก็บในระบบไฟล์ท้องถิ่นและให้บริการผ่าน `/seller-images/**`
+
 ---
 
 ### 📊 หมวด US-06: Seller Dashboard, Profit & Storefront
@@ -202,6 +229,11 @@
   * **EN:** As a user, I want to update my primary phone number.
   * **TH:** ในฐานะผู้ใช้ ฉันต้องการแก้ไขเบอร์โทรศัพท์
 
+* **US-08-4: Edit Profile Avatar**
+  * **EN:** As a user, I want to set or update my profile avatar URL so that my profile picture is displayed across the platform.
+  * **TH:** ในฐานะผู้ใช้ ฉันต้องการตั้งค่าหรือเปลี่ยนรูปโปรไฟล์ (Avatar URL) เพื่อให้แสดงรูปภาพประจำตัวบนแพลตฟอร์ม
+  * **Endpoints:** `PUT /users/me` (field: `avatarUrl`)
+
 ---
 
 ### 📜 หมวด US-09: Buyer Order History & Tracking
@@ -246,6 +278,11 @@
   * **TH:** ในฐานะนักสะสม ฉันต้องการเปิดหน้าคอลเลกชันของฉันให้ผู้อื่นเข้าชมได้ และสามารถดูตารางอันดับ Leaderboard ของนักสะสมที่มีการ์ดระดับ Rare มากที่สุดในระบบ
   * **Endpoints:** `GET /collections/leaderboard`, `GET /collections/{userId}`
 
+* **US-10-7: Add Card to Collection from Product Listing**
+  * **EN:** As a user, I want to add a card directly from a product listing page to my collection, without needing to find the card in the catalog separately.
+  * **TH:** ในฐานะผู้ใช้ ฉันต้องการเพิ่มการ์ดจากหน้ารายการสินค้า (Product Listing) เข้าคอลเลกชันโดยตรง โดยไม่ต้องค้นหาการ์ดในแคตตาล็อกแยกต่างหาก
+  * **Endpoints:** `POST /collection/from-listing/{listingId}`
+
 ---
 
 ### 🔔 หมวด US-11: In-App Notifications Center
@@ -253,6 +290,11 @@
   * **EN:** As a user (buyer or seller), I want to receive in-app inbox notifications when cards are reserved, when an order status changes, or when my seller application is processed, and be able to mark them as read or delete them.
   * **TH:** ในฐานะผู้ใช้ (ทั้งผู้ซื้อและผู้ขาย) ฉันต้องการได้รับการแจ้งเตือนในระบบเมื่อมีคนมาจองการ์ด, เมื่อสถานะออเดอร์มีความคืบหน้า หรือเมื่อการสมัครเป็นผู้ขายได้รับการอนุมัติ/ปฏิเสธ พร้อมทั้งสามารถกดอ่านแล้วหรือลบการแจ้งเตือนได้
   * **Endpoints:** `GET /notifications`, `PATCH /notifications/{id}/read`, `DELETE /notifications/{id}`
+
+* **US-11-2: Notification Badge & Unread Count**
+  * **EN:** As a user, I want to see a notification bell icon with an unread count badge in the navigation bar so that I can immediately know when I have new notifications without navigating to the inbox page.
+  * **TH:** ในฐานะผู้ใช้ ฉันต้องการเห็นไอคอนกระดิ่งแจ้งเตือนพร้อมตัวเลขจำนวนข้อความที่ยังไม่อ่านบน Navbar เพื่อให้ทราบทันทีว่ามีการแจ้งเตือนใหม่โดยไม่ต้องเปิดหน้า Inbox
+  * **UI Components:** `NotificationBell` (ใน Navbar), Badge Counter
 
 ---
 
@@ -286,3 +328,22 @@
   * **EN:** As an admin, I want to review the details of a submitted seller application and make a decision to approve or reject it with a provided reason.
   * **TH:** ในฐานะผู้ดูแลระบบ ฉันต้องการพิจารณารายละเอียดคำขอเปิดร้านของผู้ขาย และทำการตัดสินใจอนุมัติหรือปฏิเสธพร้อมระบุเหตุผล
   * **Endpoints:** `PATCH /api/admin/seller-applications/{id}/approve`, `PATCH /api/admin/seller-applications/{id}/reject`
+
+---
+
+### ⚙️ หมวด US-13: System Reliability & Error Handling
+* **US-13-1: System Health Check Endpoint**
+  * **EN:** As a DevOps engineer or monitoring system, I want a health check endpoint that returns the system's operational status so that I can monitor uptime and detect outages automatically.
+  * **TH:** ในฐานะวิศวกร DevOps หรือระบบ Monitoring ฉันต้องการ Endpoint ตรวจสอบสถานะระบบ เพื่อตรวจวัดเสถียรภาพและตรวจจับปัญหาได้โดยอัตโนมัติ
+  * **Endpoints:** `GET /health` → `{"status": "UP"}`
+
+* **US-13-2: Error Boundary & 404 Not Found Page**
+  * **EN:** As a user, when I navigate to a non-existent page or encounter an unexpected application error, I want to see a friendly error page with navigation options so that I can recover without losing context.
+  * **TH:** ในฐานะผู้ใช้ เมื่อฉันเข้าถึงหน้าที่ไม่มีอยู่หรือเกิดข้อผิดพลาดในแอป ฉันต้องการเห็นหน้าแจ้งข้อผิดพลาดที่เป็นมิตรพร้อมปุ่มนำทาง เพื่อให้สามารถกลับไปใช้งานต่อได้
+  * **UI Components:** `ErrorBoundary`, `NotFoundPage` (route: `*`)
+
+* **US-13-3: Idempotent Order Creation (Duplicate Prevention)**
+  * **EN:** As a system, I want to support idempotent order creation via `Idempotency-Key` header so that network retries or double-clicks by users do not result in duplicate orders and double stock reservations.
+  * **TH:** ในฐานะระบบ ระบบต้องรองรับการสร้างออเดอร์แบบ Idempotent ผ่าน `Idempotency-Key` Header เพื่อป้องกันไม่ให้การ retry ของเครือข่ายหรือการกดซ้ำทำให้เกิดออเดอร์ซ้ำและจองสต๊อกซ้ำ
+  * **Key Criteria:** Order table มี `idempotency_key` column ที่เป็น UNIQUE constraint, ระบบตรวจสอบก่อนสร้าง Order ใหม่
+  * **Endpoints:** `POST /orders` (header: `Idempotency-Key`)
