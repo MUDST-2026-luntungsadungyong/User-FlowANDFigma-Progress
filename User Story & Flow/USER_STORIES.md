@@ -21,7 +21,7 @@
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | ผู้ใช้หลัก (Actor) | ฝั่งที่เกี่ยวข้อง | สถานะ | สถานะ User Flow | ชื่อไฟล์ User Flow |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-01-1 - Customer Registration & Login.pdf |
 | **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-02-1** | Browse TCG Cards with Multi-Filters | Customer / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-02-1 - Browse TCG Cards with Multi-Filters.pdf |
 | **US-02-2** | Multi-Seller Listing Comparison on Card Detail | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
@@ -31,28 +31,28 @@
 | **US-03-2** | Delete Cards from Cart | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-03-3** | Decrease Quantity in Cart (Auto-remove at 0) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-03-4** | Increase Quantity in Cart (Clamped to Stock) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
-| **US-04-1** | Place Order from Cart (Reservation-Based) | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-04-2** | Place Order Directly (Buy Now) | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-04-1** | Place Order from Cart (Reservation-Based) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-04 - Place Order Flow.pdf |
+| **US-04-2** | Place Order Directly (Buy Now) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-04 - Place Order Flow.pdf |
 | **US-05-1** | Add Product Listing from Collection/Catalog | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-05-2** | Delete Product Listing | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-05-2** | Delete Product Listing | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-2 - Delete Product Listing.pdf |
 | **US-05-3** | Update Product Listing Details | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-3 - Update-Product.pdf<br>[WF] US-05-3 - Update-Product.pdf |
-| **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-05-5** | Toggle Listing Visibility (Show / Hide) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-4 - View & Filter Seller Inventory List.pdf |
+| **US-05-5** | Toggle Listing Visibility (Show / Hide) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-5 - Toggle Listing Visibility (Show  Hide).pdf |
 | **US-05-6** | Upload & Manage Product Image | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-06-1** | Seller Dashboard (Cost & Profit Metrics) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-06-2** | Public Storefront & Custom Store Settings | Seller / Buyer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-06-1** | Seller Dashboard (Cost & Profit Metrics) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-06-1 - Seller Dashboard (Cost & Profit Metrics).pdf |
+| **US-06-2** | Public Storefront & Custom Store Settings | Seller / Buyer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-06-2 - Public Storefront & Custom Store Settings.pdf |
 | **US-07-1** | View Seller Orders & Status Filter | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-07-2** | Update Order Status (Pending → Fulfilled / Cancelled) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-07-3** | Automated Card Ownership Transfer | System / Buyer | Backend / Database | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-08-1** | Edit Contact Information | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
 | **US-08-2** | Edit Display Name | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
 | **US-08-3** | Edit Phone Number | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
-| **US-08-4** | Edit Profile Avatar | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-08-4** | Edit Profile Avatar | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-08 - Edit User Information.pdf |
 | **US-09-1** | View Buyer Order History | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-09-2** | Filter Order History by Status | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
-| **US-10-1** | View Personal Collection Album | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-10-1** | View Personal Collection Album | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-1 - View Collection.pdf |
 | **US-10-2** | Add Card to Collection from Catalog | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-10-3** | Remove Card from Collection | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-10-3** | Remove Card from Collection | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-3 - Remove from Collection.pdf |
 | **US-10-4** | Self-serve Seller Verification Form | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-4 - Seller Verification.pdf |
 | **US-10-5** | Atomic Stock Reservation Semantics | System | Backend / Database | ✅ Implemented | ✅ มีแล้ว | US-10-5 - Atomic Stock Reservation Semantics.pdf |
 | **US-10-6** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
@@ -64,7 +64,7 @@
 | **US-12-3** | Admin User & Role Management | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-3 - Admin User & Role Management.pdf |
 | **US-12-4** | Administrative & Security Audit Logs | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-4 - Administrative & Security Audit Logs.pdf |
 | **US-12-5** | Platform-wide Order Logs Monitoring | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-5 - Platform-wide Order Logs Monitoring.pdf |
-| **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-6 Review Seller Application Decision.pdf |
+| **US-12-6** | Review Seller Application Decision | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-6 - Review Seller Application Decision.pdf |
 
 ---
 
