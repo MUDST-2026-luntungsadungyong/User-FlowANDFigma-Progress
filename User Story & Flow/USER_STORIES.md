@@ -22,7 +22,7 @@
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | ผู้ใช้หลัก (Actor) | ฝั่งที่เกี่ยวข้อง | สถานะ | สถานะ User Flow |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
-| **US-01-3** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
+| **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-02-1** | Browse TCG Cards with Multi-Filters | Customer / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-02-2** | Multi-Seller Listing Comparison on Card Detail | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-02-3** | Similar Cards Recommendation | Customer | Frontend | ✅ Implemented | ✅ มีแล้ว |
@@ -35,7 +35,7 @@
 | **US-05-1** | Add Product Listing from Collection/Catalog | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-05-2** | Delete Product Listing | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-05-3** | Update Product Listing Details | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
-| **US-05-4 & 6** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
+| **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-05-5** | Toggle Listing Visibility (Show / Hide) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-06-1** | Seller Dashboard (Cost & Profit Metrics) | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-06-2** | Public Storefront & Custom Store Settings | Seller / Buyer | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
@@ -43,8 +43,8 @@
 | **US-07-2** | Update Order Status (Pending → Fulfilled / Cancelled) | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-07-3** | Automated Card Ownership Transfer | System / Buyer | Backend / Database | ✅ Implemented | ✅ มีแล้ว |
 | **US-08-1** | Edit Contact Information | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
-| **US-08-3** | Edit Display Name | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
-| **US-08-4** | Edit Phone Number | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
+| **US-08-2** | Edit Display Name | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
+| **US-08-3** | Edit Phone Number | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-09-1** | View Buyer Order History | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-09-2** | Filter Order History by Status | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-10-1** | View Personal Collection Album | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
@@ -52,7 +52,7 @@
 | **US-10-3** | Remove Card from Collection | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-10-4** | Self-serve Seller Verification Form | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-10-5** | Atomic Stock Reservation Semantics | System | Backend / Database | ✅ Implemented | ✅ มีแล้ว |
-| **US-10-7** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
+| **US-10-6** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-11-1** | In-App Notifications Inbox & Status Alerts | User (All) | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี |
 | **US-12-1** | Platform Admin Dashboard & Metrics | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
 | **US-12-2** | Seller Application Review Queue | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว |
@@ -71,7 +71,7 @@
   * **Key Criteria:** รหัสผ่านถูกเข้ารหัสด้วย BCrypt, ส่ง JWT Token ในการยืนยันตัวตน, มี Validation แจ้งเตือนเมื่อข้อมูลไม่ถูกต้อง
   * **Endpoints:** `POST /auth/register`, `POST /auth/login`, `GET /auth/me`
 
-* **US-01-3: Forgot & Reset Password Flow**
+* **US-01-2: Forgot & Reset Password Flow**
   * **EN:** As a user who forgot my password, I want to request a password reset email and set a new password so that I can regain access to my account.
   * **TH:** ในฐานะผู้ใช้ที่ลืมรหัสผ่าน ฉันต้องการขอรับลิงก์รีเซ็ตรหัสผ่านและตั้งรหัสผ่านใหม่ เพื่อเข้าถึงบัญชีได้อีกครั้ง
   * **Endpoints:** `POST /auth/forgot-password`, `POST /auth/reset-password`
@@ -145,7 +145,7 @@
   * **TH:** ในฐานะผู้ขาย ฉันต้องการแก้ไขราคาและจำนวนสต๊อกของการ์ดที่วางขายอยู่
   * **Endpoints:** `PUT /seller/products/{id}`
 
-* **US-05-4 & 6: View & Filter Seller Inventory List**
+* **US-05-4: View & Filter Seller Inventory List**
   * **EN:** As a seller, I want to view and filter my inventory list by status, card name, and stock levels.
   * **TH:** ในฐานะผู้ขาย ฉันต้องการเปิดดูและกรองรายการสินค้าทั้งหมดของร้านตนเอง
   * **Endpoints:** `GET /seller/products`
@@ -193,11 +193,11 @@
   * **TH:** ในฐานะผู้ใช้ ฉันต้องการแก้ไขช่องทางการติดต่อ เพื่อให้ผู้ซื้อ/ผู้ขายติดต่อสื่อสารกันได้
   * **Endpoints:** `PUT /users/me`
 
-* **US-08-3: Edit Display Name**
+* **US-08-2: Edit Display Name**
   * **EN:** As a user, I want to update my public display name or full name.
   * **TH:** ในฐานะผู้ใช้ ฉันต้องการแก้ไขชื่อ-นามสกุล หรือชื่อแสดงตน
 
-* **US-08-4: Edit Phone Number**
+* **US-08-3: Edit Phone Number**
   * **EN:** As a user, I want to update my primary phone number.
   * **TH:** ในฐานะผู้ใช้ ฉันต้องการแก้ไขเบอร์โทรศัพท์
 
@@ -240,7 +240,7 @@
   * **EN:** As a system, I want to validate cart quantity against `onHand - reserved` stock and reserve stock atomically upon order placement to prevent overselling.
   * **TH:** ในฐานะระบบ ระบบต้องตรวจสอบสต๊อกคงเหลือจริง (`onHand - reserved`) และล็อกจองสต๊อกทันทีเมื่อมีการสร้างออเดอร์ เพื่อป้องกันปัญหาแย่งกันซื้อ (Overselling)
 
-* **US-10-7: Public Collector Showcase & Top Collector Leaderboard**
+* **US-10-6: Public Collector Showcase & Top Collector Leaderboard**
   * **EN:** As a collector, I want to showcase my collection album publicly (`/collections/:userId`) and view the community leaderboard of top collectors ranking by rare card counts.
   * **TH:** ในฐานะนักสะสม ฉันต้องการเปิดหน้าคอลเลกชันของฉันให้ผู้อื่นเข้าชมได้ และสามารถดูตารางอันดับ Leaderboard ของนักสะสมที่มีการ์ดระดับ Rare มากที่สุดในระบบ
   * **Endpoints:** `GET /collections/leaderboard`, `GET /collections/{userId}`
