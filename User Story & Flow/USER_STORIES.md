@@ -81,11 +81,6 @@
   * **TH:** ในฐานะผู้ใช้ที่ลืมรหัสผ่าน ฉันต้องการขอรับลิงก์รีเซ็ตรหัสผ่านและตั้งรหัสผ่านใหม่ เพื่อเข้าถึงบัญชีได้อีกครั้ง
   * **Endpoints:** `POST /auth/forgot-password`, `POST /auth/reset-password`
 
-* **US-01-3: Seller Application Status Check**
-  * **EN:** As a customer who has applied to become a seller, I want to check the current status of my seller application (Pending, Approved, or Rejected) from my profile so that I can track whether I have been approved.
-  * **TH:** ในฐานะลูกค้าที่ได้ยื่นคำขอเปิดร้าน ฉันต้องการตรวจสอบสถานะของคำขอเป็นผู้ขาย (รออนุมัติ, อนุมัติแล้ว, ปฏิเสธ) จากหน้าโปรไฟล์ เพื่อติดตามว่าได้รับการอนุมัติหรือยัง
-  * **Endpoints:** `GET /api/sellers/verify/status`
-  * **UI Components:** `ProfileInfoSection`, `SellerVerificationPage`
 
 ---
 
@@ -318,21 +313,3 @@
   * **TH:** ในฐานะผู้ดูแลระบบ ฉันต้องการพิจารณารายละเอียดคำขอเปิดร้านของผู้ขาย และทำการตัดสินใจอนุมัติหรือปฏิเสธพร้อมระบุเหตุผล
   * **Endpoints:** `PATCH /api/admin/seller-applications/{id}/approve`, `PATCH /api/admin/seller-applications/{id}/reject`
 
----
-
-### ⚙️ หมวด US-13: System Reliability & Error Handling
-* **US-13-1: System Health Check Endpoint**
-  * **EN:** As a DevOps engineer or monitoring system, I want a health check endpoint that returns the system's operational status so that I can monitor uptime and detect outages automatically.
-  * **TH:** ในฐานะวิศวกร DevOps หรือระบบ Monitoring ฉันต้องการ Endpoint ตรวจสอบสถานะระบบ เพื่อตรวจวัดเสถียรภาพและตรวจจับปัญหาได้โดยอัตโนมัติ
-  * **Endpoints:** `GET /health` → `{"status": "UP"}`
-
-* **US-13-2: Error Boundary & 404 Not Found Page**
-  * **EN:** As a user, when I navigate to a non-existent page or encounter an unexpected application error, I want to see a friendly error page with navigation options so that I can recover without losing context.
-  * **TH:** ในฐานะผู้ใช้ เมื่อฉันเข้าถึงหน้าที่ไม่มีอยู่หรือเกิดข้อผิดพลาดในแอป ฉันต้องการเห็นหน้าแจ้งข้อผิดพลาดที่เป็นมิตรพร้อมปุ่มนำทาง เพื่อให้สามารถกลับไปใช้งานต่อได้
-  * **UI Components:** `ErrorBoundary`, `NotFoundPage` (route: `*`)
-
-* **US-13-3: Idempotent Order Creation (Duplicate Prevention)**
-  * **EN:** As a system, I want to support idempotent order creation via `Idempotency-Key` header so that network retries or double-clicks by users do not result in duplicate orders and double stock reservations.
-  * **TH:** ในฐานะระบบ ระบบต้องรองรับการสร้างออเดอร์แบบ Idempotent ผ่าน `Idempotency-Key` Header เพื่อป้องกันไม่ให้การ retry ของเครือข่ายหรือการกดซ้ำทำให้เกิดออเดอร์ซ้ำและจองสต๊อกซ้ำ
-  * **Key Criteria:** Order table มี `idempotency_key` column ที่เป็น UNIQUE constraint, ระบบตรวจสอบก่อนสร้าง Order ใหม่
-  * **Endpoints:** `POST /orders` (header: `Idempotency-Key`)
