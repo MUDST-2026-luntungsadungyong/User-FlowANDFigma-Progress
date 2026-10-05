@@ -22,7 +22,7 @@
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | ผู้ใช้หลัก (Actor) | ฝั่งที่เกี่ยวข้อง | สถานะ | สถานะ User Flow | ชื่อไฟล์ User Flow |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **US-01-1** | Customer Registration & Login | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-01-1 - Customer Registration & Login.pdf |
-| **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-01-2** | Forgot & Reset Password Flow | Customer / Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-01-2 - Forgot & Reset Password Flow.pdf |
 | **US-02-1** | Browse TCG Cards with Multi-Filters | Customer / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-02-1 - Browse TCG Cards with Multi-Filters.pdf |
 | **US-02-2** | Multi-Seller Listing Comparison on Card Detail | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-02-3** | Similar Cards Recommendation | Customer | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
@@ -33,7 +33,7 @@
 | **US-03-4** | Increase Quantity in Cart (Clamped to Stock) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-03 - Shopping Cart System.pdf<br>[WF] US-03 - Shopping Cart System.pdf |
 | **US-04-1** | Place Order from Cart (Reservation-Based) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-04 - Place Order Flow.pdf |
 | **US-04-2** | Place Order Directly (Buy Now) | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-04 - Place Order Flow.pdf |
-| **US-05-1** | Add Product Listing from Collection/Catalog | Seller | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-05-1** | Add Product Listing from Collection/Catalog | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | [WF] US-10-2 & US-10-7 - Add to Collection Flows.pdf |
 | **US-05-2** | Delete Product Listing | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-2 - Delete Product Listing.pdf |
 | **US-05-3** | Update Product Listing Details | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-3 - Update-Product.pdf<br>[WF] US-05-3 - Update-Product.pdf |
 | **US-05-4** | View & Filter Seller Inventory List | Seller | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-05-4 - View & Filter Seller Inventory List.pdf |
@@ -50,12 +50,12 @@
 | **US-09-1** | View Buyer Order History | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-09-2** | Filter Order History by Status | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-07-2 - Update Order Status.pdf<br>[WF] US-07-2 - Update Order Status.pdf |
 | **US-10-1** | View Personal Collection Album | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-1 - View Collection.pdf |
-| **US-10-2** | Add Card to Collection from Catalog | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-10-2** | Add Card to Collection from Catalog | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-2 & US-10-7 - Add to Collection Flows.pdf<br>[WF] US-10-2 & US-10-7 - Add to Collection Flows.pdf |
 | **US-10-3** | Remove Card from Collection | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-3 - Remove from Collection.pdf |
 | **US-10-4** | Self-serve Seller Verification Form | Customer | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-4 - Seller Verification.pdf |
 | **US-10-5** | Atomic Stock Reservation Semantics | System | Backend / Database | ✅ Implemented | ✅ มีแล้ว | US-10-5 - Atomic Stock Reservation Semantics.pdf |
 | **US-10-6** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-10-7** | Add Card to Collection from Product Listing | User | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-10-7** | Add Card to Collection from Product Listing | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-2 & US-10-7 - Add to Collection Flows.pdf<br>[WF] US-10-2 & US-10-7 - Add to Collection Flows.pdf |
 | **US-11-1** | In-App Notifications Inbox & Status Alerts | User (All) | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-11-2** | Notification Badge & Unread Count | User (All) | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
 | **US-12-1** | Platform Admin Dashboard & Metrics | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-1 - Platform Admin Dashboard & Metrics.pdf |
