@@ -56,8 +56,8 @@
 | **US-10-5** | Atomic Stock Reservation Semantics | System | Backend / Database | ✅ Implemented | ✅ มีแล้ว | US-10-5 - Atomic Stock Reservation Semantics.pdf |
 | **US-10-6** | Public Collector Showcase & Leaderboard | User / Guest | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-6 - Public Collector Showcase & Leaderboard.pdf |
 | **US-10-7** | Add Card to Collection from Product Listing | User | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-10-2 & US-10-7 - Add to Collection Flows.pdf<br>[WF] US-10-2 & US-10-7 - Add to Collection Flows.pdf |
-| **US-11-1** | In-App Notifications Inbox & Status Alerts | User (All) | Frontend / Backend | ✅ Implemented | ❌ ยังไม่มี | - |
-| **US-11-2** | Notification Badge & Unread Count | User (All) | Frontend | ✅ Implemented | ❌ ยังไม่มี | - |
+| **US-11-1** | In-App Notifications Inbox & Status Alerts | User (All) | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-11-1 - In-App Notifications Inbox & Status Alerts.pdf |
+| **US-11-2** | Notification Badge & Unread Count | User (All) | Frontend | ✅ Implemented | ✅ มีแล้ว | US-11-2 - Notification Badge & Unread Count.pdf |
 | **US-12-1** | Platform Admin Dashboard & Metrics | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-1 - Platform Admin Dashboard & Metrics.pdf |
 | **US-12-2** | Seller Application Review Queue | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-2 - Seller Application Review Queue.pdf |
 | **US-12-3** | Admin User & Role Management | Admin | Frontend / Backend | ✅ Implemented | ✅ มีแล้ว | US-12-3 - Admin User & Role Management.pdf |
