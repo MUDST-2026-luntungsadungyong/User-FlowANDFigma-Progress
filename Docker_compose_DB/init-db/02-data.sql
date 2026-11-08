@@ -2013,17 +2013,28 @@ INSERT INTO global_cards (id, name, supertype, subtypes, hp, types, rarity, set_
 INSERT INTO users (id, email, password, full_name, phone, contact_line, contact_facebook, avatar_url, role, seller_status) VALUES
 (1, 'buyer@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Ash Ketchum', '081-111-2222', 'ash_ketchum', 'facebook.com/ash.ketchum', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb', 'USER', 'NONE'),
 (2, 'seller@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Brock Pewter', '089-999-8888', 'brock_cards', 'facebook.com/brock.pewter', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d', 'USER', 'APPROVED'),
-(3, 'red@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Red Champion', '082-222-3333', 'red_champion', 'facebook.com/red.champion', NULL, 'USER', 'NONE'),
-(4, 'cynthia@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Cynthia Shirona', '083-333-4444', 'cynthia_sinnoh', 'facebook.com/cynthia.sinnoh', NULL, 'USER', 'NONE'),
-(5, 'steven@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Steven Stone', '084-444-5555', 'steven_hoenn', 'facebook.com/steven.stone', NULL, 'USER', 'NONE'),
-(6, 'gary@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Gary Oak', '085-555-6666', 'gary_oak', 'facebook.com/gary.oak', NULL, 'USER', 'NONE'),
-(7, 'lance@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Lance Dragon', '086-666-7777', 'lance_dragon', 'facebook.com/lance.dragon', NULL, 'USER', 'NONE'),
+(3, 'red@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Red Champion', '082-222-3333', 'red_champion', 'facebook.com/red.champion', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e', 'USER', 'NONE'),
+(4, 'cynthia@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Cynthia Shirona', '083-333-4444', 'cynthia_sinnoh', 'facebook.com/cynthia.sinnoh', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330', 'USER', 'NONE'),
+(5, 'steven@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Steven Stone', '084-444-5555', 'steven_hoenn', 'facebook.com/steven.stone', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e', 'USER', 'NONE'),
+(6, 'gary@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Gary Oak', '085-555-6666', 'gary_oak', 'facebook.com/gary.oak', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7', 'USER', 'NONE'),
+(7, 'lance@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Lance Dragon', '086-666-7777', 'lance_dragon', 'facebook.com/lance.dragon', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d', 'USER', 'NONE'),
 (8, 'admin@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Platform Administrator', '080-000-9999', 'mythix_admin', 'facebook.com/mythix.admin', 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde', 'ADMIN', 'NONE'),
-(9, 'misty@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Misty Cerulean', '081-333-7777', 'misty_water', 'facebook.com/misty.water', NULL, 'USER', 'PENDING');
+(9, 'misty@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Misty Cerulean', '081-333-7777', 'misty_water', 'facebook.com/misty.water', 'https://images.unsplash.com/photo-1517841905240-472988babdf9', 'USER', 'PENDING'),
+(10, 'erika@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Erika Celadon', '081-444-8888', 'erika_grass', 'facebook.com/erika.celadon', 'https://images.unsplash.com/photo-1544005313-94ddf0286df2', 'USER', 'PENDING'),
+(11, 'sabrina@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Sabrina Saffron', '081-555-9999', 'sabrina_psychic', 'facebook.com/sabrina.saffron', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1', 'USER', 'PENDING'),
+(12, 'blaine@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Blaine Cinnabar', '089-111-3333', 'blaine_fire', 'facebook.com/blaine.cinnabar', 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61', 'USER', 'APPROVED'),
+(13, 'giovanni@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Giovanni Viridian', '089-222-4444', 'giovanni_viridian', 'facebook.com/giovanni.viridian', 'https://images.unsplash.com/photo-1560250097-0b93528c311a', 'USER', 'APPROVED'),
+(14, 'jessie@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Jessie Musashi', '087-123-4567', 'jessie_rocket', 'facebook.com/jessie.rocket', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb', 'USER', 'REJECTED'),
+(15, 'james@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'James Kojiro', '087-765-4321', 'james_rocket', 'facebook.com/james.rocket', 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6', 'USER', 'REJECTED'),
+(16, 'dawn@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Dawn Berlitz', '082-345-6789', 'dawn_sinnoh', 'facebook.com/dawn.berlitz', 'https://images.unsplash.com/photo-1517841905240-472988babdf9', 'USER', 'NONE'),
+(17, 'serena@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Serena Yvonne', '083-456-7890', 'serena_kalos', 'facebook.com/serena.kalos', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1', 'USER', 'NONE'),
+(18, 'may@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'May Maple', '084-567-8901', 'may_hoenn', 'facebook.com/may.maple', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330', 'USER', 'NONE'),
+(19, 'volkner@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Volkner Sunyshore', '085-678-9012', 'volkner_electric', 'facebook.com/volkner.sunyshore', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d', 'USER', 'NONE'),
+(20, 'leon@mythix.com', '$2b$12$yt.ju9w4yQHb8cnk90GnqeVDPbyiTEVKZI8VZ3qMe6KBYbTegzU0O', 'Leon Galar Champion', '086-789-0123', 'leon_champion', 'facebook.com/leon.champion', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e', 'USER', 'NONE');
 
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
 
--- 3. Insert Seller Profiles (KYC Data: Verified Seller & Pending Approval for Admin)
+-- 3. Insert Seller Profiles (KYC Data: Verified, Pending Review, and Rejected)
 INSERT INTO seller_profiles (
     id, user_id, shop_name, shop_description, 
     id_card_number, id_card_image_url, 
@@ -2034,115 +2045,297 @@ INSERT INTO seller_profiles (
 (1, 2, 'Pewter City Card Vault', 'ร้านการ์ดแท้ 100% สภาพเยี่ยม จัดส่งไว มีบริการตอบแชทตลอดเวลาครับ', 
  '1100500123456', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
  'Kasikorn Bank (KBANK)', '012-3-45678-9', 'Brock Pewter', 
- NOW() - INTERVAL '10 days', NOW() - INTERVAL '9 days', 8, 
+ NOW() - INTERVAL '25 days', NOW() - INTERVAL '24 days', 8, 
  NULL, NULL, NULL),
 (2, 9, 'Cerulean Water Gym Cards', 'จำหน่ายการ์ดประเภท Water และ Trainer สภาพสะสม พร้อมส่งทุกวัน', 
  '1100500987654', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
  'Siam Commercial Bank (SCB)', '987-6-54321-0', 'Misty Cerulean', 
+ NOW() - INTERVAL '4 days', NULL, NULL, 
+ NULL, NULL, NULL),
+(3, 10, 'Celadon Flower Garden Cards', 'ศูนย์รวมการ์ดประเภท Grass และสภาพสะสม Mint 100% ส่งตรงจากเมือง Celadon', 
+ '1100500334455', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Siam Commercial Bank (SCB)', '456-7-89012-3', 'Erika Celadon', 
+ NOW() - INTERVAL '2 days', NULL, NULL, 
+ NULL, NULL, NULL),
+(4, 11, 'Saffron Psychic Vault', 'เชี่ยวชาญการ์ด Psychic และการ์ดหายากยุค Vintage Neo Series สภาพคัดเกรด', 
+ '1100500778899', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Bangkok Bank (BBL)', '234-5-67890-1', 'Sabrina Saffron', 
  NOW() - INTERVAL '1 day', NULL, NULL, 
- NULL, NULL, NULL);
+ NULL, NULL, NULL),
+(5, 12, 'Cinnabar Volcano TCG', 'ตัวแทนจำหน่ายการ์ด Fire และ Charizard ทุกซีรีส์ สภาพสะสม NM รับประกันความพึงพอใจ', 
+ '1100500556677', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Krungthai Bank (KTB)', '567-8-90123-4', 'Blaine Cinnabar', 
+ NOW() - INTERVAL '20 days', NOW() - INTERVAL '19 days', 8, 
+ NULL, NULL, NULL),
+(6, 13, 'Viridian Syndicate Cards', 'การ์ดระดับ High-End, Secret Rare และ PSA Graded สำหรับนักลงทุน TCG ระดับพรีเมียม', 
+ '1100500990011', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Kasikorn Bank (KBANK)', '890-1-23456-7', 'Giovanni Viridian', 
+ NOW() - INTERVAL '30 days', NOW() - INTERVAL '29 days', 8, 
+ NULL, NULL, NULL),
+(7, 14, 'Rocket Secret Vault', 'ขายการ์ดหายากราคาถูกพิเศษ ของแท้แน่นอน', 
+ '1100500667788', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Kasikorn Bank (KBANK)', '333-2-11111-0', 'Jessie Musashi', 
+ NOW() - INTERVAL '12 days', NULL, NULL, 
+ NOW() - INTERVAL '11 days', 8, 'ภาพถ่ายบัตรประชาชนไม่ชัดเจน และชื่อบัญชีธนาคารไม่ตรงกับข้อมูลบัตรประชาชน'),
+(8, 15, 'Kojiro Luxury Binder', 'การ์ดสะสมส่วนตัว ปล่อยต่อราคาเป็นกันเอง', 
+ '1100500445566', 'https://images.unsplash.com/photo-1544717305-2782549b5136', 
+ 'Siam Commercial Bank (SCB)', '444-5-66666-7', 'James Kojiro', 
+ NOW() - INTERVAL '8 days', NULL, NULL, 
+ NOW() - INTERVAL '7 days', 8, 'เอกสารหน้าสมุดบัญชีธนาคารหมดอายุหรือไม่สมบูรณ์ กรุณาอัปโหลดเอกสารที่มีอายุไม่เกิน 3 เดือน');
 
 SELECT setval('seller_profiles_id_seq', (SELECT MAX(id) FROM seller_profiles));
 
--- 4. Insert Security Audit Logs (Platform Admin Actions)
+-- 4. Insert Security Audit Logs (Platform Admin Actions & History)
 INSERT INTO audit_logs (id, actor_id, action, target_type, target_id, details, ip_address, created_at) VALUES
-(1, 8, 'APPROVE_SELLER', 'SELLER_PROFILE', '1', '{"shop_name": "Pewter City Card Vault", "decision": "APPROVED", "approver_email": "admin@mythix.com"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '9 days'),
-(2, 8, 'UPDATE_GLOBAL_CARD', 'GLOBAL_CARD', 'base1-4', '{"action": "sync_market_price", "old_price": 3200.0, "new_price": 3500.0}'::jsonb, '127.0.0.1', NOW() - INTERVAL '5 days'),
-(3, 2, 'UPDATE_STOCK', 'LOCAL_CARD', '1', '{"card_name": "Mew", "on_hand": 5, "price": 1250.0}'::jsonb, '171.96.12.34', NOW() - INTERVAL '4 days');
+(1, 8, 'APPROVE_SELLER', 'SELLER_PROFILE', '1', '{"shop_name": "Pewter City Card Vault", "decision": "APPROVED", "approver_email": "admin@mythix.com"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '24 days'),
+(2, 8, 'APPROVE_SELLER', 'SELLER_PROFILE', '5', '{"shop_name": "Cinnabar Volcano TCG", "decision": "APPROVED", "approver_email": "admin@mythix.com"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '19 days'),
+(3, 8, 'APPROVE_SELLER', 'SELLER_PROFILE', '6', '{"shop_name": "Viridian Syndicate Cards", "decision": "APPROVED", "approver_email": "admin@mythix.com"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '29 days'),
+(4, 8, 'REJECT_SELLER', 'SELLER_PROFILE', '7', '{"shop_name": "Rocket Secret Vault", "decision": "REJECTED", "reason": "ID mismatch"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '11 days'),
+(5, 8, 'REJECT_SELLER', 'SELLER_PROFILE', '8', '{"shop_name": "Kojiro Luxury Binder", "decision": "REJECTED", "reason": "Bank doc invalid"}'::jsonb, '127.0.0.1', NOW() - INTERVAL '7 days'),
+(6, 8, 'UPDATE_GLOBAL_CARD', 'GLOBAL_CARD', 'base1-4', '{"action": "sync_market_price", "old_price": 31000.0, "new_price": 31401.65}'::jsonb, '127.0.0.1', NOW() - INTERVAL '5 days'),
+(7, 2, 'UPDATE_STOCK', 'LOCAL_CARD', '1', '{"card_name": "Mew", "on_hand": 5, "price": 1250.0}'::jsonb, '171.96.12.34', NOW() - INTERVAL '4 days'),
+(8, 12, 'CREATE_LISTING', 'LOCAL_CARD', '21', '{"card_name": "Charizard", "price": 501.9, "stock": 4}'::jsonb, '171.96.14.88', NOW() - INTERVAL '18 days'),
+(9, 13, 'CREATE_LISTING', 'LOCAL_CARD', '36', '{"card_name": "Charizard Base", "price": 31401.65, "stock": 1}'::jsonb, '171.96.22.10', NOW() - INTERVAL '28 days');
 
 SELECT setval('audit_logs_id_seq', (SELECT MAX(id) FROM audit_logs));
 
--- 5. Insert Local Cards (Seller Marketplace Listings - Owned by Seller)
+-- 5. Insert Local Cards (Seller Marketplace Listings — Stores 2, 12, 13)
 INSERT INTO local_cards (id, seller_id, global_card_id, custom_image_url, condition, language, price, cost, on_hand, reserved, status) VALUES
-(1, 2, 'pop4-4', 'https://images.pokemontcg.io/pop4/4_hires.png', 'NM', 'EN', 1250.0, 800.0, 5, 0, 'SHOW'),
-(2, 2, 'neo3-3', 'https://images.pokemontcg.io/neo3/3_hires.png', 'NM', 'EN', 450.0, 250.0, 8, 0, 'SHOW'),
-(3, 2, 'sm9-6', 'https://images.pokemontcg.io/sm9/6_hires.png', 'LP', 'EN', 85.0, 40.0, 12, 0, 'SHOW'),
-(4, 2, 'sm8-3', 'https://images.pokemontcg.io/sm8/3_hires.png', 'NM', 'JP', 2400.0, 1600.0, 3, 0, 'SHOW'),
-(5, 2, 'hgss2-3', 'https://images.pokemontcg.io/hgss2/3_hires.png', 'NM', 'EN', 150.0, 75.0, 10, 0, 'SHOW'),
-(6, 2, 'base5-3', 'https://images.pokemontcg.io/base5/3_hires.png', 'NM', 'EN', 320.0, 180.0, 6, 0, 'SHOW'),
-(7, 2, 'dp1-4', 'https://images.pokemontcg.io/dp1/4_hires.png', 'NM', 'EN', 990.0, 600.0, 4, 0, 'SHOW'),
-(8, 2, 'base3-6', 'https://images.pokemontcg.io/base3/6_hires.png', 'LP', 'EN', 45.0, 20.0, 15, 0, 'SHOW'),
-(9, 2, 'neo4-4', 'https://images.pokemontcg.io/neo4/4_hires.png', 'NM', 'EN', 1750.0, 1100.0, 2, 0, 'SHOW'),
-(10, 2, 'sm2-3', 'https://images.pokemontcg.io/sm2/3_hires.png', 'NM', 'JP', 280.0, 140.0, 7, 0, 'SHOW'),
-(11, 2, 'bw10-5', 'https://images.pokemontcg.io/bw10/5_hires.png', 'NM', 'EN', 550.0, 300.0, 5, 0, 'SHOW'),
-(12, 2, 'pop9-4', 'https://images.pokemontcg.io/pop9/4_hires.png', 'NM', 'EN', 75.0, 30.0, 20, 0, 'SHOW'),
-(13, 2, 'ex11-6', 'https://images.pokemontcg.io/ex11/6_hires.png', 'NM', 'EN', 3200.0, 2200.0, 2, 0, 'SHOW'),
-(14, 2, 'hgss4-6', 'https://images.pokemontcg.io/hgss4/6_hires.png', 'NM', 'EN', 180.0, 90.0, 8, 0, 'SHOW'),
-(15, 2, 'ex10-3', 'https://images.pokemontcg.io/ex10/3_hires.png', 'NM', 'EN', 650.0, 380.0, 4, 0, 'SHOW'),
-(16, 2, 'si1-5', 'https://images.pokemontcg.io/si1/5_hires.png', 'NM', 'EN', 420.0, 200.0, 6, 0, 'SHOW'),
-(17, 2, 'bw11-4', 'https://images.pokemontcg.io/bw11/4_hires.png', 'LP', 'EN', 110.0, 50.0, 10, 0, 'SHOW'),
-(18, 2, 'swsh1-4', 'https://images.pokemontcg.io/swsh1/4_hires.png', 'NM', 'JP', 890.0, 500.0, 3, 0, 'SHOW'),
-(19, 2, 'bw7-4', 'https://images.pokemontcg.io/bw7/4_hires.png', 'NM', 'EN', 2100.0, 1400.0, 2, 0, 'SHOW'),
-(20, 2, 'bw8-3', 'https://images.pokemontcg.io/bw8/3_hires.png', 'NM', 'EN', 135.0, 60.0, 9, 0, 'SHOW');
+-- Store 1: Brock (seller_id = 2) - Pewter City Card Vault
+(1, 2, 'pop4-4', 'https://images.pokemontcg.io/pop4/4_hires.png', 'NM', 'EN', 1250.00, 800.00, 5, 0, 'SHOW'),
+(2, 2, 'neo3-3', 'https://images.pokemontcg.io/neo3/3_hires.png', 'NM', 'EN', 450.00, 250.00, 8, 0, 'SHOW'),
+(3, 2, 'sm9-6', 'https://images.pokemontcg.io/sm9/6_hires.png', 'LP', 'EN', 85.00, 40.00, 12, 0, 'SHOW'),
+(4, 2, 'sm8-3', 'https://images.pokemontcg.io/sm8/3_hires.png', 'NM', 'JP', 2400.00, 1600.00, 3, 0, 'SHOW'),
+(5, 2, 'hgss2-3', 'https://images.pokemontcg.io/hgss2/3_hires.png', 'NM', 'EN', 150.00, 75.00, 10, 0, 'SHOW'),
+(6, 2, 'base5-3', 'https://images.pokemontcg.io/base5/3_hires.png', 'NM', 'EN', 320.00, 180.00, 6, 0, 'SHOW'),
+(7, 2, 'dp1-4', 'https://images.pokemontcg.io/dp1/4_hires.png', 'NM', 'EN', 990.00, 600.00, 4, 0, 'SHOW'),
+(8, 2, 'base3-6', 'https://images.pokemontcg.io/base3/6_hires.png', 'LP', 'EN', 45.00, 20.00, 15, 0, 'SHOW'),
+(9, 2, 'neo4-4', 'https://images.pokemontcg.io/neo4/4_hires.png', 'NM', 'EN', 1750.00, 1100.00, 2, 0, 'SHOW'),
+(10, 2, 'sm2-3', 'https://images.pokemontcg.io/sm2/3_hires.png', 'NM', 'JP', 280.00, 140.00, 7, 0, 'SHOW'),
+(11, 2, 'bw10-5', 'https://images.pokemontcg.io/bw10/5_hires.png', 'NM', 'EN', 550.00, 300.00, 5, 0, 'SHOW'),
+(12, 2, 'pop9-4', 'https://images.pokemontcg.io/pop9/4_hires.png', 'NM', 'EN', 75.00, 30.00, 20, 0, 'SHOW'),
+(13, 2, 'ex11-6', 'https://images.pokemontcg.io/ex11/6_hires.png', 'NM', 'EN', 3200.00, 2200.00, 2, 0, 'SHOW'),
+(14, 2, 'hgss4-6', 'https://images.pokemontcg.io/hgss4/6_hires.png', 'NM', 'EN', 180.00, 90.00, 8, 0, 'SHOW'),
+(15, 2, 'ex10-3', 'https://images.pokemontcg.io/ex10/3_hires.png', 'NM', 'EN', 650.00, 380.00, 4, 0, 'SHOW'),
+(16, 2, 'si1-5', 'https://images.pokemontcg.io/si1/5_hires.png', 'NM', 'EN', 420.00, 200.00, 6, 0, 'SHOW'),
+(17, 2, 'bw11-4', 'https://images.pokemontcg.io/bw11/4_hires.png', 'LP', 'EN', 110.00, 50.00, 10, 0, 'SHOW'),
+(18, 2, 'swsh1-4', 'https://images.pokemontcg.io/swsh1/4_hires.png', 'NM', 'JP', 890.00, 500.00, 3, 0, 'SHOW'),
+(19, 2, 'bw7-4', 'https://images.pokemontcg.io/bw7/4_hires.png', 'NM', 'EN', 2100.00, 1400.00, 2, 0, 'SHOW'),
+(20, 2, 'pop3-4', 'https://images.pokemontcg.io/pop3/4_hires.png', 'NM', 'EN', 1603.35, 1000.00, 3, 0, 'SHOW'),
+
+-- Store 2: Blaine (seller_id = 12) - Cinnabar Volcano TCG (Fire Specialists)
+(21, 12, 'sm75-3', 'https://images.pokemontcg.io/sm75/3_hires.png', 'NM', 'EN', 501.90, 300.00, 5, 0, 'SHOW'),
+(22, 12, 'det1-6', 'https://images.pokemontcg.io/det1/6_hires.png', 'NM', 'EN', 153.30, 90.00, 8, 0, 'SHOW'),
+(23, 12, 'hgss1-7', 'https://images.pokemontcg.io/hgss1/7_hires.png', 'NM', 'EN', 1722.70, 1100.00, 3, 0, 'SHOW'),
+(24, 12, 'dp1-5', 'https://images.pokemontcg.io/dp1/5_hires.png', 'NM', 'EN', 980.35, 600.00, 4, 0, 'SHOW'),
+(25, 12, 'basep-4', 'https://images.pokemontcg.io/basep/4_hires.png', 'NM', 'EN', 1463.70, 950.00, 3, 0, 'SHOW'),
+(26, 12, 'ex9-5', 'https://images.pokemontcg.io/ex9/5_hires.png', 'NM', 'EN', 2393.65, 1500.00, 2, 0, 'SHOW'),
+(27, 12, 'ex7-5', 'https://images.pokemontcg.io/ex7/5_hires.png', 'NM', 'EN', 3267.95, 2100.00, 2, 0, 'SHOW'),
+(28, 12, 'xy11-5', 'https://images.pokemontcg.io/xy11/5_hires.png', 'LP', 'EN', 13.30, 5.00, 25, 0, 'SHOW'),
+(29, 12, 'sm3-4', 'https://images.pokemontcg.io/sm3/4_hires.png', 'NM', 'EN', 10.85, 4.00, 30, 0, 'SHOW'),
+(30, 12, 'xy2-7', 'https://images.pokemontcg.io/xy2/7_hires.png', 'NM', 'EN', 18.55, 8.00, 15, 0, 'SHOW'),
+(31, 12, 'pl4-5', 'https://images.pokemontcg.io/pl4/5_hires.png', 'NM', 'EN', 249.55, 150.00, 6, 0, 'SHOW'),
+(32, 12, 'bw4-4', 'https://images.pokemontcg.io/bw4/4_hires.png', 'NM', 'EN', 9.10, 3.00, 40, 0, 'SHOW'),
+(33, 12, 'xy5-6', 'https://images.pokemontcg.io/xy5/6_hires.png', 'NM', 'EN', 9.45, 3.00, 35, 0, 'SHOW'),
+(34, 12, 'mcd19-6', 'https://images.pokemontcg.io/mcd19/6_hires.png', 'NM', 'EN', 1281.00, 800.00, 2, 0, 'SHOW'),
+(35, 12, 'swsh35-5', 'https://images.pokemontcg.io/swsh35/5_hires.png', 'NM', 'EN', 33.25, 15.00, 10, 0, 'SHOW'),
+
+-- Store 3: Giovanni (seller_id = 13) - Viridian Syndicate Cards (High-End & Vintage)
+(36, 13, 'base1-4', 'https://images.pokemontcg.io/base1/4_hires.png', 'NM', 'EN', 31401.65, 22000.00, 1, 0, 'SHOW'),
+(37, 13, 'base6-5', 'https://images.pokemontcg.io/base6/5_hires.png', 'NM', 'EN', 8508.85, 5500.00, 2, 0, 'SHOW'),
+(38, 13, 'base6-4', 'https://images.pokemontcg.io/base6/4_hires.png', 'NM', 'EN', 5109.65, 3300.00, 2, 0, 'SHOW'),
+(39, 13, 'ex11-6', 'https://images.pokemontcg.io/ex11/6_hires.png', 'NM', 'EN', 4260.90, 2800.00, 2, 0, 'SHOW'),
+(40, 13, 'ex10-4', 'https://images.pokemontcg.io/ex10/4_hires.png', 'NM', 'EN', 4278.40, 2700.00, 2, 0, 'SHOW'),
+(41, 13, 'ru1-5', 'https://images.pokemontcg.io/ru1/5_hires.png', 'NM', 'EN', 4782.75, 3000.00, 1, 0, 'SHOW'),
+(42, 13, 'ex7-6', 'https://images.pokemontcg.io/ex7/6_hires.png', 'NM', 'EN', 2250.15, 1400.00, 3, 0, 'SHOW'),
+(43, 13, 'dp3-7', 'https://images.pokemontcg.io/dp3/7_hires.png', 'NM', 'EN', 2145.15, 1300.00, 3, 0, 'SHOW'),
+(44, 13, 'ex13-4', 'https://images.pokemontcg.io/ex13/4_hires.png', 'NM', 'EN', 2132.20, 1350.00, 2, 0, 'SHOW'),
+(45, 13, 'ex4-5', 'https://images.pokemontcg.io/ex4/5_hires.png', 'NM', 'EN', 2154.95, 1400.00, 3, 0, 'SHOW'),
+(46, 13, 'col1-4', 'https://images.pokemontcg.io/col1/4_hires.png', 'NM', 'EN', 1795.15, 1100.00, 4, 0, 'SHOW'),
+(47, 13, 'ex12-7', 'https://images.pokemontcg.io/ex12/7_hires.png', 'NM', 'EN', 1657.95, 1000.00, 2, 0, 'SHOW'),
+(48, 13, 'pl3-5', 'https://images.pokemontcg.io/pl3/5_hires.png', 'NM', 'EN', 1618.05, 950.00, 2, 0, 'SHOW'),
+(49, 13, 'pop3-5', 'https://images.pokemontcg.io/pop3/5_hires.png', 'NM', 'EN', 1587.95, 900.00, 3, 0, 'SHOW'),
+(50, 13, 'basep-3', 'https://images.pokemontcg.io/basep/3_hires.png', 'NM', 'EN', 1381.10, 800.00, 5, 0, 'SHOW');
 
 SELECT setval('local_cards_id_seq', (SELECT MAX(id) FROM local_cards));
 
--- 6. Insert Cart Items (Shopping Cart for Buyer Ash)
+-- 6. Insert Cart Items (Active Shopping Carts)
 INSERT INTO cart_items (id, user_id, local_card_id, quantity) VALUES
-(1, 1, 1, 1);
+(1, 1, 1, 1),
+(2, 16, 21, 2),
+(3, 17, 43, 1),
+(4, 18, 5, 1);
 
 SELECT setval('cart_items_id_seq', (SELECT MAX(id) FROM cart_items));
 
--- 7. Insert Sample Orders (With Idempotency & Financial Revenue Breakdown)
+-- 7. Insert Sample Orders (With GMV, Platform Fees & Financial Breakdowns)
+-- Platform Fee is 5% of Total Amount
 INSERT INTO orders (id, buyer_id, order_number, idempotency_key, status, total_amount, platform_fee, seller_net_amount, created_at, updated_at) VALUES
-(1, 1, 'ORD-2026-001', 'idemp-mythix-001-abc', 'FULFILLED', 1700.00, 85.00, 1615.00, NOW() - INTERVAL '3 days', NOW() - INTERVAL '1 day'),
-(2, 6, 'ORD-2026-002', 'idemp-mythix-002-def', 'CONFIRMED', 990.00, 49.50, 940.50, NOW() - INTERVAL '5 hours', NOW() - INTERVAL '4 hours');
+-- Fulfilled Orders (Closed GMV)
+(1, 1, 'ORD-2026-001', 'idemp-mythix-001-abc', 'FULFILLED', 1700.00, 85.00, 1615.00, NOW() - INTERVAL '22 days', NOW() - INTERVAL '20 days'),
+(2, 6, 'ORD-2026-002', 'idemp-mythix-002-def', 'FULFILLED', 990.00, 49.50, 940.50, NOW() - INTERVAL '20 days', NOW() - INTERVAL '18 days'),
+(3, 16, 'ORD-2026-003', 'idemp-mythix-003-ghi', 'FULFILLED', 2393.65, 119.68, 2273.97, NOW() - INTERVAL '18 days', NOW() - INTERVAL '16 days'),
+(4, 20, 'ORD-2026-004', 'idemp-mythix-004-jkl', 'FULFILLED', 31401.65, 1570.08, 29831.57, NOW() - INTERVAL '15 days', NOW() - INTERVAL '13 days'),
+(5, 17, 'ORD-2026-005', 'idemp-mythix-005-mno', 'FULFILLED', 1250.00, 62.50, 1187.50, NOW() - INTERVAL '14 days', NOW() - INTERVAL '12 days'),
+(6, 18, 'ORD-2026-006', 'idemp-mythix-006-pqr', 'FULFILLED', 1722.70, 86.14, 1636.56, NOW() - INTERVAL '12 days', NOW() - INTERVAL '10 days'),
+(7, 19, 'ORD-2026-007', 'idemp-mythix-007-stu', 'FULFILLED', 1603.35, 80.17, 1523.18, NOW() - INTERVAL '11 days', NOW() - INTERVAL '9 days'),
+(8, 4, 'ORD-2026-008', 'idemp-mythix-008-vwx', 'FULFILLED', 8508.85, 425.44, 8083.41, NOW() - INTERVAL '9 days', NOW() - INTERVAL '7 days'),
+(9, 3, 'ORD-2026-009', 'idemp-mythix-009-yz1', 'FULFILLED', 501.90, 25.10, 476.80, NOW() - INTERVAL '8 days', NOW() - INTERVAL '6 days'),
+(10, 5, 'ORD-2026-010', 'idemp-mythix-010-234', 'FULFILLED', 4260.90, 213.05, 4047.85, NOW() - INTERVAL '7 days', NOW() - INTERVAL '5 days'),
+
+-- In-Transit Orders (SENT with Tracking)
+(11, 16, 'ORD-2026-011', 'idemp-mythix-011-567', 'SENT', 1463.70, 73.19, 1390.51, NOW() - INTERVAL '3 days', NOW() - INTERVAL '1 day'),
+(12, 20, 'ORD-2026-012', 'idemp-mythix-012-890', 'SENT', 5109.65, 255.48, 4854.17, NOW() - INTERVAL '2 days', NOW() - INTERVAL '18 hours'),
+(13, 1, 'ORD-2026-013', 'idemp-mythix-013-abc', 'SENT', 2400.00, 120.00, 2280.00, NOW() - INTERVAL '2 days', NOW() - INTERVAL '12 hours'),
+
+-- Paid & Processing Orders (CONFIRMED)
+(14, 17, 'ORD-2026-014', 'idemp-mythix-014-def', 'CONFIRMED', 980.35, 49.02, 931.33, NOW() - INTERVAL '1 day', NOW() - INTERVAL '8 hours'),
+(15, 6, 'ORD-2026-015', 'idemp-mythix-015-ghi', 'CONFIRMED', 2132.20, 106.61, 2025.59, NOW() - INTERVAL '18 hours', NOW() - INTERVAL '6 hours'),
+(16, 19, 'ORD-2026-016', 'idemp-mythix-016-jkl', 'CONFIRMED', 1750.00, 87.50, 1662.50, NOW() - INTERVAL '12 hours', NOW() - INTERVAL '4 hours'),
+
+-- Awaiting Payment Orders (PENDING)
+(17, 18, 'ORD-2026-017', 'idemp-mythix-017-mno', 'PENDING', 450.00, 22.50, 427.50, NOW() - INTERVAL '6 hours', NOW() - INTERVAL '6 hours'),
+(18, 16, 'ORD-2026-018', 'idemp-mythix-018-pqr', 'PENDING', 2250.15, 112.51, 2137.64, NOW() - INTERVAL '3 hours', NOW() - INTERVAL '3 hours'),
+(19, 20, 'ORD-2026-019', 'idemp-mythix-019-stu', 'PENDING', 3200.00, 160.00, 3040.00, NOW() - INTERVAL '1 hour', NOW() - INTERVAL '1 hour'),
+
+-- Cancelled Orders (CANCELLED)
+(20, 1, 'ORD-2026-020', 'idemp-mythix-020-vwx', 'CANCELLED', 890.00, 0.00, 0.00, NOW() - INTERVAL '15 days', NOW() - INTERVAL '14 days'),
+(21, 6, 'ORD-2026-021', 'idemp-mythix-021-yz1', 'CANCELLED', 2100.00, 0.00, 0.00, NOW() - INTERVAL '10 days', NOW() - INTERVAL '9 days');
 
 SELECT setval('orders_id_seq', (SELECT MAX(id) FROM orders));
 
--- 8. Insert Order Items (Immutable Purchase Snapshot)
+-- 8. Insert Order Items (Immutable Purchase Snapshots)
 INSERT INTO order_items (id, order_id, local_card_id, seller_id, global_card_id, card_name_snapshot, shop_name_snapshot, price_at_purchase, cost_at_purchase, quantity) VALUES
 (1, 1, 1, 2, 'pop4-4', 'Mew', 'Pewter City Card Vault', 1250.00, 800.00, 1),
 (2, 1, 2, 2, 'neo3-3', 'Celebi', 'Pewter City Card Vault', 450.00, 250.00, 1),
-(3, 2, 7, 2, 'dp1-4', 'Empoleon', 'Pewter City Card Vault', 990.00, 600.00, 1);
+(3, 2, 7, 2, 'dp1-4', 'Empoleon', 'Pewter City Card Vault', 990.00, 600.00, 1),
+(4, 3, 26, 12, 'ex9-5', 'Groudon', 'Cinnabar Volcano TCG', 2393.65, 1500.00, 1),
+(5, 4, 36, 13, 'base1-4', 'Charizard', 'Viridian Syndicate Cards', 31401.65, 22000.00, 1),
+(6, 5, 1, 2, 'pop4-4', 'Mew', 'Pewter City Card Vault', 1250.00, 800.00, 1),
+(7, 6, 23, 12, 'hgss1-7', 'Ninetales', 'Cinnabar Volcano TCG', 1722.70, 1100.00, 1),
+(8, 7, 20, 2, 'pop3-4', 'Minun', 'Pewter City Card Vault', 1603.35, 1000.00, 1),
+(9, 8, 37, 13, 'base6-5', 'Dark Dragonite', 'Viridian Syndicate Cards', 8508.85, 5500.00, 1),
+(10, 9, 21, 12, 'sm75-3', 'Charizard', 'Cinnabar Volcano TCG', 501.90, 300.00, 1),
+(11, 10, 39, 13, 'ex11-6', 'Gardevoir δ', 'Viridian Syndicate Cards', 4260.90, 2800.00, 1),
+(12, 11, 25, 12, 'basep-4', 'Pikachu Promo', 'Cinnabar Volcano TCG', 1463.70, 950.00, 1),
+(13, 12, 38, 13, 'base6-4', 'Dark Blastoise', 'Viridian Syndicate Cards', 5109.65, 3300.00, 1),
+(14, 13, 4, 2, 'sm8-3', 'Scyther', 'Pewter City Card Vault', 2400.00, 1600.00, 1),
+(15, 14, 24, 12, 'dp1-5', 'Infernape', 'Cinnabar Volcano TCG', 980.35, 600.00, 1),
+(16, 15, 44, 13, 'ex13-4', 'Deoxys δ', 'Viridian Syndicate Cards', 2132.20, 1350.00, 1),
+(17, 16, 9, 2, 'neo4-4', 'Dark Espeon', 'Pewter City Card Vault', 1750.00, 1100.00, 1),
+(18, 17, 2, 2, 'neo3-3', 'Celebi', 'Pewter City Card Vault', 450.00, 250.00, 1),
+(19, 18, 42, 13, 'ex7-6', 'Dark Hypno', 'Viridian Syndicate Cards', 2250.15, 1400.00, 1),
+(20, 19, 13, 2, 'ex11-6', 'Gardevoir δ', 'Pewter City Card Vault', 3200.00, 2200.00, 1),
+(21, 20, 18, 2, 'swsh1-4', 'Roserade', 'Pewter City Card Vault', 890.00, 500.00, 1),
+(22, 21, 19, 2, 'bw7-4', 'Bellossom', 'Pewter City Card Vault', 2100.00, 1400.00, 1);
 
 SELECT setval('order_items_id_seq', (SELECT MAX(id) FROM order_items));
 
--- 9. Insert Order Status Logs (Timeline History & Fulfillment Display)
+-- 9. Insert Order Status Logs (Detailed Timeline & Carrier Tracking)
 INSERT INTO order_status_logs (id, order_id, from_status, to_status, changed_by, changed_by_role, note, created_at) VALUES
-(1, 1, NULL, 'PENDING', 1, 'BUYER', 'Created order via Cart Checkout', NOW() - INTERVAL '3 days'),
-(2, 1, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via PromptPay QR THB 1,700.00', NOW() - INTERVAL '3 days' + INTERVAL '3 minutes'),
-(3, 1, 'CONFIRMED', 'FULFILLED', 2, 'SELLER', 'Order shipped via Kerry Express Track: KERRY99887766', NOW() - INTERVAL '1 day'),
-(4, 2, NULL, 'PENDING', 6, 'BUYER', 'Placed order via Direct Buy Now', NOW() - INTERVAL '5 hours'),
-(5, 2, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Credit card transaction authorized THB 990.00', NOW() - INTERVAL '4 hours');
+-- Order 1
+(1, 1, NULL, 'PENDING', 1, 'BUYER', 'Created order via Cart Checkout', NOW() - INTERVAL '22 days'),
+(2, 1, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via PromptPay QR THB 1,700.00', NOW() - INTERVAL '22 days' + INTERVAL '4 minutes'),
+(3, 1, 'CONFIRMED', 'SENT', 2, 'SELLER', 'Dispatched via Kerry Express (Track: KERRY99887766)', NOW() - INTERVAL '21 days'),
+(4, 1, 'SENT', 'FULFILLED', 1, 'BUYER', 'Package received in perfect condition. Completed!', NOW() - INTERVAL '20 days'),
+
+-- Order 2
+(5, 2, NULL, 'PENDING', 6, 'BUYER', 'Placed order via Direct Buy Now', NOW() - INTERVAL '20 days'),
+(6, 2, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Credit card transaction authorized THB 990.00', NOW() - INTERVAL '20 days' + INTERVAL '2 minutes'),
+(7, 2, 'CONFIRMED', 'SENT', 2, 'SELLER', 'Dispatched via Flash Express (Track: FLASH12345678)', NOW() - INTERVAL '19 days'),
+(8, 2, 'SENT', 'FULFILLED', NULL, 'SYSTEM', 'Auto-fulfilled by carrier delivery webhook confirmation', NOW() - INTERVAL '18 days'),
+
+-- Order 3
+(9, 3, NULL, 'PENDING', 16, 'BUYER', 'Created order for Groudon EX', NOW() - INTERVAL '18 days'),
+(10, 3, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via K-Plus Mobile Banking THB 2,393.65', NOW() - INTERVAL '18 days' + INTERVAL '5 minutes'),
+(11, 3, 'CONFIRMED', 'SENT', 12, 'SELLER', 'Dispatched via Thailand Post EMS (Track: ED883920194TH)', NOW() - INTERVAL '17 days'),
+(12, 3, 'SENT', 'FULFILLED', 16, 'BUYER', 'Card received and verified authentic', NOW() - INTERVAL '16 days'),
+
+-- Order 4 (High-value order: Charizard Base Set THB 31,401.65)
+(13, 4, NULL, 'PENDING', 20, 'BUYER', 'Placed VIP order for PSA Grade Charizard', NOW() - INTERVAL '15 days'),
+(14, 4, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Bank Wire Transfer verified by System THB 31,401.65', NOW() - INTERVAL '15 days' + INTERVAL '30 minutes'),
+(15, 4, 'CONFIRMED', 'SENT', 13, 'SELLER', 'Special armored courier dispatched with full insurance (Track: SCG-VIP-9901)', NOW() - INTERVAL '14 days'),
+(16, 4, 'SENT', 'FULFILLED', 20, 'BUYER', 'Received in collector vault. Perfect transaction.', NOW() - INTERVAL '13 days'),
+
+-- Order 11 (SENT)
+(17, 11, NULL, 'PENDING', 16, 'BUYER', 'Checkout Pikachu Promo', NOW() - INTERVAL '3 days'),
+(18, 11, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via PromptPay THB 1,463.70', NOW() - INTERVAL '3 days' + INTERVAL '2 minutes'),
+(19, 11, 'CONFIRMED', 'SENT', 12, 'SELLER', 'Shipped via Kerry Express (Track: KERRY88392011)', NOW() - INTERVAL '1 day'),
+
+-- Order 12 (SENT)
+(20, 12, NULL, 'PENDING', 20, 'BUYER', 'Checkout Dark Blastoise Holo', NOW() - INTERVAL '2 days'),
+(21, 12, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via Credit Card THB 5,109.65', NOW() - INTERVAL '2 days' + INTERVAL '5 minutes'),
+(22, 12, 'CONFIRMED', 'SENT', 13, 'SELLER', 'Shipped via Flash Express (Track: FLASH77261902)', NOW() - INTERVAL '18 hours'),
+
+-- Order 13 (SENT)
+(23, 13, NULL, 'PENDING', 1, 'BUYER', 'Checkout Scyther JP', NOW() - INTERVAL '2 days'),
+(24, 13, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment confirmed via TrueMoney Wallet THB 2,400.00', NOW() - INTERVAL '2 days' + INTERVAL '10 minutes'),
+(25, 13, 'CONFIRMED', 'SENT', 2, 'SELLER', 'Shipped via Thailand Post EMS (Track: EMS-TH88291038)', NOW() - INTERVAL '12 hours'),
+
+-- Order 14 (CONFIRMED)
+(26, 14, NULL, 'PENDING', 17, 'BUYER', 'Direct buy Infernape Holo', NOW() - INTERVAL '1 day'),
+(27, 14, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment received THB 980.35. Awaiting seller packing', NOW() - INTERVAL '8 hours'),
+
+-- Order 15 (CONFIRMED)
+(28, 15, NULL, 'PENDING', 6, 'BUYER', 'Direct buy Deoxys Delta Species', NOW() - INTERVAL '18 hours'),
+(29, 15, 'PENDING', 'CONFIRMED', NULL, 'SYSTEM', 'Payment received THB 2,132.20. Seller notified to fulfill', NOW() - INTERVAL '6 hours'),
+
+-- Order 17 (PENDING)
+(30, 17, NULL, 'PENDING', 18, 'BUYER', 'Order created. Waiting for QR Payment transfer THB 450.00', NOW() - INTERVAL '6 hours'),
+
+-- Order 20 (CANCELLED)
+(31, 20, NULL, 'PENDING', 1, 'BUYER', 'Order created', NOW() - INTERVAL '15 days'),
+(32, 20, 'PENDING', 'CANCELLED', NULL, 'SYSTEM', 'Order expired: Payment not received within 24 hours', NOW() - INTERVAL '14 days'),
+
+-- Order 21 (CANCELLED)
+(33, 21, NULL, 'PENDING', 6, 'BUYER', 'Order created', NOW() - INTERVAL '10 days'),
+(34, 21, 'PENDING', 'CANCELLED', 6, 'BUYER', 'Buyer requested cancellation due to wrong shipping address', NOW() - INTERVAL '9 days');
 
 SELECT setval('order_status_logs_id_seq', (SELECT MAX(id) FROM order_status_logs));
 
--- 10. Insert User Collection Items (Personal Collector Binder)
+-- 10. Insert User Collection Items (Personal Collector Binders & Showcase)
 INSERT INTO collection_items (id, user_id, global_card_id, condition, language, quantity) VALUES
--- Red Champion (Rank #1)
+-- Red Champion (Rank #1 Top Collector)
 (1, 3, 'basep-3', 'NM', 'EN', 2),
 (2, 3, 'sm12-4', 'NM', 'EN', 2),
 (3, 3, 'sm115-6', 'NM', 'EN', 1),
 (4, 3, 'swsh35-5', 'NM', 'EN', 2),
 (5, 3, 'sm9-6', 'LP', 'EN', 10),
+(6, 3, 'base1-4', 'NM', 'EN', 1),
 
--- Cynthia Shirona (Rank #2)
-(6, 4, 'basep-4', 'NM', 'EN', 2),
-(7, 4, 'sm12-4', 'NM', 'EN', 1),
-(8, 4, 'sm115-6', 'NM', 'EN', 1),
-(9, 4, 'swsh35-5', 'NM', 'EN', 1),
-(10, 4, 'sm8-3', 'NM', 'JP', 5),
+-- Cynthia Shirona (Rank #2 Collector)
+(7, 4, 'basep-4', 'NM', 'EN', 2),
+(8, 4, 'sm12-4', 'NM', 'EN', 1),
+(9, 4, 'sm115-6', 'NM', 'EN', 1),
+(10, 4, 'swsh35-5', 'NM', 'EN', 1),
+(11, 4, 'sm8-3', 'NM', 'JP', 5),
+(12, 4, 'base6-5', 'NM', 'EN', 1),
 
--- Steven Stone (Rank #3)
-(11, 5, 'xyp-XY32', 'NM', 'EN', 1),
-(12, 5, 'sm12-4', 'NM', 'EN', 2),
-(13, 5, 'sm115-6', 'NM', 'EN', 1),
-(14, 5, 'pop4-4', 'NM', 'EN', 8),
+-- Steven Stone (Rank #3 Collector)
+(13, 5, 'xyp-XY32', 'NM', 'EN', 1),
+(14, 5, 'sm12-4', 'NM', 'EN', 2),
+(15, 5, 'sm115-6', 'NM', 'EN', 1),
+(16, 5, 'pop4-4', 'NM', 'EN', 8),
+(17, 5, 'ex11-6', 'NM', 'EN', 1),
 
--- Lance Dragon (Rank #4)
-(15, 7, 'basep-3', 'NM', 'EN', 1),
-(16, 7, 'sm12-4', 'NM', 'EN', 2),
-(17, 7, 'neo3-3', 'NM', 'EN', 3),
+-- Lance Dragon (Rank #4 Collector)
+(18, 7, 'basep-3', 'NM', 'EN', 1),
+(19, 7, 'sm12-4', 'NM', 'EN', 2),
+(20, 7, 'neo3-3', 'NM', 'EN', 3),
 
--- Ash Ketchum (Rank #5)
-(18, 1, 'basep-4', 'NM', 'EN', 1),
-(19, 1, 'sm115-6', 'LP', 'EN', 1),
-(20, 1, 'sm9-6', 'LP', 'EN', 15),
+-- Ash Ketchum (Rank #5 Collector)
+(21, 1, 'basep-4', 'NM', 'EN', 1),
+(22, 1, 'sm115-6', 'LP', 'EN', 1),
+(23, 1, 'sm9-6', 'LP', 'EN', 15),
 
--- Gary Oak (Rank #6)
-(21, 6, 'sm115-6', 'NM', 'EN', 1),
-(22, 6, 'swsh35-5', 'NM', 'EN', 1),
-(23, 6, 'sm8-3', 'NM', 'EN', 6);
+-- Gary Oak (Rank #6 Collector)
+(24, 6, 'sm115-6', 'NM', 'EN', 1),
+(25, 6, 'swsh35-5', 'NM', 'EN', 1),
+(26, 6, 'sm8-3', 'NM', 'EN', 6),
+
+-- Leon Champion (VIP Collector)
+(27, 20, 'base1-4', 'NM', 'EN', 1),
+(28, 20, 'base6-4', 'NM', 'EN', 1),
+(29, 20, 'ex9-5', 'NM', 'EN', 1);
 
 SELECT setval('collection_items_id_seq', (SELECT MAX(id) FROM collection_items));

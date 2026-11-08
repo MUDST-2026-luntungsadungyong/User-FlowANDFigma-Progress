@@ -24,31 +24,48 @@ c:\Devops_NEW\
 
 ---
 
-## 📊 2. สรุปข้อมูลตั้งต้นในฐานข้อมูล (Seed Data Revision 5)
+## 📊 2. สรุปข้อมูลตั้งต้นในฐานข้อมูล (Seed Data Revision 6 - Enhanced)
 
 ### 🎴 การ์ด Pokémon กลาง (`global_cards` รวม 2,000 ใบ)
 - ดึงข้อมูลจาก Official Pokémon TCG API โดยตรง (Master Catalog - Ownerless)
 - คละความหายาก: Common, Uncommon, Rare, Rare Holo, Promo, EX, V, VMAX
 - รองรับประเภท: Pokémon, Trainer, Energy
 
-### 👥 บัญชีผู้ใช้ตัวอย่าง (`users` - รหัสผ่าน `password123` ทุกบัญชี)
+### 👥 บัญชีผู้ใช้ตัวอย่าง (`users` 20 บัญชี - รหัสผ่าน `password123` ทุกบัญชี)
 
 | Role | Email | รหัสผ่านจริง | seller_status | คำอธิบาย |
 | :--- | :--- | :--- | :--- | :--- |
-| **Admin** | `admin@mythix.com` | `password123` | `NONE` | Platform Administrator สำหรับตรวจ Audit Log, อนุมัติผู้ขาย, จัดการการ์ด Global |
-| **Seller (อนุมัติแล้ว)** | `seller@mythix.com` | `password123` | `APPROVED` | บัญชีร้านค้า *"Pewter City Card Vault"* (Brock) มีสต๊อกสินค้าลงขายแล้ว 20 รายการ |
-| **Seller (รออนุมัติ KYC)**| `misty@mythix.com` | `password123` | `PENDING` | บัญชีผู้ขายยื่นเอกสารบัตรประชาชนและบัญชีธนาคารแล้ว รอแอดมินกดอนุมัติ |
-| **Buyer (ลูกค้า)** | `buyer@mythix.com` | `password123` | `NONE` | ลูกค้าทั่วไป (Ash Ketchum) มีไอเทมในตะกร้าและประวัติการสั่งซื้อ |
-| **Collector (นักสะสม)**| `red@mythix.com` | `password123` | `NONE` | ผู้ใช้ที่มีการ์ดในแฟ้มสะสมส่วนตัว (`collection_items`) |
+| **Admin** | `admin@mythix.com` | `password123` | `NONE` | Platform Administrator สำหรับตรวจ Audit Log, อนุมัติ/ปฏิเสธ KYC ผู้ขาย, จัดการการ์ด Global |
+| **Seller (อนุมัติแล้ว)** | `seller@mythix.com` | `password123` | `APPROVED` | ร้าน *"Pewter City Card Vault"* (Brock) มีสต๊อกสินค้าลงขาย 20 รายการ |
+| **Seller (อนุมัติแล้ว)** | `blaine@mythix.com` | `password123` | `APPROVED` | ร้าน *"Cinnabar Volcano TCG"* (Blaine) เชี่ยวชาญการ์ดประเภท Fire/EX 15 รายการ |
+| **Seller (อนุมัติแล้ว)** | `giovanni@mythix.com` | `password123` | `APPROVED` | ร้าน *"Viridian Syndicate Cards"* (Giovanni) การ์ด High-End/Vintage 15 รายการ |
+| **Seller (รออนุมัติ KYC)**| `misty@mythix.com` | `password123` | `PENDING` | ร้าน *"Cerulean Water Gym Cards"* (ยื่นเอกสาร 4 วันก่อน รอแอดมินกดอนุมัติ) |
+| **Seller (รออนุมัติ KYC)**| `erika@mythix.com` | `password123` | `PENDING` | ร้าน *"Celadon Flower Garden Cards"* (ยื่นเอกสาร 2 วันก่อน รอแอดมินกดอนุมัติ) |
+| **Seller (รออนุมัติ KYC)**| `sabrina@mythix.com` | `password123` | `PENDING` | ร้าน *"Saffron Psychic Vault"* (ยื่นเอกสาร 1 วันก่อน รอแอดมินกดอนุมัติ) |
+| **Seller (ถูกปฏิเสธ KYC)**| `jessie@mythix.com` | `password123` | `REJECTED` | ร้าน *"Rocket Secret Vault"* (โดน Reject: ภาพบัตรประชาชนไม่ชัดเจน/ชื่อไม่ตรง) |
+| **Seller (ถูกปฏิเสธ KYC)**| `james@mythix.com` | `password123` | `REJECTED` | ร้าน *"Kojiro Luxury Binder"* (โดน Reject: เอกสารหน้าสมุดบัญชีธนาคารไม่สมบูรณ์) |
+| **Buyer / VIP** | `leon@mythix.com` | `password123` | `NONE` | ลูกค้ากระเป๋าหนัก (Leon Champion) ประวัติสั่งซื้อการ์ดระดับ 30,000+ บาท |
+| **Buyer (ลูกค้าประจำ)** | `buyer@mythix.com` | `password123` | `NONE` | ลูกค้าทั่วไป (Ash Ketchum) มีไอเทมในตะกร้าและประวัติการสั่งซื้อ |
+| **Buyer / Collector** | `dawn@mythix.com`, `serena@mythix.com`, `may@mythix.com`, `volkner@mythix.com` | `password123` | `NONE` | ลูกค้าหลากหลายสายสะสม มีคำสั่งซื้อครบทุกสถานะ |
+| **Collector (นักสะสม)**| `red@mythix.com`, `cynthia@mythix.com`, `steven@mythix.com`, `lance@mythix.com`, `gary@mythix.com` | `password123` | `NONE` | ผู้ใช้ที่มีการ์ดในแฟ้มสะสมส่วนตัว (`collection_items`) |
 
-### 🏷️ สินค้าลงขายจริงของร้านค้า (`local_cards` 20 รายการ)
-- สินค้าเป็นกรรมสิทธิ์ของผู้ขาย Brock (`seller_id = 2`) ผูกกับ `global_card_id`
-- ระบุสภาพการ์ดตามมาตรฐาน: `NM` (Near Mint), `LP` (Lightly Played)
-- มีราคากลาง, ราคาขายจริง (`price`), ต้นทุน (`cost`), สต๊อก (`on_hand`), และยอดจอง (`reserved`)
+### 🏷️ สินค้าลงขายจริงของร้านค้า (`local_cards` รวม 50 รายการจาก 3 ร้านค้า)
+- **ร้าน Brock (ID 2):** 20 รายการ (การ์ดทั่วไป, Holo, Promo)
+- **ร้าน Blaine (ID 12):** 15 รายการ (เน้นการ์ด Fire, Charizard, Arcanine)
+- **ร้าน Giovanni (ID 13):** 15 รายการ (การ์ดสะสม High-End เช่น Charizard 1st Ed มูลค่า 31,401.65 บาท, Dark Blastoise, Dark Dragonite)
 
-### 📦 ประวัติคำสั่งซื้อและไทม์ไลน์ (`orders`, `order_items`, `order_status_logs`)
-- มีคำสั่งซื้อตัวอย่าง `ORD-2026-001` (สถานะ `FULFILLED`) และ `ORD-2026-002` (สถานะ `PAID`)
-- มีบันทึก Event Timeline ทุกขั้นตอน พร้อม Tracking Number สำหรับทดสอบแสดงผลบนหน้าเว็บ
+### 📦 ประวัติคำสั่งซื้อและเงินในระบบ (`orders`, `order_items`, `order_status_logs` รวม 21 คำสั่งซื้อ)
+- **ยอดเงินหมุนเวียนรวม (Platform GMV):** กว่า **75,000+ บาท**
+- **ค่าธรรมเนียมแพลตฟอร์ม (Platform Fee 5%):** รวมกว่า **3,700+ บาท**
+- **ยอดเงินสุทธิที่ผู้ขายได้รับ (Seller Net Payout 95%):** รวมกว่า **71,000+ บาท**
+- **สถานะคำสั่งซื้อครอบคลุมทุกวงจร:**
+  - `FULFILLED` (สำเร็จ 10 รายการ)
+  - `SENT` (กำลังจัดส่ง 3 รายการ มี Tracking: Kerry, Flash, EMS)
+  - `CONFIRMED` (ชำระเงินแล้ว รอจัดส่ง 3 รายการ)
+  - `PENDING` (รอชำระเงิน 3 รายการ)
+  - `CANCELLED` (ยกเลิก 2 รายการ จากหมดเวลาชำระเงิน หรือลูกค้ายกเลิก)
+- **บันทึกไทม์ไลน์ Event (34 logs):** แสดงขั้นตอนละเอียดตั้งแต่สร้างออเดอร์, ยืนยันชำระเงิน, เลขพัสดุ, จนถึงลูกค้าได้รับของ
+
 
 ---
 
