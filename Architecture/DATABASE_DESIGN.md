@@ -236,6 +236,7 @@ classDiagram
         +varchar full_name
         +varchar role
         +varchar seller_status
+        +varchar collection_privacy
     }
     class COLLECTION_ITEMS {
         +bigint id [PK]
