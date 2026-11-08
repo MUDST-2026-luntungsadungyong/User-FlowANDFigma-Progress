@@ -145,6 +145,7 @@ docs/CI_CD/
 ---
 
 ## 🌐 เอกสารภาพรวมในระดับ Root CI_CD
+* [🚀 รายงานการปรับปรุงประสิทธิภาพ CI/CD Pipeline & E2E Testing Strategy](../pipeline/README.md) *(Selective Testing, Cypress Parallelization, Merge Queue)*
 * [CI/CD Pipelines Overview](./ci_cd_pipelines_overview.md)
 * [Jenkins CI/CD Comprehensive Guide](./jenkins_cicd_comprehensive_guide.md)
 * [CI/CD Quality Gates Report](./ci_cd_quality_gates_report.md)
