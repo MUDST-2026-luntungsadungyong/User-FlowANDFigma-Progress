@@ -16,7 +16,7 @@
 5. [ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ (Detailed User Stories Feature Checklist)](#5-ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ-detailed-user-stories-feature-checklist)
    - [5.1 กลุ่ม Must-Have: แกนหลักระบบประมูล (US-13, US-18)](#51-กลุ่ม-must-have-แกนหลักระบบประมูล-us-13-us-18)
    - [5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-27)](#52-กลุ่ม-recommended-to-develop-ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์-us-20-us-24-us-27)
-   - [5.3 กลุ่ม Good to Have: วงจรประมูลสดและการส่งมอบ (US-14, US-15, US-16, US-17)](#53-กลุ่ม-good-to-have-วงจรประมูลสดและการส่งมอบ-us-14-us-15-us-16-us-17)
+   - [5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)](#53-กลุ่ม-good-to-have-วงจรประมูลสดและการกำกับดูแล-us-14-us-15-us-16-us-17-us-19)
    - [5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28)](#54-กลุ่ม-deferred--out-of-scope-การตรวจเช็กเทียบสเปก-phase-2-us-21-ถึง-us-28)
 6. [สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก Phase 2 (Deficit Analysis & Action Plan)](#6-สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก-phase-2-deficit-analysis--action-plan)
 
@@ -39,8 +39,8 @@
    - `US-20` (Image Upload Policy & Zoom Magnifier): **ครบถ้วน 100%**
    - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
    - `US-27` (Weekly Stock & Profit Admin Report): **ยังไม่มีในระบบ (0%)**
-3. **กลุ่ม Good-to-Have (US-14, US-15, US-16, US-17): เสร็จ 85% (17/20 ข้อ)**  
-   - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ และโอนการ์ดเข้า Binder ทำงานได้จริง
+3. **กลุ่ม Good-to-Have (US-14, US-15, US-16, US-17, US-19): เสร็จ 85% (20.5/24 ข้อ)**  
+   - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ยกเลิกฉุกเฉินสำหรับแอดมิน (`US-19`) มีหน้าพิจารณาคำขอและ Audit Logs ครบถ้วน
 4. **กลุ่ม Deferred / Extended (US-21 ถึง US-28): ผลการตรวจเช็กเทียบสเปก Phase 2**  
    - `US-25` (1-Click Reorder & PDF Invoice): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (เพิ่ง merge เข้าสู่ `main` ล่าสุด)
    - `US-22` (Collection Privacy & Showcase): **🟢 พัฒนาแล้ว 85%** (มีสวิตช์ Toggle Public/Private, บันทึกฐานข้อมูล V14, บล็อกสิทธิ์ 403, และปุ่มแชร์ URL ครบถ้วน ขาดเฉพาะ Card Comparison Helper)
@@ -66,6 +66,7 @@
 | **US-15** | **Bidding Engine & Proxy Bids**<br>*(เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | ระบบเคาะ Manual, Proxy Bidding บิดสู้แทนอัตโนมัติ, บันไดราคา Dynamic Increment และแจ้งเตือน Outbid |
 | **US-16** | **Fair-Play & Anti-Fraud Controls**<br>*(Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟡 **มีบางส่วน (75%)** | มี Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง, ห้ามถอนบิด แต่ Anti-Sniping ยังไม่ได้ต่อ Trigger ขยายเวลาอัตโนมัติ |
 | **US-17** | **Resolution, Settlement & Ownership**<br>*(ตัดสินผู้ชนะ, ชำระเงิน 48 ชม., โอนเข้า Binder)* | 💡 **GOOD TO HAVE** | 6 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **เกือบครบ (90%)** | มี Daemon ตัดสินผู้ชนะ, เคลียร์ Reserve Not Met, โอนการ์ดเข้า Binder อัตโนมัติ, Second-Chance Offer |
+| **US-19** | **Auction Administration & Dispute Handling**<br>*(มอนิเตอร์สด, สั่งระงับ/ยกเลิกฉุกเฉิน, ตรวจสอบหลักฐาน)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **มีเกือบครบ (85%)** | • `AdminAuctionCancellationsPage.tsx`<br>• `AdminAuctionCancellationController.java`<br>• `AuctionCancellationService.java` (พิจารณาคำขอและตรวจหลักฐานภาพถ่าย)<br>• `AdminAuditLogsController.java` (`audit_logs`) |
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | รวมอยู่ใน US-18 แล้ว | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 2 สั่งให้เก็บค่าตัวกลางใน**ทุกออเดอร์ทั่วไป** (`US-21-1`) และมี **Monthly Dashboard รายเดือน** (`US-21-2`) แต่ระบบปัจจุบันมีเฉพาะของ Auction |
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | 🟢 **พัฒนาแล้วเกือบครบ (85%)** | **มีฟังก์ชันหลักครบ:** สวิตช์ Toggle Public vs Private ใน `/my-collection`, บล็อก 403 Forbidden สำหรับอัลบั้ม Private, และปุ่มแชร์ URL (ขาดเฉพาะ Card Comparison Helper) |
 | `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 กรองได้เฉพาะการ์ดเดี่ยว (Single Cards) แต่**ไม่มีหมวด Booster Pack, Booster Box, Accessories** และไม่มี Dropdown บน Navbar |
@@ -124,7 +125,7 @@
 
 ---
 
-### 5.3 กลุ่ม Good to Have: วงจรประมูลสดและการส่งมอบ (US-14, US-15, US-16, US-17)
+### 5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | สถานะตามสเปก Phase 2 | รายละเอียดการ Implement ในระบบ |
 | :--- | :--- | :---: | :--- |
@@ -134,7 +135,7 @@
 | **US-14-4** | Auction Watchlist & Ending Countdown Alert | 🟢 **ครบถ้วน** | `AuctionWatchlistService.java`, ปุ่มบันทึก Watchlist และแจ้งเตือนก่อนปิดประมูล |
 | **US-14-5** | High-Value & Graded Card Verification Badge Display | 🟢 **ครบถ้วน** | แสดง Badge สถาบันเกรดพร้อมลิงก์ตรวจสอบเลขใบรับรอง (`buildCertificationUrl`) |
 | **US-15-1** | Manual Direct Bidding with Real-Time Validation | 🟢 **ครบถ้วน** | `placeManualBid` ใน `AuctionBidService.java`, บันไดราคา Dynamic Increment Ladder |
-| **US-15-2** | Automated Proxy Bidding Engine (Max Bid) | 🟢 **ครบถ้วน** | `placeProxyBid` ใน `AuctionBidService.java`, เคาะสู้แทนอัตโนมัติตามเพดาน Max Bid |
+| **US-15-2** | Automated Proxy Bidding Engine (Max Bid) | 🟢 **ครบถ้วน** | `placeProxyBid` ใน `AuctionBidService.java`, เเคาะสู้แทนอัตโนมัติตามเพดาน Max Bid |
 | **US-15-3** | Instant Buy-It-Now Purchase Flow | 🟢 **ครบถ้วน** | `executeBuyout`, ปิดห้องประมูลและสร้าง Order ทันที (`BUYOUT_COMPLETED`) |
 | **US-15-4** | Instant Outbid In-App & Push Notification | 🟢 **ครบถ้วน** | `notifyOutbid`, ส่ง In-App Notification แจ้งเตือนผู้ที่โดนเคาะแซงทันที |
 | **US-15-5** | Bid Confirmation Modal & Increment Ladder Helper | 🟢 **ครบถ้วน** | Modal ยืนยันการเคาะราคาและปุ่มลัดสเต็ป (+฿50, +฿100, +฿500) |
@@ -148,6 +149,10 @@
 | **US-17-4** | Automated Card Ownership Transfer into Personal Binder | 🟢 **ครบถ้วน** | `transferAuctionCardToPersonalBinder` โอนการ์ดเข้าอัลบั้มสะสมทันทีเมื่อออเดอร์เสร็จสิ้น |
 | **US-17-5** | Second-Chance Offer for Runner-up Bidders | 🟢 **ครบถ้วน** | `sendSecondChanceOffer`, `respondSecondChanceOffer`, ตาราง `auction_second_chance_offers` |
 | **US-17-6** | Defaulting Bidder Penalty & Cancelled Order Sync | 🟢 **ครบถ้วน** | ยกเลิกออเดอร์และคืนสิทธิ์การขายให้ผู้ขายเมื่อผู้ชนะไม่ติดต่อ |
+| **US-19-1** | Platform Admin Live Auction Monitoring Console | 🟡 **มีโครงสร้าง (75%)** | มี Admin Console แสดงรายการประมูลทั้งหมดและสถานะ แต่ยังไม่มีห้องแยกเฉพาะดู WebSocket Live Feed ทุกห้องพร้อมกัน |
+| **US-19-2** | Emergency Auction Pause & Force-Cancellation Review | 🟢 **ครบถ้วน** | `AdminAuctionCancellationsPage.tsx`, `AdminAuctionCancellationController.java`, ตรวจสอบภาพถ่ายหลักฐานผู้ขายและอนุมัติ/ปฏิเสธคำขอยกเลิก |
+| **US-19-3** | Auction Dispute Resolution Center (Counterfeit/Damage) | 🟡 **มีบางส่วน (75%)** | มีกระบวนการส่งหลักฐานและพิจารณายกเลิกกรณีสินค้าชำรุดเสียหายผ่าน Cancellation Request แต่ยังไม่มีเมนู Dispute Resolution Center แยกเฉพาะต่างหาก |
+| **US-19-4** | Immutable Security Audit Trail for Auction Actions | 🟢 **ครบถ้วน** | `AdminAuditLogsController.java`, `AuditLog.java`, ตาราง `audit_logs` บันทึกประวัติ Action, Timestamp, IP Address, Admin ID โดยห้ามลบ/แก้ไข |
 
 ---
 

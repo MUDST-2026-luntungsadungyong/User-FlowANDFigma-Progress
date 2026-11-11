@@ -18,7 +18,7 @@
    - [หมวด US-20: ระบบรูปภาพและเกณฑ์การบังคับใส่ภาพถ่ายจริง (Card Image Upload Policy & Criteria Gate)](#หมวด-us-20-ระบบรูปภาพและเกณฑ์การบังคับใส่ภาพถ่ายจริง-card-image-upload-policy--criteria-gate)
    - [หมวด US-24: ระบบโปรโมชันและโค้ดส่วนลด (Promotions & Discount Codes Engine)](#หมวด-us-24-ระบบโปรโมชันและโค้ดส่วนลด-promotions--discount-codes-engine)
    - [หมวด US-27: รายงานสรุปสต๊อกและกำไรรายสัปดาห์สำหรับแอดมิน (Weekly Stock & Profit Admin Report)](#หมวด-us-27-รายงานสรุปสต๊อกและกำไรรายสัปดาห์สำหรับแอดมิน-weekly-stock--profit-admin-report)
-5. [สรุปสาระสำคัญ: กลุ่ม Good to Have — วงจรการประมูลและการส่งมอบ (US-14, US-15, US-16, US-17)](#5-สรุปสาระสำคัญ-กลุ่ม-good-to-have--วงจรการประมูลและการส่งมอบ-us-14-us-15-us-16-us-17)
+5. [สรุปสาระสำคัญ: กลุ่ม Good to Have — วงจรการประมูลและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)](#5-สรุปสาระสำคัญ-กลุ่ม-good-to-have--วงจรการประมูลและการกำกับดูแล-us-14-us-15-us-16-us-17-us-19)
 6. [รายการฟีเจอร์ที่ข้ามไปก่อน (Deferred / Out of Scope)](#6-รายการฟีเจอร์ที่ข้ามไปก่อน-deferred--out-of-scope)
 7. [สถาปัตยกรรมฐานข้อมูลที่ต้องเพิ่มใน Phase 2 (Target Database Schema Extension)](#7-สถาปัตยกรรมฐานข้อมูลที่ต้องเพิ่มใน-phase-2-target-database-schema-extension)
 8. [แผนงานการพัฒนาและการแบ่ง Sprint (Sprint Delivery Roadmap)](#8-แผนงานการพัฒนาและการแบ่ง-sprint-sprint-delivery-roadmap)
@@ -31,7 +31,7 @@
 
 1. **แกนหลักที่ขาดไม่ได้ (Must-Have):** ได้แก่ **US-13** (การสร้างและตั้งค่าการประมูล) และ **US-18** (การเงิน สถิติ และค่าธรรมเนียมการประมูล) ซึ่งเป็นหัวใจสำคัญทางธุรกิจของการประมูลการ์ด
 2. **ฟีเจอร์ที่อาจารย์แนะนำให้พัฒนาเพิ่ม (Recommended to Develop):** ได้แก่ **US-20** (เกณฑ์การบังคับรูปถ่ายจริงตามมูลค่า/สภาพการ์ด), **US-24** (ระบบโค้ดส่วนลด/โปรโมชัน), และ **US-27** (รายงานสรุปสต๊อกและกำไรประจำสัปดาห์สำหรับแอดมิน) เพื่อยกระดับความสมบูรณ์ของระบบ e-Commerce และเพิ่มคะแนนประเมิน
-3. **ฟีเจอร์สนับสนุนที่ควรทำหากมีเวลาพอ (Good to Have):** ได้แก่ **US-14, US-15, US-16, US-17** ซึ่งเป็นระบบห้องประมูลสด กลไกการเคาะราคา Anti-Sniping และการปิดออเดอร์โอนเข้า Personal Binder
+3. **ฟีเจอร์สนับสนุนที่ควรทำหากมีเวลาพอ (Good to Have):** ได้แก่ **US-14, US-15, US-16, US-17, US-19** ซึ่งเป็นระบบห้องประมูลสด กลไกการเคาะราคา Anti-Sniping การปิดออเดอร์โอนเข้า Personal Binder และการกำกับดูแล/ยกเลิกฉุกเฉินสำหรับแอดมิน
 4. **ฟีเจอร์ที่ข้ามไปก่อน (Deferred / Out of Scope):** ข้ออื่นๆ ในหมวด US-20 ถึง US-28 (`US-21, US-22, US-23, US-25, US-26, US-28`) ให้ตัดออกหรือยกยอดไปก่อน เพื่อควบคุมขนาดของงานและส่งมอบได้ทันกำหนด
 
 ---
@@ -49,6 +49,7 @@
 | **US-15** | **Bidding Engine & Proxy Bids** (เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid) | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** |
 | **US-16** | **Fair-Play & Anti-Fraud Controls** (Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา) | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** |
 | **US-17** | **Resolution, Settlement & Ownership** (ตัดสินผู้ชนะ, ชำระเงิน 48 ชม., โอนเข้า Binder) | 💡 **GOOD TO HAVE** | 6 ข้อ | **Sprint 2 (Priority 2)** |
+| **US-19** | **Auction Administration & Dispute Handling** (มอนิเตอร์สด, สั่งระงับ/ยกเลิกฉุกเฉิน, ตรวจสอบหลักฐาน) | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** |
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | รวมอยู่ใน US-18 แล้ว |
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | Phase 1 มี US-10-6 แล้ว |
 | `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | ใช้ตัวกรองเดิม US-02-1 |
@@ -250,9 +251,9 @@
 
 ---
 
-## 5. สรุปสาระสำคัญ: กลุ่ม Good to Have — วงจรการประมูลและการส่งมอบ (US-14, US-15, US-16, US-17)
+## 5. สรุปสาระสำคัญ: กลุ่ม Good to Have — วงจรการประมูลและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)
 
-กลุ่มนี้เป็นฟีเจอร์สำหรับรองรับประสบการณ์การประมูลสดแบบเต็มรูปแบบ หากมีเวลาพัฒนาเพิ่มเติมใน Sprint 2:
+กลุ่มนี้เป็นฟีเจอร์สำหรับรองรับประสบการณ์การประมูลสดแบบเต็มรูปแบบ และการกำกับดูแลความโปร่งใสของแอดมิน หากมีเวลาพัฒนาเพิ่มเติมใน Sprint 2:
 
 * **หมวด US-14: Auction Discovery & Live Arena (การสืบค้นและห้องประมูลสด)**
   * `US-14-1`: หน้ารวมประมูล กรองการ์ด และแท็บด่วน (Ending Soon, Hot Bids, Buy-It-Now)
@@ -278,6 +279,11 @@
   * `US-17-4`: โอนการ์ดเข้าอัลบั้มสะสมดิจิทัล (Personal Binder) ของผู้ซื้ออัตโนมัติเมื่อส่งมอบสำเร็จ
   * `US-17-5`: ระบบยื่นข้อเสนอให้อันดับสอง (Second-Chance Offer) หากผู้ชนะอันดับหนึ่งเบี้ยว
   * `US-17-6`: บทลงโทษตัดสิทธิ์ผู้ชนะที่ไม่ยอมจ่ายเงิน (Defaulting Penalty)
+* **หมวด US-19: Auction Administration & Dispute Handling (การกำกับดูแลและระงับข้อพิพาท)**
+  * `US-19-1`: หน้าคอนโซลมอนิเตอร์การประมูลสดสำหรับผู้ดูแลระบบ (Platform Admin Live Auction Monitoring Console)
+  * `US-19-2`: การระงับหรือยกเลิกการประมูลฉุกเฉินพร้อมตรวจสอบหลักฐาน (Emergency Auction Pause & Force-Cancellation Review)
+  * `US-19-3`: ศูนย์ระงับข้อพิพาทการประมูลกรณีสินค้าชำรุดหรือไม่ตรงปก (Auction Dispute Resolution Center)
+  * `US-19-4`: บันทึกประวัติการตรวจสอบความปลอดภัยย้อนกลับไม่ได้ (Immutable Security Audit Trail for Auction Actions)
 
 ---
 
@@ -393,7 +399,7 @@ gantt
     section Sprint 2: Recommended & Good-to-Have
     US-24: Promotions & Promo Code Engine     :s2_1, 2026-11-15, 5d
     US-27: Weekly Admin Governance Report     :s2_2, 2026-11-18, 4d
-    US-14 to US-17: Auction Live Arena (Good-to-Have):s2_3, 2026-11-17, 8d
+    US-14 to US-19: Auction Live Arena & Admin Governance (Good-to-Have):s2_3, 2026-11-17, 8d
     Testing, Integration & Defense Preparation:s2_4, 2026-11-23, 4d
 ```
 
