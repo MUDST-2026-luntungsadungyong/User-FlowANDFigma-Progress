@@ -41,13 +41,13 @@
    - `US-27` (Weekly Stock & Profit Admin Report): **ยังไม่มีในระบบ (0%)**
 3. **กลุ่ม Good-to-Have (US-14, US-15, US-16, US-17): เสร็จ 85% (17/20 ข้อ)**  
    - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ และโอนการ์ดเข้า Binder ทำงานได้จริง
-4. **กลุ่ม Deferred / Extended (US-21, US-22, US-23, US-25, US-26, US-28): เมื่อยึดตามสเปก Phase 2 พบว่า "ยังไม่ครบเกือบทั้งหมด"**  
-   - `US-21`: **ยังไม่ครบ** (ขาดค่าธรรมเนียมคำสั่งซื้อทั่วไป และขาด Monthly Dashboard/CSV ของผู้ขาย)
-   - `US-22`: **ยังไม่ครบ** (ขาดปุ่ม Toggle Public/Private ใน My Collection และขาด Card Comparison Helper)
-   - `US-23`: **ยังไม่ครบ** (กรองได้แค่การ์ดเดี่ยว ขาดหมวด Booster Pack, Box และ Accessories)
-   - `US-25`: **ยังไม่ครบ** (ดูได้แค่ประวัติ ขาด 1-Click Reorder และขาด PDF Invoice Export)
-   - `US-26`: **ยังไม่มี** (ขาด Low/Out of Stock Alert และ Prediction)
-   - `US-28`: **มีเฉพาะค้นหาภาษาไทย (US-28-2)** แต่ *ยังขาด Typo Fuzzy Search (US-28-1)*
+4. **กลุ่ม Deferred / Extended (US-21 ถึง US-28): ผลการตรวจเช็กเทียบสเปก Phase 2**  
+   - `US-25` (1-Click Reorder & PDF Invoice): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (เพิ่ง merge เข้าสู่ `main` ล่าสุด)
+   - `US-22` (Collection Privacy & Showcase): **🟢 พัฒนาแล้ว 85%** (มีสวิตช์ Toggle Public/Private, บันทึกฐานข้อมูล V14, บล็อกสิทธิ์ 403, และปุ่มแชร์ URL ครบถ้วน ขาดเฉพาะ Card Comparison Helper)
+   - `US-28` (Multilingual Search): **🟡 พัฒนาแล้ว 50%** (มีระบบค้นหาการ์ดภาษาไทย TH Search ในฐานข้อมูล V19 แต่ขาด Typo-Tolerant Search)
+   - `US-21`: **❌ ยังไม่ครบ** (ขาดค่าธรรมเนียมคำสั่งซื้อทั่วไป และขาด Monthly Dashboard/CSV ของผู้ขาย)
+   - `US-23`: **❌ ยังไม่ครบ** (กรองได้แค่การ์ดเดี่ยว ขาดหมวด Booster Pack, Box และ Accessories)
+   - `US-26`: **🔴 ยังไม่มีในระบบ** (ขาด Low/Out of Stock Alert และ Prediction ตามที่ตัดออกจาก Scope)
 
 ---
 
@@ -67,7 +67,7 @@
 | **US-16** | **Fair-Play & Anti-Fraud Controls**<br>*(Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟡 **มีบางส่วน (75%)** | มี Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง, ห้ามถอนบิด แต่ Anti-Sniping ยังไม่ได้ต่อ Trigger ขยายเวลาอัตโนมัติ |
 | **US-17** | **Resolution, Settlement & Ownership**<br>*(ตัดสินผู้ชนะ, ชำระเงิน 48 ชม., โอนเข้า Binder)* | 💡 **GOOD TO HAVE** | 6 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **เกือบครบ (90%)** | มี Daemon ตัดสินผู้ชนะ, เคลียร์ Reserve Not Met, โอนการ์ดเข้า Binder อัตโนมัติ, Second-Chance Offer |
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | รวมอยู่ใน US-18 แล้ว | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 2 สั่งให้เก็บค่าตัวกลางใน**ทุกออเดอร์ทั่วไป** (`US-21-1`) และมี **Monthly Dashboard รายเดือน** (`US-21-2`) แต่ระบบปัจจุบันมีเฉพาะของ Auction |
-| `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 มีแค่หน้าส่องการ์ดคนอื่น แต่**ไม่มีปุ่ม Toggle Public/Private** (`US-22-1`) และ**ไม่มีฟังก์ชัน Card Comparison Helper** (`US-22-2`) |
+| `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | 🟢 **พัฒนาแล้วเกือบครบ (85%)** | **มีฟังก์ชันหลักครบ:** สวิตช์ Toggle Public vs Private ใน `/my-collection`, บล็อก 403 Forbidden สำหรับอัลบั้ม Private, และปุ่มแชร์ URL (ขาดเฉพาะ Card Comparison Helper) |
 | `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 กรองได้เฉพาะการ์ดเดี่ยว (Single Cards) แต่**ไม่มีหมวด Booster Pack, Booster Box, Accessories** และไม่มี Dropdown บน Navbar |
 | `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** `1-Click Reorder` (`POST /api/orders/{id}/reorder`), `Download PDF Invoice` (`GET /api/orders/{id}/invoice-pdf`), และ `OrderDetailPage.tsx` |
 | `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | 🔴 **ยังไม่มีในระบบ (0%)** | ไม่มีทั้ง Low/Out of Stock Alert, ปุ่ม Notify Me When Available และสูตรพยากรณ์ Restock |
@@ -83,8 +83,8 @@
 | :---: | :--- | :--- | :---: | :--- |
 | **US-21-1** | หักค่าตัวกลางจากทุกออเดอร์ปกติ (`/api/platform/fee-policy`), แสดงในหน้า Checkout และสรุปบัญชีกลาง | Phase 1 เป็นระบบ Contact Handoff ฟรี ไม่มีการหักค่าธรรมเนียมในคำสั่งซื้อปกติ | ❌ **ยังไม่ครบ** | ระบบคิดค่าธรรมเนียมเฉพาะระบบประมูล (Auction) แต่ยังไม่มีในออเดอร์ซื้อตรงทั่วไป |
 | **US-21-2** | เมนู Seller Dashboard มีแท็บดูยอดขายรายเดือน พร้อม Dropdown เลือกเดือน/ปี, กราฟ 12 เดือน และปุ่ม Export CSV | Phase 1 มีแดชบอร์ดสรุปยอดขายสะสมรวมแบบตลอดกาล ไม่มีการจัดกลุ่มรายเดือน | ❌ **ยังไม่ครบ** | ขาดตัวเลือกฟิลเตอร์ปฏิทินรายเดือน, ขาดกราฟ 12 เดือนย้อนหลัง และขาดปุ่มดาวน์โหลด CSV |
-| **US-22-1** | ปุ่มสวิตช์ Toggle Public vs. Private ใน `/my-collection`, ถ้า Private ต้องซ่อนจาก Leaderboard และบล็อก URL สาธารณะ (HTTP 403) | Phase 1 เก็บการ์ดเข้าอัลบั้มและแสดงใน Leaderboard เสมอ ไม่สามารถตั้งค่าปิดบังได้ | ❌ **ยังไม่ครบ** | ขาดฟิลด์ `is_private` ในฐานข้อมูล, ขาดสวิตช์ในหน้าเว็บ และขาด Logic บล็อกสิทธิ์เข้าชม |
-| **US-22-2** | หน้าชมคอลเลกชันคนอื่น พร้อมฟังก์ชัน **Card Comparison Helper** (ป้ายบอกว่าคุณมีแล้วกี่ใบ/ยังไม่มี) และปุ่มแชร์ลิงก์ | Phase 1 มีหน้า `/collections/:userId` แสดงการ์ดของผู้อื่น | ❌ **ยังไม่ครบ** | ขาดระบบ Comparison Helper ที่เปรียบเทียบการ์ดคนอื่นกับการ์ดตนเอง และขาดปุ่มคัดลอกแชร์ URL |
+| **US-22-1** | ปุ่มสวิตช์ Toggle Public vs. Private ใน `/my-collection`, ถ้า Private ต้องซ่อนจาก Leaderboard และบล็อก URL สาธารณะ (HTTP 403) | พัฒนาครบถ้วนใน Phase 2 (`V14__add_collection_privacy_to_users.sql`, `CollectionController.java`, `MyCollectionPage.tsx`) | 🟢 **มีตามสเปก** | มีสวิตช์สลับสถานะในหน้า My Collection, บันทึกฟิลด์ `collection_privacy` และบล็อกผู้เยี่ยมชมด้วยหน้าจอ Private (403) |
+| **US-22-2** | หน้าชมคอลเลกชันคนอื่น พร้อมฟังก์ชัน **Card Comparison Helper** (ป้ายบอกว่าคุณมีแล้วกี่ใบ/ยังไม่มี) และปุ่มแชร์ลิงก์ | มีหน้า `/collections/:userId`, กรองการ์ด, และปุ่มคัดลอกแชร์ URL ใน `PublicCollectionPage.tsx` | 🟡 **มีบางส่วน (80%)** | หน้า Showcase แสดงข้อมูลครบถ้วนพร้อมปุ่มแชร์ ขาดเพียงป้ายเปรียบเทียบสดว่าคุณครอบครองการ์ดใบนี้แล้วกี่ใบ |
 | **US-23-1** | สถาปัตยกรรม 4 หมวดหมู่ (Single Cards, Booster Packs, Booster Boxes, Accessories) พร้อม Dropdown บน Navbar และตัวกรอง Dynamic | Phase 1 เป็นแคตตาล็อกการ์ดเดี่ยว (Single Cards) เท่านั้น มีตัวกรองสภาพและราคา | ❌ **ยังไม่ครบ** | ขาดหมวดหมู่กล่อง ซอง และอุปกรณ์สะสม, ขาด Dropdown บน Navbar และ API หมวดหมู่แยก |
 | **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | พัฒนาใน Phase 2 เรียบร้อย (`CartService.java`, `OrderDetailPage.tsx`) | 🟢 **มีตามสเปก** | รองรับการตรวจสอบสต๊อกคงเหลือและดึงการ์ดเดิมเข้าตะกร้าพร้อมสั่งซื้อใหม่ |
 | **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | พัฒนาใน Phase 2 เรียบร้อย (`InvoicePdfService.java`, `BuyerOrderController.java`) | 🟢 **มีตามสเปก** | รองรับการดาวน์โหลดไฟล์ PDF ใบเสร็จสั่งซื้อที่มี QR Code ผ่าน API |
@@ -157,8 +157,8 @@
 | :---: | :--- | :--- | :---: |
 | **US-21-1** | Platform Fee ในทุกออเดอร์ปกติ | มีเฉพาะใน Auction ขาดใน Marketplace ทั่วไป | ❌ **ยังไม่ครบ** |
 | **US-21-2** | Monthly Sales Dashboard & CSV Export | ขาดตัวเลือกฟิลเตอร์รายเดือน และขาด Export CSV | ❌ **ยังไม่ครบ** |
-| **US-22-1** | Collection Privacy Toggle (Public vs Private) | ไม่มีสวิตช์ Toggle และไม่มีการล็อก 403 Forbidden | ❌ **ยังไม่ครบ** |
-| **US-22-2** | Community Showcase + Comparison Helper | มีหน้าดูการ์ดคนอื่น แต่ไม่มี Card Comparison Helper | ❌ **ยังไม่ครบ** |
+| **US-22-1** | Collection Privacy Toggle (Public vs Private) | `GET/PUT /api/collection/privacy`, `MyCollectionPage.tsx`, บล็อก 403 Forbidden เมื่อ Private | 🟢 **ครบถ้วน** |
+| **US-22-2** | Community Showcase + Comparison Helper | หน้า `/collections/:userId`, สถิติ, ปุ่มแชร์ URL มีครบ (ขาด Card Comparison Helper) | 🟡 **มีบางส่วน (80%)** |
 | **US-23-1** | Categories (Booster Pack, Box, Accessories) | มีแค่ Single Card ขาดกล่อง ซอง และอุปกรณ์เสริม | ❌ **ยังไม่ครบ** |
 | **US-25-1** | 1-Click Fast Reorder Flow | `POST /api/orders/{id}/reorder`, `CartService.java`, `OrderDetailPage.tsx` | 🟢 **ครบถ้วน** |
 | **US-25-2** | Print Order Summary as PDF | `GET /api/orders/{id}/invoice-pdf`, `InvoicePdfService.java` รองรับ QR Code และดาวน์โหลด PDF | 🟢 **ครบถ้วน** |
@@ -182,7 +182,7 @@
    - ต้องสร้างหน้า UI ในส่วนแอดมินสำหรับสร้างโค้ดคูปอง กำหนดประเภทส่วนลด วันหมดอายุ และโควตาสิทธิ์ใช้งาน
 
 ### 🟡 ระดับส่วนขยาย (หากต้องการเก็บตกกลุ่ม Deferred ให้ครบตามสเปก Phase 2):
-1. **US-22 (Collection Privacy & Comparison):** เพิ่มสวิตช์ Toggle Public/Private ใน `/my-collection` และทำป้าย Card Comparison Helper ในหน้า Showcase
+1. **US-22-2 (Card Comparison Helper):** เพิ่มป้ายเปรียบเทียบสดว่าผู้เข้าชมครอบครองการ์ดใบนี้ในอัลบั้มของตนเองแล้วกี่ใบ ในหน้า Community Showcase (`/collections/:userId`)
 2. **US-28-1 (Typo Tolerance):** เสริม PostgreSQL `pg_trgm` ในระบบค้นหาเพื่อรองรับการพิมพ์คำสะกดผิด
 3. **US-21 (Marketplace Escrow Fee):** นำระบบคิดค่าธรรมเนียมจาก Auction ไปประยุกต์ใช้กับคำสั่งซื้อ Direct Sale ทั่วไป
 
