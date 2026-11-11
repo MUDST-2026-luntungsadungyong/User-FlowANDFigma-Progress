@@ -69,7 +69,7 @@
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | รวมอยู่ใน US-18 แล้ว | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 2 สั่งให้เก็บค่าตัวกลางใน**ทุกออเดอร์ทั่วไป** (`US-21-1`) และมี **Monthly Dashboard รายเดือน** (`US-21-2`) แต่ระบบปัจจุบันมีเฉพาะของ Auction |
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 มีแค่หน้าส่องการ์ดคนอื่น แต่**ไม่มีปุ่ม Toggle Public/Private** (`US-22-1`) และ**ไม่มีฟังก์ชัน Card Comparison Helper** (`US-22-2`) |
 | `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 กรองได้เฉพาะการ์ดเดี่ยว (Single Cards) แต่**ไม่มีหมวด Booster Pack, Booster Box, Accessories** และไม่มี Dropdown บน Navbar |
-| `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 มีแค่ดูประวัติคำสั่งซื้อ แต่**ไม่มีปุ่ม 1-Click Reorder** (`US-25-1`) และ**ไม่มีปุ่มดาวน์โหลด PDF Invoice** (`US-25-2`) |
+| `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** `1-Click Reorder` (`POST /api/orders/{id}/reorder`), `Download PDF Invoice` (`GET /api/orders/{id}/invoice-pdf`), และ `OrderDetailPage.tsx` |
 | `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | 🔴 **ยังไม่มีในระบบ (0%)** | ไม่มีทั้ง Low/Out of Stock Alert, ปุ่ม Notify Me When Available และสูตรพยากรณ์ Restock |
 | `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | โบนัสเสริม ยกยอดไว้ก่อน | 🟡 **มีเฉพาะภาษาไทย (50%)** | **มีเฉพาะ US-28-2:** ค้นหาภาษาไทยผ่าน `card_search_names` (V19) แต่**ยังขาด Typo-Tolerant Fuzzy Search (US-28-1)** |
 
@@ -86,8 +86,8 @@
 | **US-22-1** | ปุ่มสวิตช์ Toggle Public vs. Private ใน `/my-collection`, ถ้า Private ต้องซ่อนจาก Leaderboard และบล็อก URL สาธารณะ (HTTP 403) | Phase 1 เก็บการ์ดเข้าอัลบั้มและแสดงใน Leaderboard เสมอ ไม่สามารถตั้งค่าปิดบังได้ | ❌ **ยังไม่ครบ** | ขาดฟิลด์ `is_private` ในฐานข้อมูล, ขาดสวิตช์ในหน้าเว็บ และขาด Logic บล็อกสิทธิ์เข้าชม |
 | **US-22-2** | หน้าชมคอลเลกชันคนอื่น พร้อมฟังก์ชัน **Card Comparison Helper** (ป้ายบอกว่าคุณมีแล้วกี่ใบ/ยังไม่มี) และปุ่มแชร์ลิงก์ | Phase 1 มีหน้า `/collections/:userId` แสดงการ์ดของผู้อื่น | ❌ **ยังไม่ครบ** | ขาดระบบ Comparison Helper ที่เปรียบเทียบการ์ดคนอื่นกับการ์ดตนเอง และขาดปุ่มคัดลอกแชร์ URL |
 | **US-23-1** | สถาปัตยกรรม 4 หมวดหมู่ (Single Cards, Booster Packs, Booster Boxes, Accessories) พร้อม Dropdown บน Navbar และตัวกรอง Dynamic | Phase 1 เป็นแคตตาล็อกการ์ดเดี่ยว (Single Cards) เท่านั้น มีตัวกรองสภาพและราคา | ❌ **ยังไม่ครบ** | ขาดหมวดหมู่กล่อง ซอง และอุปกรณ์สะสม, ขาด Dropdown บน Navbar และ API หมวดหมู่แยก |
-| **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | Phase 1 มีหน้าดูประวัติคำสั่งซื้อ (`/profile/orders`) | ❌ **ยังไม่ครบ** | ขาดปุ่มสั่งซื้อซ้ำ, ขาดระบบตรวจสอบสต๊อกอัตโนมัติ และขาด API `POST /api/orders/{id}/reorder` |
-| **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | Phase 1 แสดงรายละเอียดคำสั่งซื้อเป็น HTML ธรรมดาบนหน้าเว็บ | ❌ **ยังไม่ครบ** | ขาด Template PDF, ขาดไลบรารีสร้าง PDF และขาด API `GET /api/orders/{id}/invoice-pdf` |
+| **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | พัฒนาใน Phase 2 เรียบร้อย (`CartService.java`, `OrderDetailPage.tsx`) | 🟢 **มีตามสเปก** | รองรับการตรวจสอบสต๊อกคงเหลือและดึงการ์ดเดิมเข้าตะกร้าพร้อมสั่งซื้อใหม่ |
+| **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | พัฒนาใน Phase 2 เรียบร้อย (`InvoicePdfService.java`, `BuyerOrderController.java`) | 🟢 **มีตามสเปก** | รองรับการดาวน์โหลดไฟล์ PDF ใบเสร็จสั่งซื้อที่มี QR Code ผ่าน API |
 | **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | ❌ **ยังไม่มี** | ขาดระบบสมัครรับแจ้งเตือนสินค้ากลับมา (Back-in-stock Subscription) ทั้ง Frontend/Backend |
 | **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | ❌ **ยังไม่มี** | ขาดสูตรคำนวณและหน้า Dashboard แสดงป้ายเตือนการเติมสต๊อก |
 | **US-28-1** | Typo-Tolerant Search ค้นหาคำสะกดผิด เช่น `"pokamon"` แล้วแสดงผลของ `"pokemon"` พร้อมข้อความแนะนำ | Phase 1 ใช้การค้นหาแบบ `ILIKE` ตรงตัวอักษร หากสะกดผิดจะไม่พบผลลัพธ์ | ❌ **ยังไม่ครบ** | ขาด Fuzzy Search Engine (Trigram / Levenshtein Distance) |
@@ -160,8 +160,8 @@
 | **US-22-1** | Collection Privacy Toggle (Public vs Private) | ไม่มีสวิตช์ Toggle และไม่มีการล็อก 403 Forbidden | ❌ **ยังไม่ครบ** |
 | **US-22-2** | Community Showcase + Comparison Helper | มีหน้าดูการ์ดคนอื่น แต่ไม่มี Card Comparison Helper | ❌ **ยังไม่ครบ** |
 | **US-23-1** | Categories (Booster Pack, Box, Accessories) | มีแค่ Single Card ขาดกล่อง ซอง และอุปกรณ์เสริม | ❌ **ยังไม่ครบ** |
-| **US-25-1** | 1-Click Fast Reorder Flow | มีแค่ดูประวัติคำสั่งซื้อ ขาดปุ่มสั่งซื้อซ้ำ | ❌ **ยังไม่ครบ** |
-| **US-25-2** | Print Order Summary as PDF | ขาด Template PDF และปุ่มดาวน์โหลดใบเสร็จ | ❌ **ยังไม่ครบ** |
+| **US-25-1** | 1-Click Fast Reorder Flow | `POST /api/orders/{id}/reorder`, `CartService.java`, `OrderDetailPage.tsx` | 🟢 **ครบถ้วน** |
+| **US-25-2** | Print Order Summary as PDF | `GET /api/orders/{id}/invoice-pdf`, `InvoicePdfService.java` รองรับ QR Code และดาวน์โหลด PDF | 🟢 **ครบถ้วน** |
 | **US-26-1** | Out of Stock & Back-in-Stock Alert | ไม่มีทั้งฝั่งเตือนผู้ขาย และฝั่ง Notify Me ผู้ซื้อ | 🔴 **ยังไม่มี (0%)** |
 | **US-26-2** | Smart Restock Prediction based on Trends | ไม่มีสูตรพยากรณ์และหน้าวิเคราะห์แนวโน้ม | 🔴 **ยังไม่มี (0%)** |
 | **US-28-1** | Typo-Tolerant Search (Fuzzy Matching) | ค้นหาแบบ `ILIKE` ตรงตัว ขาด Fuzzy String Matching | ❌ **ยังไม่ครบ** |
@@ -183,9 +183,8 @@
 
 ### 🟡 ระดับส่วนขยาย (หากต้องการเก็บตกกลุ่ม Deferred ให้ครบตามสเปก Phase 2):
 1. **US-22 (Collection Privacy & Comparison):** เพิ่มสวิตช์ Toggle Public/Private ใน `/my-collection` และทำป้าย Card Comparison Helper ในหน้า Showcase
-2. **US-25 (Reorder & PDF Invoice):** เพิ่มปุ่ม Reorder เช็กสต๊อกลงตะกร้า และสร้างเอกสารสรุป PDF จากออเดอร์
-3. **US-28-1 (Typo Tolerance):** เสริม PostgreSQL `pg_trgm` ในระบบค้นหาเพื่อรองรับการพิมพ์คำสะกดผิด
-4. **US-21 (Marketplace Escrow Fee):** นำระบบคิดค่าธรรมเนียมจาก Auction ไปประยุกต์ใช้กับคำสั่งซื้อ Direct Sale ทั่วไป
+2. **US-28-1 (Typo Tolerance):** เสริม PostgreSQL `pg_trgm` ในระบบค้นหาเพื่อรองรับการพิมพ์คำสะกดผิด
+3. **US-21 (Marketplace Escrow Fee):** นำระบบคิดค่าธรรมเนียมจาก Auction ไปประยุกต์ใช้กับคำสั่งซื้อ Direct Sale ทั่วไป
 
 ---
 > 📌 *เอกสารฉบับนี้จัดทำขึ้นโดยยึดตามข้อกำหนด User Stories Phase 2 อย่างเคร่งครัด เพื่อใช้เป็นเกณฑ์ตัดสินความสมบูรณ์ของโครงงานก่อนการประเมินผล*
