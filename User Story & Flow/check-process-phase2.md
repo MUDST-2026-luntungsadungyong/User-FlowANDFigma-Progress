@@ -4,7 +4,7 @@
 > **Repository:** `User-FlowANDFigma-Progress`  
 > **Directory:** `/User Story & Flow/check-process-phase2.md`  
 > **Target Branch:** `main`  
-> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (09:30 น.)  
+> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (11:45 น.)  
 
 ---
 
@@ -37,12 +37,12 @@
 
 1. **กลุ่ม Must-Have (US-13, US-18): เสร็จสมบูรณ์ 100% (8/8 ข้อ)**  
    - ระบบประมูลครบวงจร: สร้างห้อง, ตั้งเวลา, Reserve Price, Buy-It-Now, แดชบอร์ดผู้ขาย, การหัก Commission และพอร์ตประมูลของผู้ซื้อ
-2. **กลุ่ม Recommended to Develop (US-20, US-24, US-27): เสร็จ 60% (3/5 ข้อ)**  
+2. **กลุ่ม Recommended to Develop (US-20, US-24, US-27): เสร็จ ~90% (4.5/5 ข้อ)**  
    - `US-20` (Image Upload Policy & Zoom Magnifier): **ครบถ้วน 100%**
-   - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
-   - `US-27` (Weekly Stock & Profit Admin Report): **ยังไม่มีในระบบ (0%)**
-3. **กลุ่ม Good-to-Have (US-14, US-15, US-17, US-19): เสร็จเกือบสมบูรณ์ ~98% (19.5/20 ข้อ)**  
-   - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ยกเลิกฉุกเฉินสำหรับแอดมิน (`US-19`) มีหน้าพิจารณาคำขอและ Audit Logs ครบถ้วน
+   - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout (70%)** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
+   - `US-27` (Weekly Stock & Profit Admin Report): **🟢 พัฒนาฝั่ง Frontend ครบถ้วน 100% บน `main` (พร้อม Cypress E2E) / Backend พัฒนาครบแล้วใน Branch `fix/weekly-admin-reports`** มีหน้า `AdminWeeklyReportsPage.tsx`, Service `weeklyReports.ts`, กราฟสรุปรายสัปดาห์, การ์ด Top Revenue/Top Profit, ตาราง Stagnant Inventory (ค้างสต๊อกเกิน 60 วัน) และปุ่ม Export CSV
+3. **กลุ่ม Good-to-Have (US-14, US-15, US-17, US-19): เสร็จสมบูรณ์ 100% (20/20 ข้อ)**  
+   - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ระงับฉุกเฉิน/จัดการข้อพิพาทสำหรับแอดมิน (`US-19`) **ครบถ้วน 100%** บน `main` (มี `AdminAuctionMonitorPage.tsx` สำหรับมอนิเตอร์กระดานประมูลสด, `AdminAuctionDisputesPage.tsx` & `ParticipantDisputesPage.tsx` สำหรับ Dispute Resolution Center ตรวจสอบสินค้าชำรุด/ของปลอม, `AuctionDisputeService.java`, `AuctionDisputeController.java`, ตาราง `auction_disputes`, `auction_emergency_controls` (V22) และ Audit Trail (V23))
    - *(หมายเหตุ: `US-16` ถูกตัดออกจาก Scope ตามมติกลุ่มเพื่อบริหารเวลาอย่างมีประสิทธิภาพ)*
 4. **กลุ่ม Deferred / Extended (US-21, US-22, US-25, US-28): ผลการตรวจเช็กเทียบสเปก Phase 2**  
    - `US-21` (Middleman Escrow Fee & Monthly Dashboard): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (เพิ่ง merge เข้าสู่ `main` ล่าสุด — รองรับค่าธรรมเนียม Direct-Sale Checkout, ตารางนโยบาย `platform_fee_policy` (V21), แดชบอร์ดรายเดือน กราฟ 12 เดือน และปุ่ม Export CSV)
@@ -53,8 +53,10 @@
    - `US-16` (Fair-Play & Anti-Fraud Controls): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงเหลือเฉพาะตรรกะพื้นฐานเดิม เช่น Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง และห้ามถอนบิด)
    - `US-23` (Product Categories & Advanced Filtering): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลา และระบบปัจจุบันรองรับการค้นหาและกรองการ์ดเดี่ยว (Single Cards) ได้อย่างสมบูรณ์แล้ว
    - `US-26` (Out of Stock Alert & Smart Restock Prediction): **⚪ ตัดออกจาก Scope** เนื่องจากความซับซ้อนของโมเดลพยากรณ์และข้อจำกัดด้านเวลา จัดเป็นฟีเจอร์นอกขอบเขตหลัก
-6. **กลุ่มระบบแจ้งเตือนหลายช่องทาง (US-29 Multi-Channel In-App & Email Notification):**  
-   - กำหนดแผนผังสเปกการแจ้งเตือน 16 เหตุการณ์สำคัญครอบคลุมการซื้อขาย (Order Confirmation, Shipping Tracking, Cancellation), การประมูล (Outbid, Auction Won, Settlement, Dispute Decision), และการอนุมัติร้านค้า (Seller Verification) เรียบร้อยแล้ว (สเปกพร้อม 100%)
+6. **กลุ่มระบบแจ้งเตือนหลายช่องทาง (US-29 Multi-Channel In-App & Email Notification): 🟢 โครงสร้าง Backend Outbox & Frontend พร้อมทำงาน**  
+   - Backend มีโครงสร้างสถาปัตยกรรม Transactional Outbox Pattern (`NotificationEmailDeliveryWorker.java`, `NotificationEmailService.java`, `notification_email_outbox` table V25/V28, และ `spring-boot-starter-mail`)
+   - รองรับการส่งอีเมลครอบคลุมเหตุการณ์หลักตามสเปก 16 ข้อ (คำสั่งซื้อใหม่, ยกเลิกออเดอร์, แจ้งจัดส่งพร้อมเลขพัสดุและไฟล์แนบ PDF, ผลอนุมัติผู้ขาย, ผลการประมูล, การถูกเคาะแซง, เตือนผู้ชนะชำระเงิน, และผลตัดสินข้อพิพาท)
+   - รองรับข้อมูลการจัดส่งและเลขพัสดุ (`tracking_number`, `shipping_carrier` V26) พร้อมหน้าตรวจยืนยันออเดอร์สาธารณะ (`OrderVerificationPage.tsx`) และระบบรีเซ็ตรหัสผ่านผ่านอีเมล (`ResetPasswordPage.tsx`, V29)
 
 ---
 
@@ -68,19 +70,19 @@
 | **US-18** | **Auction Analytics & Financials**<br>*(คำนวณค่าธรรมเนียม, สถิติกำไรผู้ขาย/ผู้ซื้อ)* | ⭐ **MUST HAVE** | 3 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | มี Seller Analytics, Commission Deduction Policy และ Buyer Portfolio |
 | **US-20** | **Card Image Upload Policy & Criteria Gate**<br>*(เกณฑ์บังคับรูปจริง vs ตัวเลือกเสริม + แว่นขยาย)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | เกณฑ์ Mandatory/Optional ตรวจสอบเรียลไทม์ และแว่นขยาย Hover Zoom 2.5x ในหน้ารายละเอียดการ์ด |
 | **US-24** | **Promotions & Discount Codes Engine**<br>*(ระบบคูปองและโค้ดส่วนลด Checkout)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🟡 **มีบางส่วน (70%)** | ใช้งานใน Checkout ได้จริง (`US-24-1`) แต่**ยังขาดหน้า Admin จัดการแคมเปญ (`US-24-2`)** |
-| **US-27** | **Weekly Stock & Profit Admin Report**<br>*(รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์)* | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** | 🔴 **ยังไม่มี (0%)** | **ยังไม่มีในระบบ** ไม่มี Scheduled Sunday Cron, รายงาน Stagnant 60 วัน และปุ่ม Export |
+| **US-27** | **Weekly Stock & Profit Admin Report**<br>*(รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์)* | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **Frontend ครบ 100% บน main / Backend พร้อมใน branch** | Frontend มีหน้า `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, กราฟสรุป, ตารางสินค้าค้างสต๊อก 60 วัน, ปุ่มดาวน์โหลด CSV และ Cypress E2E `07_weekly_reports.cy.ts` / Backend โค้ดเสร็จสมบูรณ์ใน `fix/weekly-admin-reports` รอ Merge |
 | **US-14** | **Auction Discovery & Live Arena**<br>*(หน้ารวมประมูล, WebSocket Room, Watchlist)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | หน้ารวมประมูลพร้อมแท็บด่วน, ห้องประมูลสด WebSocket, Mask Identity, Watchlist และ Badge การ์ดเกรด |
 | **US-15** | **Bidding Engine & Proxy Bids**<br>*(เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | ระบบเคาะ Manual, Proxy Bidding บิดสู้แทนอัตโนมัติ, บันไดราคา Dynamic Increment และแจ้งเตือน Outbid |
 | **US-16** | **Fair-Play & Anti-Fraud Controls**<br>*(Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา)* | ⚪ **OUT OF SCOPE**<br>*(ตัดออกจาก Scope)* | 4 ข้อ | **Sprint 2 (De-scoped)** | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** เนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงตรรกะพื้นฐานเดิม เช่น ห้ามเคาะการ์ดตัวเองและห้ามถอนบิด แต่ตัด Dynamic Anti-Sniping และ Deposit Hold ออก) |
 | **US-17** | **Resolution, Settlement & Ownership**<br>*(ตัดสินผู้ชนะ, ชำระเงิน 48 ชม., โอนเข้า Binder)* | 💡 **GOOD TO HAVE** | 6 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | มี Daemon ตัดสินผู้ชนะ, เคลียร์ Reserve Not Met, โอนการ์ดเข้า Binder อัตโนมัติ, Second-Chance Offer, และระบบลงโทษ Defaulting Bidder (`DefaultCasesPage.tsx`) |
-| **US-19** | **Auction Administration & Dispute Handling**<br>*(มอนิเตอร์สด, สั่งระงับ/ยกเลิกฉุกเฉิน, ตรวจสอบหลักฐาน)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **มีเกือบครบ (85%)** | • `AdminAuctionCancellationsPage.tsx`<br>• `AdminAuctionCancellationController.java`<br>• `AuctionCancellationService.java` (พิจารณาคำขอและตรวจหลักฐานภาพถ่าย)<br>• `AdminAuditLogsController.java` (`audit_logs`) |
+| **US-19** | **Auction Administration & Dispute Handling**<br>*(มอนิเตอร์สด, สั่งระงับ/ยกเลิกฉุกเฉิน, ตรวจสอบหลักฐาน)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | • Live Monitor Console (`AdminAuctionMonitorPage.tsx`)<br>• Emergency Controls & Audit (`V22`, `V23`)<br>• Dispute Resolution Center (`AdminAuctionDisputesPage.tsx`, `ParticipantDisputesPage.tsx`, `AuctionDisputeService.java`, `V27`)<br>• Cancellation & Security Audit Trail (`AdminAuditLogsController.java`) |
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | รวมอยู่ใน US-18 แล้ว | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** หัก Platform Fee ในคำสั่งซื้อทั่วไป (`GET /api/platform/fee-policy`), ตาราง `platform_fee_policy` (V21), หน้า Checkout แสดงค่าธรรมเนียม และ Seller Orders มี Monthly Dashboard พร้อมกราฟ 12 เดือน และ Export CSV |
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** สวิตช์ Toggle Public vs Private ใน `/my-collection` (`/collection`), บล็อก 403 Forbidden สำหรับอัลบั้ม Private, ปุ่มแชร์ URL, ตัวกรองชุดการ์ด, Secret Rare/Badges และ Card Comparison Helper (`/api/public/collections/{userId}/compare`) |
 | `US-23` | *Product Categories & Advanced Filtering* | ⚪ *OUT OF SCOPE (ตัดออก)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันรองรับเฉพาะแคตตาล็อกการ์ดเดี่ยว (Single Cards) ตามเดิม และตัดการขยายหมวด Booster Pack, Box, Accessories ออกเนื่องจากข้อจำกัดด้านเวลา |
 | `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** `1-Click Reorder` (`POST /api/orders/{id}/reorder`), `Download PDF Invoice` (`GET /api/orders/{id}/invoice-pdf`), และ `OrderDetailPage.tsx` |
 | `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⚪ *OUT OF SCOPE (ตัดออก)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันตัดระบบแจ้งเตือนสินค้ากลับมาและ AI Restock Prediction ออกอย่างเป็นทางการ เนื่องจากข้อจำกัดด้านเวลาและความซับซ้อนอยู่นอกขอบเขต |
 | `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | โบนัสเสริม ยกยอดไว้ก่อน | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบทั้งสองข้อย่อย:**<br>• `US-28-1`: Typo-Tolerant Fuzzy Search (Levenshtein Distance <= 2, แนะนำ Did-you-mean ใน CardDiscoveryPage และ API `/api/cards/search`)<br>• `US-28-2`: ค้นหาภาษาไทยผ่าน `card_search_names` (V19) + Hybrid Search (ไทย + เลขการ์ด) |
-| **US-29** | **Multi-Channel Email & In-App Alerts**<br>*(แผนผังแจ้งเตือน 16 เหตุการณ์สำคัญ)* | 🚀 **RECOMMENDED** | 3 ข้อ | **Sprint 2 (Priority 1)** | 🟡 **วางแผนสเปกครบ 16 รายการ** | มีตารางข้อกำหนด 16 เหตุการณ์ (Orders, Shipping with Tracking, Outbid, Auction Won, Dispute Decision, Seller KYC) ครบถ้วนตามแผนผังการแจ้งเตือน |
+| **US-29** | **Multi-Channel Email & In-App Alerts**<br>*(ระบบแจ้งเตือน 16 เหตุการณ์สำคัญ)* | 🚀 **RECOMMENDED** | 3 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **Backend Outbox & Frontend พร้อมทำงาน** | มีโครงสร้าง Transactional Outbox Worker (`NotificationEmailDeliveryWorker.java`, `NotificationEmailService.java`, V25/V28) เชื่อมต่ออีเมล 12 เหตุการณ์, รองรับแนบ PDF ใบเสร็จ, เลขพัสดุ Tracking V26, หน้ายืนยันออเดอร์ (`OrderVerificationPage.tsx`) และ Reset Password (V29) |
 
 ---
 
@@ -129,7 +131,7 @@
 | **US-20-2** | High-Resolution Card Gallery with Zoom Magnifier | 🟢 **ครบถ้วน** | `CardPhotoMagnifierViewer.tsx`, `CardDetailPage.tsx` แท็บสลับ Official vs Actual Photos พร้อม Hover ซูม 2.5x |
 | **US-24-1** | Promo Code / Voucher Application at Checkout | 🟢 **ครบถ้วน** | `VoucherController.java` (`/api/vouchers/validate`), `CheckoutVoucherModal.tsx`, หักส่วนลดจาก Subtotal ก่อนสั่งซื้อ |
 | **US-24-2** | Admin Promo Campaign Management | 🟡 **มีบางส่วน (ขาด UI)** | มีตาราง `vouchers` (Flyway V13) และ Seed ในฐานข้อมูล แต่**ยังไม่มีหน้าเว็บ Admin UI สำหรับสร้างโค้ดใหม่** |
-| **US-27-1** | Automated Weekly Stock & Profit Platform Governance Report | 🔴 **ยังไม่มี (0%)** | **ยังไม่มีในระบบ** ขาด Scheduled Sunday Cron, รายงาน Stagnant 60 วัน และปุ่ม Export สรุปประจำสัปดาห์ |
+| **US-27-1** | Automated Weekly Stock & Profit Platform Governance Report | 🟢 **Frontend ครบ / Backend พร้อม Merge** | • Frontend: `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, `AdminWeeklyReportsPage.test.tsx`, Cypress E2E `07_weekly_reports.cy.ts` (สรุป Stock Added/Removed, Sold Units, Inventory Value, Top Revenue/Profit, Stagnant Inventory > 60 วัน, Export CSV)<br>• Backend: พร้อมสมบูรณ์ใน `fix/weekly-admin-reports` (`WeeklyReportScheduler.java`, `AdminWeeklyReportController.java`, `WeeklyReportService.java`, `WeeklyReportCsv.java`) |
 
 ---
 
@@ -157,9 +159,9 @@
 | **US-17-4** | Automated Card Ownership Transfer into Personal Binder | 🟢 **ครบถ้วน** | `transferAuctionCardToPersonalBinder` โอนการ์ดเข้าอัลบั้มสะสมทันทีเมื่อออเดอร์เสร็จสิ้น |
 | **US-17-5** | Second-Chance Offer for Runner-up Bidders | 🟢 **ครบถ้วน** | `sendSecondChanceOffer`, `respondSecondChanceOffer`, ตาราง `auction_second_chance_offers` |
 | **US-17-6** | Defaulting Bidder Penalty & Cancelled Order Sync | 🟢 **ครบถ้วน** | `AuctionDefaultCaseService.java`, `DefaultCasesPage.tsx`, `/api/admin/auctions/default-cases` แบนผู้ใช้เบี้ยวประมูล และซิงก์ยกเลิกออเดอร์ |
-| **US-19-1** | Platform Admin Live Auction Monitoring Console | 🟡 **มีโครงสร้าง (75%)** | มี Admin Console แสดงรายการประมูลทั้งหมดและสถานะ แต่ยังไม่มีห้องแยกเฉพาะดู WebSocket Live Feed ทุกห้องพร้อมกัน |
+| **US-19-1** | Platform Admin Live Auction Monitoring Console | 🟢 **ครบถ้วน** | `AdminAuctionMonitorPage.tsx`, `AdminAuctionController.java`, `AdminAuctionService.java`, Flyway V22 (`V22__auction_emergency_controls.sql`) แสดงกระดานมอนิเตอร์ห้องประมูลสด พร้อมสถานะ Bids, Active Lots, และคำสั่ง Pause/Resume/Cancel ฉุกเฉิน |
 | **US-19-2** | Emergency Auction Pause & Force-Cancellation Review | 🟢 **ครบถ้วน** | `AdminAuctionCancellationsPage.tsx`, `AdminAuctionCancellationController.java`, ตรวจสอบภาพถ่ายหลักฐานผู้ขายและอนุมัติ/ปฏิเสธคำขอยกเลิก |
-| **US-19-3** | Auction Dispute Resolution Center (Counterfeit/Damage) | 🟡 **มีบางส่วน (75%)** | มีกระบวนการส่งหลักฐานและพิจารณายกเลิกกรณีสินค้าชำรุดเสียหายผ่าน Cancellation Request แต่ยังไม่มีเมนู Dispute Resolution Center แยกเฉพาะต่างหาก |
+| **US-19-3** | Auction Dispute Resolution Center (Counterfeit/Damage) | 🟢 **ครบถ้วน** | `AdminAuctionDisputesPage.tsx`, `ParticipantDisputesPage.tsx`, `OpenAuctionDispute.tsx`, `AuctionDisputeService.java`, `AuctionDisputeController.java`, Flyway V27 (`V27__auction_dispute_notification_types.sql`) เมนู Dispute Resolution Center แยกเฉพาะ รองรับการเปิดเคสพิพาท แนบหลักฐานภาพถ่าย และการตัดสินชี้ขาด |
 | **US-19-4** | Immutable Security Audit Trail for Auction Actions | 🟢 **ครบถ้วน** | `AdminAuditLogsController.java`, `AuditLog.java`, ตาราง `audit_logs` บันทึกประวัติ Action, Timestamp, IP Address, Admin ID โดยห้ามลบ/แก้ไข |
 
 ---
@@ -186,42 +188,43 @@
 
 | ที่ | เหตุการณ์ (Event) | ผู้รับ (Recipient) | ในเว็บตอนนี้ | แผนในเว็บ | แผนอีเมล | สถานะปัจจุบัน |
 | :---: | :--- | :--- | :--- | :--- | :--- | :---: |
-| **1** | ผู้ซื้อสั่งซื้อ/จองสำเร็จ | ผู้ซื้อ (Buyer) | ไม่มี | เพิ่มใบยืนยันคำสั่งซื้อ | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **2** | มีคำสั่งซื้อใหม่ | ผู้ขายแต่ละรายในออเดอร์ (Sellers) | มี | ใช้ต่อและลิงก์ไปออเดอร์ | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **3** | ผู้ขายยืนยันคำสั่งซื้อ | ผู้ซื้อ (Buyer) | ไม่มี | เพิ่มการแจ้งเตือนในระบบ | **ยังไม่ส่ง** | 🟡 **วางแผนสเปกครบ** (เพิ่ม In-App) |
-| **4** | ผู้ซื้อยกเลิกคำสั่งซื้อ | ผู้ขาย (Seller) | ไม่มี | เพิ่มการแจ้งเตือนในระบบ | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **5** | ผู้ขายยกเลิกคำสั่งซื้อ | ผู้ซื้อ (Buyer) | ไม่มี | เพิ่มการแจ้งเตือน พร้อมระบุเหตุผล | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **6** | ผู้ขายทำเครื่องหมายว่าส่งของแล้ว | ผู้ซื้อ (Buyer) | มี แต่ข้อความยังไม่มีเลขพัสดุ | เพิ่มข้อมูลจัดส่ง/เลขพัสดุ | **ส่ง พร้อมเลขพัสดุ** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **7** | ผู้ซื้อยืนยันว่าได้รับของ | ผู้ขาย (Seller) | ไม่มี | เพิ่มการแจ้งเตือนในระบบ | **ยังไม่ส่ง** | 🟡 **วางแผนสเปกครบ** (เพิ่ม In-App) |
-| **8** | แอดมินตัดสินกรณีจัดส่งของออเดอร์ประมูล | ผู้ซื้อและผู้ขายที่เกี่ยวข้อง | ไม่มีในเส้นทางสถานะออเดอร์ | เพิ่มผลตัดสินในเส้นทางออเดอร์ | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **9** | สมัครเป็นผู้ขาย | แอดมิน (Platform Admin) | มี | ใช้ต่อ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (Admin Queue) |
-| **10** | อนุมัติ/ปฏิเสธผู้ขาย | ผู้สมัคร (Applicant) | มี | ใช้ต่อ | **ส่งผลการพิจารณา** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **11** | ขอเลิกประมูล/แอดมินตัดสิน | แอดมิน/ผู้ขาย | มี | ใช้ต่อ | **ส่งผลตัดสินให้ผู้ขาย** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **12** | ถูกเสนอราคาสูงกว่า (Outbid) | ผู้ประมูลเดิม | มี | ใช้ต่อ | **ส่ง หากยังมีเวลาเสนอราคา** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **13** | ชนะการประมูล (Auction Won) | ผู้ชนะ (Winner) | มี | ใช้ต่อ | **ส่ง** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **14** | ประมูลจบ (Auction Ended) | ผู้ขาย (Seller) | มี | ใช้ต่อ | **ส่งเมื่อมีผู้ชนะและต้องดำเนินการ** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
-| **15** | รายการที่ติดตามใกล้จบ | ผู้ติดตาม (Watchers) | มี | ใช้ต่อ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (In-App Watchlist Alert) |
-| **16** | ผู้ชนะไม่ดำเนินการ / ได้สิทธิ์ซื้อเป็นลำดับถัดไป | ผู้เกี่ยวข้อง / ผู้ได้รับสิทธิ์ | มี | ใช้ต่อ | **ส่ง เพราะมีเวลาจำกัด** | 🟡 **วางแผนสเปกครบ** (รอเชื่อม Mail Service) |
+| **1** | ผู้ซื้อสั่งซื้อ/จองสำเร็จ | ผู้ซื้อ (Buyer) | มีใบยืนยันคำสั่งซื้อ (`OrderConfirmationModal`, `OrderDetailPage`) | ปรับปรุงหน้ายืนยันคำสั่งซื้อ | **ส่ง** (`ORDER_PLACED_BUYER` / `ORDER_RESERVED`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **2** | มีคำสั่งซื้อใหม่ | ผู้ขายแต่ละรายในออเดอร์ (Sellers) | มี In-App Notification และลิงก์ไปจัดการออเดอร์ `/workspace/orders` | ใช้ต่อและลิงก์ไปออเดอร์ | **ส่ง** (`ORDER_RESERVED`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **3** | ผู้ขายยืนยันคำสั่งซื้อ | ผู้ซื้อ (Buyer) | มีการปรับเปลี่ยนสถานะคำสั่งซื้อในระบบ | อัปเดตสถานะในระบบ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (In-App Status Update) |
+| **4** | ผู้ซื้อยกเลิกคำสั่งซื้อ | ผู้ขาย (Seller) | มีการแจ้งเตือนในระบบ | เพิ่มการแจ้งเตือนในระบบ | **ส่ง** (`ORDER_CANCELLED_SELLER`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **5** | ผู้ขายยกเลิกคำสั่งซื้อ | ผู้ซื้อ (Buyer) | มีการแจ้งเตือนพร้อมระบุเหตุผล | เพิ่มการแจ้งเตือน พร้อมระบุเหตุผล | **ส่ง** (`ORDER_CANCELLED_BUYER`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **6** | ผู้ขายทำเครื่องหมายว่าส่งของแล้ว | ผู้ซื้อ (Buyer) | มีข้อมูลจัดส่ง เลขพัสดุ และชื่อขนส่ง (`tracking_number`, `shipping_carrier` V26) + หน้า `OrderVerificationPage.tsx` | ข้อมูลจัดส่งพร้อมเลขพัสดุและ QR Code | **ส่ง พร้อมเลขพัสดุและไฟล์แนบ PDF** (`ORDER_SENT_BUYER`, V28) | 🟢 **พัฒนาแล้ว** (In-App Tracking + Email Outbox พร้อม PDF) |
+| **7** | ผู้ซื้อยืนยันว่าได้รับของ | ผู้ขาย (Seller) | มีการปรับสถานะคำสั่งซื้อเป็นเสร็จสิ้น | อัปเดตสถานะในระบบ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (In-App Status Update) |
+| **8** | แอดมินตัดสินกรณีจัดส่งของออเดอร์ประมูล | ผู้ซื้อและผู้ขายที่เกี่ยวข้อง | มีผลตัดสินในหน้า Dispute Resolution Center (`AdminAuctionDisputesPage.tsx`, `ParticipantDisputesPage.tsx`) | เพิ่มผลตัดสินในเส้นทางออเดอร์ | **ส่ง** (`AUCTION_DISPUTE_DECIDED`, V27) | 🟢 **พัฒนาแล้ว** (Dispute Center + Email Outbox) |
+| **9** | สมัครเป็นผู้ขาย | แอดมิน (Platform Admin) | มีคำขอใน Admin Verification Queue | ใช้ต่อ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (Admin Verification Queue) |
+| **10** | อนุมัติ/ปฏิเสธผู้ขาย | ผู้สมัคร (Applicant) | มี In-App แจ้งเตือนสถานะการอนุมัติ | ใช้ต่อ | **ส่งผลการพิจารณา** (`SELLER_APPLICATION_APPROVED`, `REJECTED`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **11** | ขอเลิกประมูล/แอดมินตัดสิน | แอดมิน/ผู้ขาย | มีในระบบพิจารณาคำขอ (`AdminAuctionCancellationsPage.tsx`) | ใช้ต่อ | **ส่งผลตัดสินให้ผู้ขาย** (`AUCTION_CANCELLATION_DECIDED`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **12** | ถูกเสนอราคาสูงกว่า (Outbid) | ผู้ประมูลเดิม | มี Real-time WebSocket + In-App แจ้งเตือน | ใช้ต่อ | **ส่ง หากยังมีเวลาเสนอราคา** (`AUCTION_OUTBID`) | 🟢 **พัฒนาแล้ว** (In-App WebSocket + Email Outbox) |
+| **13** | ชนะการประมูล (Auction Won) | ผู้ชนะ (Winner) | มี In-App แจ้งเตือนพร้อมปุ่มไปชำระเงิน | ใช้ต่อ | **ส่ง** (`AUCTION_WON`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **14** | ประมูลจบ (Auction Ended) | ผู้ขาย (Seller) | มี In-App แจ้งเตือนผลการประมูล | ใช้ต่อ | **ส่งเมื่อมีผู้ชนะและต้องดำเนินการ** (`AUCTION_ENDED_SELLER`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
+| **15** | รายการที่ติดตามใกล้จบ | ผู้ติดตาม (Watchers) | มี In-App Watchlist Alert เตือนก่อนปิดประมูล | ใช้ต่อ | **ยังไม่ส่ง** | 🟢 **มีในระบบแล้ว** (In-App Watchlist Service) |
+| **16** | ผู้ชนะไม่ดำเนินการ / ได้สิทธิ์ซื้อเป็นลำดับถัดไป | ผู้เกี่ยวข้อง / ผู้ได้รับสิทธิ์ | มี In-App แจ้งเตือนข้อเสนอสำรอง (`DefaultCasesPage.tsx`) | ใช้ต่อ | **ส่ง เพราะมีเวลาจำกัด** (`AUCTION_DEFAULTED_WARNING`, `AUCTION_SECOND_CHANCE`) | 🟢 **พัฒนาแล้ว** (In-App + Email Outbox) |
 
 ---
 
 ## 6. สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก Phase 2 (Deficit Analysis & Action Plan)
 
-เมื่อยึดข้อกำหนดของ Phase 2 เป็นเกณฑ์หลัก รายการฟีเจอร์ที่ระบบของเรายังขาดและต้องพัฒนาเพิ่มเติมแบ่งเป็น 2 ลำดับความสำคัญ:
+เมื่อยึดข้อกำหนดของ Phase 2 เป็นเกณฑ์หลัก รายการฟีเจอร์ที่ระบบของเรายังขาดและสิ่งที่ต้องดำเนินการเพิ่มเติม มีดังนี้:
 
-### 🔴 ระดับวิกฤต (สิ่งที่อยู่ใน Scope หลักของ Phase 2 แต่ยังค้างอยู่):
-1. **US-27-1 (Admin Weekly Governance Report):**  
-   - ต้องเขียน Spring `@Scheduled` Job สรุปยอดทุกคืนวันอาทิตย์ (23:59 UTC)
-   - ต้องสร้างตารางเก็บรายงานสรุปมูลค่าสต๊อก, ค่าธรรมเนียม, การ์ดขายดี, และการ์ดค้างสต๊อกเกิน 60 วัน (Stagnant Inventory)
-   - ต้องทำหน้า Admin UI และปุ่ม Export ไฟล์
-2. **US-24-2 (Admin Promo Campaign Manager):**  
-   - ต้องสร้างหน้า UI ในส่วนแอดมินสำหรับสร้างโค้ดคูปอง กำหนดประเภทส่วนลด วันหมดอายุ และโควตาสิทธิ์ใช้งาน
-3. **US-29 (Multi-Channel In-App & Email System):**
-   - เชื่อมต่อระบบส่งอีเมล (Spring Boot Starter Mail / SMTP) สำหรับ 12 เหตุการณ์สำคัญตามสเปก
-   - พัฒนากล่อง In-App Notifications เพิ่มเติมสำหรับ 4 เหตุการณ์บนหน้าเว็บ
+### 🔴 ระดับสิ่งที่ยังค้างอยู่จริงใน Scope หลักของ Phase 2:
+1. **US-24-2 (Admin Promo Campaign Manager UI):**  
+   - มีฐานข้อมูล `vouchers` (Flyway V13) และ API ตรวจสอบโค้ดแล้ว แต่**ยังขาดหน้าเว็บ Admin UI สำหรับสร้าง แก้ไข และปิดการใช้งานแคมเปญคูปอง**
+2. **US-27-1 Backend Main Integration:**  
+   - โค้ด Backend สรุปยอดอัตโนมัติ (`WeeklyReportScheduler.java`), API (`AdminWeeklyReportController.java`) และ Export CSV (`WeeklyReportCsv.java`) พัฒนาเสร็จสมบูรณ์แล้วใน Branch `fix/weekly-admin-reports` **รอการ Merge เข้าสู่ Branch `main` ของ Backend** (Frontend บน `main` มีหน้า `AdminWeeklyReportsPage.tsx` และ Cypress E2E รองรับเรียบร้อยแล้ว)
+3. **US-29 Production Mail Relay Deployment:**  
+   - ระบบ Transactional Outbox Worker (`NotificationEmailDeliveryWorker.java`) และ Template อีเมล 12 เหตุการณ์พัฒนาและผ่านการทดสอบแล้ว เหลือเพียงการตั้งค่า Environment Variable สำหรับ SMTP Relay จริง (`SPRING_MAIL_HOST`, `SPRING_MAIL_USERNAME`, `SPRING_MAIL_PASSWORD`) บนเครื่อง Server ปลายทาง
 
-### 🟡 ระดับส่วนขยาย (หากต้องการเก็บตกกลุ่ม Deferred ให้ครบตามสเปก Phase 2):
-1. **US-28-1 (Typo Tolerance):** ✅ **พัฒนาเสร็จสมบูรณ์แล้ว** (ใช้ Levenshtein Distance Algorithm ใน Java Service รองรับทั้ง Postgres และ H2 In-Memory พร้อม Did-you-mean Banner ใน Frontend)
+### 🟢 รายการที่พัฒนาเสร็จสมบูรณ์เพิ่มเติมแล้ว (Recently Completed):
+1. **US-19 (Auction Administration & Dispute Handling):** ✅ **ครบถ้วน 100%** (มีทั้งกระดาน Live Monitor `AdminAuctionMonitorPage.tsx`, ศูนย์จัดการข้อพิพาท `AdminAuctionDisputesPage.tsx`, และ Security Audit Trail ครบครัน)
+2. **US-28-1 & US-28-2 (Typo Tolerance & Thai Search):** ✅ **ครบถ้วน 100%** (ค้นหาคำสะกดผิด Levenshtein Distance <= 2, แนะนำคำค้น, และค้นหาการ์ดภาษาไทย)
+3. **US-21 (Platform Fee & Monthly Dashboard):** ✅ **ครบถ้วน 100%** (หักค่าตัวกลางคำสั่งซื้อทั่วไป และแดชบอร์ดรายรับ 12 เดือนของผู้ขาย)
+4. **US-22 (Collection Privacy & Showcase):** ✅ **ครบถ้วน 100%** (สวิตช์ Toggle Public/Private, บล็อก 403, และ Card Comparison Helper)
+5. **US-25 (1-Click Reorder & PDF Invoice):** ✅ **ครบถ้วน 100%** (สั่งซื้อซ้ำใน 1 คลิก และดาวน์โหลดใบเสร็จ PDF พร้อม QR Code)
 
 ### ⚪ รายการที่ตัดออกจาก Scope ตามมติกลุ่มอย่างเป็นทางการ (De-scoped Features):
 1. **US-16 (Fair-Play & Anti-Fraud Controls):**  
@@ -239,7 +242,8 @@
 
 ### 7.1 Cypress End-to-End (E2E) Tests ฝั่ง Frontend
 | ชุดทดสอบ (Spec File) | ขอบเขต User Story ที่ครอบคลุม | สิ่งที่ทดสอบจริง | สถานะ |
-| :--- | :--- | :--- | :---: |
+| :--- | :--- | :--- | :--- | :---: |
+| `07_weekly_reports.cy.ts` | **US-27:** รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์ | ตรวจสอบหน้าแดชบอร์ดสรุปรายสัปดาห์, การแสดงผลสต๊อกคงเหลือ, รายการ Stagnant Inventory > 60 วัน, การ์ด Top Performers และการดาวน์โหลดไฟล์ CSV | 🟢 ผ่าน 100% |
 | `15_live_auction_journey.cy.ts` | **US-13:** สร้าง/ตั้งค่าประมูล | สร้างห้องประมูลจากคลังสินค้า, ล็อกสต็อกการ์ด, เผยแพร่ (Publish) และกดยกเลิกคืนสต็อก | 🟢 พร้อมใช้งาน |
 | `18_live_auction_settlement.cy.ts` | **US-13, 14, 15, 17, 18:** วงจรประมูลสด | เชื่อมต่อ WebSocket สด, เสนอราคา, Watchlist, ซื้อทันที (Buy-It-Now), ตัดสินผู้ชนะ และสร้าง Order อัตโนมัติ | 🟢 พร้อมใช้งาน |
 | `design/07_auction_default_cases_http.cy.ts` | **US-17-6:** ผู้ชนะเบี้ยวประมูล | ตรวจสอบเคสเบี้ยวประมูล (Default Cases) ฝั่งผู้ขาย และการอนุมัติ/ปฏิเสธ/ย้อนคำตัดสินของแอดมิน | 🟢 ผ่าน 100% |
@@ -254,10 +258,14 @@
 | :--- | :--- | :--- | :---: |
 | `AuctionConcurrencyPostgresTests.java` | **US-15:** Concurrency เคาะราคา | ทดสอบ Race Condition และ Pessimistic Locking เมื่อมีผู้เสนอราคาพร้อมกันในระดับ PostgreSQL | 🟢 ผ่าน |
 | `BuyerAuctionIntegrationTests.java` | **US-14, 15, 18:** ระบบประมูลผู้ซื้อ | ทดสอบ Lifecycle ประมูลสด, WebSocket, Proxy Bid, Buy-it-now และหักค่าธรรมเนียม Platform Fee | 🟢 ผ่าน |
+| `AdminAuctionDisputeIntegrationTests.java`<br>`AuctionDisputeServiceTest.java` | **US-19:** ข้อพิพาทประมูล & Dispute Center | ทดสอบกระบวนการเปิดเคสพิพาท, การแนบหลักฐานภาพถ่าย, การตัดสินของแอดมิน และการอัปเดตสถานะ | 🟢 ผ่าน |
+| `AdminAuctionServiceTest.java` | **US-19:** มอนิเตอร์ & ระงับฉุกเฉิน | ทดสอบคำสั่ง Pause, Resume, และ Force Cancel ห้องประมูลฉุกเฉินจากฝั่ง Admin Console | 🟢 ผ่าน |
 | `BuyerOrderControllerIntegrationTests.java` | **US-25:** สั่งซื้อซ้ำ & ดาวน์โหลด PDF | ทดสอบ `POST /api/orders/{id}/reorder` (สต็อกขาด, ดึงเข้าตะกร้า) และ `GET /api/orders/{id}/invoice-pdf` (สิทธิ์เจ้าของ) | 🟢 ผ่าน |
 | `InvoicePdfServiceTest.java` | **US-25:** การสร้างไฟล์ PDF | ทดสอบความสมบูรณ์ของโครงสร้างไฟล์ PDF (%PDF Header, QR Code, Verification Layout) | 🟢 ผ่าน |
 | `VoucherServiceTest.java` & `CheckoutControllerIntegrationTests.java` | **US-24:** โค้ดส่วนลดโปรโมชัน | ทดสอบการคำนวณและหักส่วนลดโค้ดโปรโมชันในขั้นตอนชำระเงิน และบันทึกประวัติการใช้งาน | 🟢 ผ่าน |
 | `PlatformFeeServiceTest.java` & `SellerOrderServiceUnitTest.java` | **US-21:** ค่าตัวกลาง & แดชบอร์ดรายเดือน | ทดสอบกฎการคำนวณ Platform Fee 5% และการสรุปยอดขายรายเดือน 12 เดือนพร้อม Export | 🟢 ผ่าน |
+| `NotificationEmailDeliveryWorkerTest.java`<br>`NotificationEmailServiceTest.java` | **US-29:** ระบบส่งอีเมล Outbox | ทดสอบการดึงคิวอีเมล Outbox, การส่งซ้ำแบบ Exponential Backoff, Dead-letter handling และการแนบ PDF | 🟢 ผ่าน |
+| `WeeklyReportPostgresTests.java`<br>`WeeklyReportServiceTests.java` | **US-27:** การคำนวณรายงานและ CSV Export | ทดสอบการประมวลผลสรุปยอดขาย, ต้นทุน, กำไร, Stagnant Inventory เกิน 60 วัน และการสร้างไฟล์ CSV | 🟢 ผ่าน (บน branch) |
 
 ---
 > 📌 *เอกสารฉบับนี้จัดทำขึ้นและปรับปรุงตามมติของกลุ่ม โดยยึดตามข้อกำหนด User Stories Phase 2 อย่างเคร่งครัด เพื่อใช้เป็นเกณฑ์ตัดสินความสมบูรณ์ของโครงงานก่อนการประเมินผล*
