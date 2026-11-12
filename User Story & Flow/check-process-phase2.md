@@ -4,7 +4,7 @@
 > **Repository:** `User-FlowANDFigma-Progress`  
 > **Directory:** `/User Story & Flow/check-process-phase2.md`  
 > **Target Branch:** `main`  
-> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (11:45 น.)  
+> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (14:30 น.)  
 
 ---
 
@@ -15,9 +15,9 @@
 4. [ตารางตรวจสอบเจาะลึกกลุ่ม Deferred เปรียบเทียบ Phase 1 vs Phase 2 Requirements](#4-ตารางตรวจสอบเจาะลึกกลุ่ม-deferred-เปรียบเทียบ-phase-1-vs-phase-2-requirements)
 5. [ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ (Detailed User Stories Feature Checklist)](#5-ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ-detailed-user-stories-feature-checklist)
    - [5.1 กลุ่ม Must-Have: แกนหลักระบบประมูล (US-13, US-18)](#51-กลุ่ม-must-have-แกนหลักระบบประมูล-us-13-us-18)
-   - [5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-27)](#52-กลุ่ม-recommended-to-develop-ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์-us-20-us-24-us-27)
+   - [5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-26, US-27)](#52-กลุ่ม-recommended-to-develop-ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์-us-20-us-24-us-26-us-27)
    - [5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-17, US-19)](#53-กลุ่ม-good-to-have-วงจรประมูลสดและการกำกับดูแล-us-14-us-15-us-17-us-19)
-   - [5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28)](#54-กลุ่ม-deferred--out-of-scope-การตรวจเช็กเทียบสเปก-phase-2-us-21-ถึง-us-28)
+   - [5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28 — ยกเว้น US-26 ที่นำกลับมาพัฒนา)](#54-กลุ่ม-deferred--out-of-scope-การตรวจเช็กเทียบสเปก-phase-2-us-21-ถึง-us-28--ยกเว้น-us-26-ที่นำกลับมาพัฒนา)
    - [5.5 หมวด US-29: ระบบการแจ้งเตือนหลายช่องทางและอีเมลอัตโนมัติ (US-29 Multi-Channel In-App & Email)](#55-หมวด-us-29-ระบบการแจ้งเตือนหลายช่องทางและอีเมลอัตโนมัติ-multi-channel-in-app--email-notification-system)
 6. [สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก Phase 2 (Deficit Analysis & Action Plan)](#6-สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก-phase-2-deficit-analysis--action-plan)
 7. [สรุปสถานะการทดสอบระบบของ Phase 2 (Automated Testing & Quality Gates)](#7-สรุปสถานะการทดสอบระบบของ-phase-2-automated-testing--quality-gates)
@@ -37,9 +37,10 @@
 
 1. **กลุ่ม Must-Have (US-13, US-18): เสร็จสมบูรณ์ 100% (8/8 ข้อ)**  
    - ระบบประมูลครบวงจร: สร้างห้อง, ตั้งเวลา, Reserve Price, Buy-It-Now, แดชบอร์ดผู้ขาย, การหัก Commission และพอร์ตประมูลของผู้ซื้อ
-2. **กลุ่ม Recommended to Develop (US-20, US-24, US-27): เสร็จ ~90% (4.5/5 ข้อ)**  
+2. **กลุ่ม Recommended to Develop (US-20, US-24, US-26, US-27): เสร็จ ~65% (4.5/7 ข้อ)**  
    - `US-20` (Image Upload Policy & Zoom Magnifier): **ครบถ้วน 100%**
    - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout (70%)** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
+   - `US-26` (Out of Stock Alert & Smart Restock Prediction): **🔴 มติใหม่ของกลุ่มนำกลับมาพัฒนา (0%)** วางแผนพัฒนาใน Sprint 2 (ระบบแจ้งเตือนสินค้าหมด In-App/Email, ปุ่ม "Notify Me When Available", และสูตรพยากรณ์ความเร็วการขาย Sales Velocity)
    - `US-27` (Weekly Stock & Profit Admin Report): **🟢 พัฒนาฝั่ง Frontend ครบถ้วน 100% บน `main` (พร้อม Cypress E2E) / Backend พัฒนาครบแล้วใน Branch `fix/weekly-admin-reports`** มีหน้า `AdminWeeklyReportsPage.tsx`, Service `weeklyReports.ts`, กราฟสรุปรายสัปดาห์, การ์ด Top Revenue/Top Profit, ตาราง Stagnant Inventory (ค้างสต๊อกเกิน 60 วัน) และปุ่ม Export CSV
 3. **กลุ่ม Good-to-Have (US-14, US-15, US-17, US-19): เสร็จสมบูรณ์ 100% (20/20 ข้อ)**  
    - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ระงับฉุกเฉิน/จัดการข้อพิพาทสำหรับแอดมิน (`US-19`) **ครบถ้วน 100%** บน `main` (มี `AdminAuctionMonitorPage.tsx` สำหรับมอนิเตอร์กระดานประมูลสด, `AdminAuctionDisputesPage.tsx` & `ParticipantDisputesPage.tsx` สำหรับ Dispute Resolution Center ตรวจสอบสินค้าชำรุด/ของปลอม, `AuctionDisputeService.java`, `AuctionDisputeController.java`, ตาราง `auction_disputes`, `auction_emergency_controls` (V22) และ Audit Trail (V23))
@@ -52,7 +53,7 @@
 5. **กลุ่มที่ตัดออกจาก Scope อย่างเป็นทางการ (De-scoped by Group Decision):**  
    - `US-16` (Fair-Play & Anti-Fraud Controls): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงเหลือเฉพาะตรรกะพื้นฐานเดิม เช่น Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง และห้ามถอนบิด)
    - `US-23` (Product Categories & Advanced Filtering): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลา และระบบปัจจุบันรองรับการค้นหาและกรองการ์ดเดี่ยว (Single Cards) ได้อย่างสมบูรณ์แล้ว
-   - `US-26` (Out of Stock Alert & Smart Restock Prediction): **⚪ ตัดออกจาก Scope** เนื่องจากความซับซ้อนของโมเดลพยากรณ์และข้อจำกัดด้านเวลา จัดเป็นฟีเจอร์นอกขอบเขตหลัก
+   - *(หมายเหตุ: `US-26: Out of Stock Alert & Smart Restock Prediction` ได้รับมติใหม่ของกลุ่มให้นำกลับเข้ามาพัฒนาในกลุ่ม Recommended to Develop เรียบร้อยแล้ว)*
 6. **กลุ่มระบบแจ้งเตือนหลายช่องทาง (US-29 Multi-Channel In-App & Email Notification): 🟢 โครงสร้าง Backend Outbox & Frontend พร้อมทำงาน**  
    - Backend มีโครงสร้างสถาปัตยกรรม Transactional Outbox Pattern (`NotificationEmailDeliveryWorker.java`, `NotificationEmailService.java`, `notification_email_outbox` table V25/V28, และ `spring-boot-starter-mail`)
    - รองรับการส่งอีเมลครอบคลุมเหตุการณ์หลักตามสเปก 16 ข้อ (คำสั่งซื้อใหม่, ยกเลิกออเดอร์, แจ้งจัดส่งพร้อมเลขพัสดุและไฟล์แนบ PDF, ผลอนุมัติผู้ขาย, ผลการประมูล, การถูกเคาะแซง, เตือนผู้ชนะชำระเงิน, และผลตัดสินข้อพิพาท)
@@ -70,6 +71,7 @@
 | **US-18** | **Auction Analytics & Financials**<br>*(คำนวณค่าธรรมเนียม, สถิติกำไรผู้ขาย/ผู้ซื้อ)* | ⭐ **MUST HAVE** | 3 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | มี Seller Analytics, Commission Deduction Policy และ Buyer Portfolio |
 | **US-20** | **Card Image Upload Policy & Criteria Gate**<br>*(เกณฑ์บังคับรูปจริง vs ตัวเลือกเสริม + แว่นขยาย)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | เกณฑ์ Mandatory/Optional ตรวจสอบเรียลไทม์ และแว่นขยาย Hover Zoom 2.5x ในหน้ารายละเอียดการ์ด |
 | **US-24** | **Promotions & Discount Codes Engine**<br>*(ระบบคูปองและโค้ดส่วนลด Checkout)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🟡 **มีบางส่วน (70%)** | ใช้งานใน Checkout ได้จริง (`US-24-1`) แต่**ยังขาดหน้า Admin จัดการแคมเปญ (`US-24-2`)** |
+| **US-26** | **Out of Stock Alert & Smart Restock Prediction**<br>*(ระบบแจ้งเตือนสินค้าหมด In-App/Email & AI ทำนายสต๊อก)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:**<br>• `US-26-1`: แจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม "Notify Me When Available" แจ้งเตือนเมื่อสินค้ากลับมามีสต๊อก (ผู้ซื้อ ทั้ง In-App & Email Alert)<br>• `US-26-2`: Smart Restock Prediction คำนวณ Sales Velocity ทำนายวันหมดสต๊อกล่วงหน้า |
 | **US-27** | **Weekly Stock & Profit Admin Report**<br>*(รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์)* | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **Frontend ครบ 100% บน main / Backend พร้อมใน branch** | Frontend มีหน้า `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, กราฟสรุป, ตารางสินค้าค้างสต๊อก 60 วัน, ปุ่มดาวน์โหลด CSV และ Cypress E2E `07_weekly_reports.cy.ts` / Backend โค้ดเสร็จสมบูรณ์ใน `fix/weekly-admin-reports` รอ Merge |
 | **US-14** | **Auction Discovery & Live Arena**<br>*(หน้ารวมประมูล, WebSocket Room, Watchlist)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | หน้ารวมประมูลพร้อมแท็บด่วน, ห้องประมูลสด WebSocket, Mask Identity, Watchlist และ Badge การ์ดเกรด |
 | **US-15** | **Bidding Engine & Proxy Bids**<br>*(เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | ระบบเคาะ Manual, Proxy Bidding บิดสู้แทนอัตโนมัติ, บันไดราคา Dynamic Increment และแจ้งเตือน Outbid |
@@ -80,7 +82,6 @@
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** สวิตช์ Toggle Public vs Private ใน `/my-collection` (`/collection`), บล็อก 403 Forbidden สำหรับอัลบั้ม Private, ปุ่มแชร์ URL, ตัวกรองชุดการ์ด, Secret Rare/Badges และ Card Comparison Helper (`/api/public/collections/{userId}/compare`) |
 | `US-23` | *Product Categories & Advanced Filtering* | ⚪ *OUT OF SCOPE (ตัดออก)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันรองรับเฉพาะแคตตาล็อกการ์ดเดี่ยว (Single Cards) ตามเดิม และตัดการขยายหมวด Booster Pack, Box, Accessories ออกเนื่องจากข้อจำกัดด้านเวลา |
 | `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** `1-Click Reorder` (`POST /api/orders/{id}/reorder`), `Download PDF Invoice` (`GET /api/orders/{id}/invoice-pdf`), และ `OrderDetailPage.tsx` |
-| `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⚪ *OUT OF SCOPE (ตัดออก)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันตัดระบบแจ้งเตือนสินค้ากลับมาและ AI Restock Prediction ออกอย่างเป็นทางการ เนื่องจากข้อจำกัดด้านเวลาและความซับซ้อนอยู่นอกขอบเขต |
 | `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | โบนัสเสริม ยกยอดไว้ก่อน | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบทั้งสองข้อย่อย:**<br>• `US-28-1`: Typo-Tolerant Fuzzy Search (Levenshtein Distance <= 2, แนะนำ Did-you-mean ใน CardDiscoveryPage และ API `/api/cards/search`)<br>• `US-28-2`: ค้นหาภาษาไทยผ่าน `card_search_names` (V19) + Hybrid Search (ไทย + เลขการ์ด) |
 | **US-29** | **Multi-Channel Email & In-App Alerts**<br>*(ระบบแจ้งเตือน 16 เหตุการณ์สำคัญ)* | 🚀 **RECOMMENDED** | 3 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **Backend Outbox & Frontend พร้อมทำงาน** | มีโครงสร้าง Transactional Outbox Worker (`NotificationEmailDeliveryWorker.java`, `NotificationEmailService.java`, V25/V28) เชื่อมต่ออีเมล 12 เหตุการณ์, รองรับแนบ PDF ใบเสร็จ, เลขพัสดุ Tracking V26, หน้ายืนยันออเดอร์ (`OrderVerificationPage.tsx`) และ Reset Password (V29) |
 
@@ -99,8 +100,8 @@
 | **US-23-1** | สถาปัตยกรรม 4 หมวดหมู่ (Single Cards, Booster Packs, Booster Boxes, Accessories) พร้อม Dropdown บน Navbar และตัวกรอง Dynamic | Phase 1 เป็นแคตตาล็อกการ์ดเดี่ยว (Single Cards) เท่านั้น มีตัวกรองสภาพและราคา | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ยึดการซื้อขายเฉพาะการ์ดเดี่ยว (Single Cards) ตามเดิม และตัดการขยายหมวดสินค้าอื่นเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก |
 | **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | พัฒนาใน Phase 2 เรียบร้อย (`CartService.java`, `OrderDetailPage.tsx`) | 🟢 **มีตามสเปก** | รองรับการตรวจสอบสต๊อกคงเหลือและดึงการ์ดเดิมเข้าตะกร้าพร้อมสั่งซื้อใหม่ |
 | **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | พัฒนาใน Phase 2 เรียบร้อย (`InvoicePdfService.java`, `BuyerOrderController.java`) | 🟢 **มีตามสเปก** | รองรับการดาวน์โหลดไฟล์ PDF ใบเสร็จสั่งซื้อที่มี QR Code ผ่าน API |
-| **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก (ทั้ง In-App & Email) | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ตัดระบบแจ้งเตือนสินค้ากลับมาทั้ง In-App และ Email (Back-in-stock Subscription) ออกเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก |
-| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ตัดการสร้างโมเดลคำนวณทำนายสต๊อกออกเนื่องจากอยู่นอกขอบเขตหลักและข้อจำกัดเวลา |
+| **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก (ทั้ง In-App & Email) | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | 🔴 **รอดำเนินการ (มติใหม่นำกลับมาทำ)** | **มติใหม่ของกลุ่ม:** นำกลับมาพัฒนาใน Sprint 2 — ยังขาดปุ่ม "Notify Me When Available" ในหน้าการ์ด, ตาราง `stock_subscriptions`, และการส่ง Back-in-Stock Email Alert |
+| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | 🔴 **รอดำเนินการ (มติใหม่นำกลับมาทำ)** | **มติใหม่ของกลุ่ม:** นำกลับมาพัฒนาใน Sprint 2 — ยังขาด Service คำนวณ Sales Velocity (`Current Stock / Daily Sales Rate`) และป้ายเตือนสต๊อกหมดใน 3 วัน/7 วัน ใน Seller Inventory |
 | **US-28-1** | Typo-Tolerant Search ค้นหาคำสะกดผิด เช่น `"pokamon"` แล้วแสดงผลของ `"pokemon"` พร้อมข้อความแนะนำ | พัฒนาครบถ้วนใน Phase 2 (`CardFuzzySearchService.java`, `CardSearchPage.java`, `CardController.java`, `ProductService.java`, `CardDiscoveryPage.tsx`) | 🟢 **มีตามสเปก** | ค้นหาคำสะกดผิด (Edit Distance <= 2) เช่น `"pokamon"`, `"chairzard"`, `"pikashu"`, ส่ง `didYouMean` และแสดง Suggestion Banner ในหน้าผลการค้นหา พร้อมปุ่มค้นหาคำเดิม |
 | **US-28-2** | ค้นหาชื่อการ์ดภาษาไทยข้ามภาษา เช่น ค้นหา `"ลิซาร์ดอน"` แล้วพบการ์ดภาษาอังกฤษ `"Charizard"` | มีตาราง `card_search_names` (Migration V19) และฐานข้อมูลคำศัพท์ภาษาไทยกว่า 2,052 คำ | 🟢 **มีตามสเปก** | ใช้งานได้แล้วใน Backend Catalog Service |
 
@@ -123,7 +124,7 @@
 
 ---
 
-### 5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-27)
+### 5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-26, US-27)
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | สถานะตามสเปก Phase 2 | รายละเอียดการ Implement ในระบบ |
 | :--- | :--- | :---: | :--- |
@@ -131,6 +132,8 @@
 | **US-20-2** | High-Resolution Card Gallery with Zoom Magnifier | 🟢 **ครบถ้วน** | `CardPhotoMagnifierViewer.tsx`, `CardDetailPage.tsx` แท็บสลับ Official vs Actual Photos พร้อม Hover ซูม 2.5x |
 | **US-24-1** | Promo Code / Voucher Application at Checkout | 🟢 **ครบถ้วน** | `VoucherController.java` (`/api/vouchers/validate`), `CheckoutVoucherModal.tsx`, หักส่วนลดจาก Subtotal ก่อนสั่งซื้อ |
 | **US-24-2** | Admin Promo Campaign Management | 🟡 **มีบางส่วน (ขาด UI)** | มีตาราง `vouchers` (Flyway V13) และ Seed ในฐานข้อมูล แต่**ยังไม่มีหน้าเว็บ Admin UI สำหรับสร้างโค้ดใหม่** |
+| **US-26-1** | Out of Stock Alert & Back-in-Stock Multi-Channel Notification (In-App & Email) | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:**<br>• ผู้ขาย: แจ้งเตือน Low/Out-of-Stock Alert ทั้ง In-App และ Email เมื่อสต๊อกเหลือ 0 พร้อมลิงก์ไปหน้าจัดการคลัง<br>• ผู้ซื้อ: ปุ่ม "Notify Me When Available" บนหน้ารายละเอียดการ์ดที่หมดสต๊อก รับ In-App และ Email แจ้งเตือนเมื่อสินค้ากลับมามีสต๊อก (Restocked) พร้อมปุ่มสั่งซื้อทันที |
+| **US-26-2** | Smart Restock Prediction based on Sales Trends | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:** คำนวณความเร็วการขาย (Sales Velocity 7-30 วัน) สูตร $\text{Days} = \frac{\text{Current Stock}}{\text{Average Daily Sales Rate}}$ แสดงป้ายเตือนหมดสต๊อกล่วงหน้า 3 วัน/7 วันในคลังสินค้าผู้ขาย |
 | **US-27-1** | Automated Weekly Stock & Profit Platform Governance Report | 🟢 **Frontend ครบ / Backend พร้อม Merge** | • Frontend: `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, `AdminWeeklyReportsPage.test.tsx`, Cypress E2E `07_weekly_reports.cy.ts` (สรุป Stock Added/Removed, Sold Units, Inventory Value, Top Revenue/Profit, Stagnant Inventory > 60 วัน, Export CSV)<br>• Backend: พร้อมสมบูรณ์ใน `fix/weekly-admin-reports` (`WeeklyReportScheduler.java`, `AdminWeeklyReportController.java`, `WeeklyReportService.java`, `WeeklyReportCsv.java`) |
 
 ---
@@ -166,7 +169,7 @@
 
 ---
 
-### 5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28)
+### 5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28 — ยกเว้น US-26 ที่นำกลับมาพัฒนา)
 
 | รหัส US | ชื่อฟีเจอร์ตามสเปก Phase 2 | ผลการตรวจสอบในระบบ | สรุปสถานะตามสเปก Phase 2 |
 | :---: | :--- | :--- | :---: |
@@ -177,8 +180,6 @@
 | **US-23-1** | Categories (Booster Pack, Box, Accessories) | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลา ยึดตามแคตตาล็อกการ์ดเดี่ยว (Single Cards) ใน Phase 1 | ⚪ **ตัดออกจาก Scope** |
 | **US-25-1** | 1-Click Fast Reorder Flow | `POST /api/orders/{id}/reorder`, `CartService.java`, `OrderDetailPage.tsx` | 🟢 **ครบถ้วน** |
 | **US-25-2** | Print Order Summary as PDF | `GET /api/orders/{id}/invoice-pdf`, `InvoicePdfService.java` รองรับ QR Code และดาวน์โหลด PDF | 🟢 **ครบถ้วน** |
-| **US-26-1** | Out of Stock & Back-in-Stock Alert (In-App & Email) | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก | ⚪ **ตัดออกจาก Scope** |
-| **US-26-2** | Smart Restock Prediction based on Trends | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก | ⚪ **ตัดออกจาก Scope** |
 | **US-28-1** | Typo-Tolerant Search (Fuzzy Matching) | `CardFuzzySearchService.java`, `CardSearchPage.java`, `CardController.java`, `CardDiscoveryPage.tsx` | 🟢 **ครบถ้วน** |
 | **US-28-2** | Multilingual Search (Thai Card Search) | มีตาราง `card_search_names` (V19) ค้นหาภาษาไทยได้จริง | 🟢 **ครบถ้วน** |
 
@@ -214,9 +215,14 @@
 ### 🔴 ระดับสิ่งที่ยังค้างอยู่จริงใน Scope หลักของ Phase 2:
 1. **US-24-2 (Admin Promo Campaign Manager UI):**  
    - มีฐานข้อมูล `vouchers` (Flyway V13) และ API ตรวจสอบโค้ดแล้ว แต่**ยังขาดหน้าเว็บ Admin UI สำหรับสร้าง แก้ไข และปิดการใช้งานแคมเปญคูปอง**
-2. **US-27-1 Backend Main Integration:**  
+2. **US-26 (Out of Stock Alert & Smart Restock Prediction — มติใหม่นำกลับมาพัฒนา):**  
+   - ต้องสร้างตาราง `stock_subscriptions` (บันทึก user_id, global_card_id, email, notify_email, is_active)
+   - ต้องเพิ่มปุ่ม "Notify Me When Available" บนหน้ารายละเอียดการ์ดที่หมดสต๊อกใน Frontend
+   - ต้องเชื่อมโยงเหตุการณ์เติมสต๊อก (Restocked) เข้ากับ `NotificationEmailService.java` เพื่อส่ง Back-in-Stock Email Alert และ In-App Notification
+   - ต้องสร้าง Service วิเคราะห์ความเร็วการขาย (Sales Velocity 7-30 วัน) และแสดงป้ายเตือนวันหมดสต๊อกล่วงหน้าใน Seller Inventory
+3. **US-27-1 Backend Main Integration:**  
    - โค้ด Backend สรุปยอดอัตโนมัติ (`WeeklyReportScheduler.java`), API (`AdminWeeklyReportController.java`) และ Export CSV (`WeeklyReportCsv.java`) พัฒนาเสร็จสมบูรณ์แล้วใน Branch `fix/weekly-admin-reports` **รอการ Merge เข้าสู่ Branch `main` ของ Backend** (Frontend บน `main` มีหน้า `AdminWeeklyReportsPage.tsx` และ Cypress E2E รองรับเรียบร้อยแล้ว)
-3. **US-29 Production Mail Relay Deployment:**  
+4. **US-29 Production Mail Relay Deployment:**  
    - ระบบ Transactional Outbox Worker (`NotificationEmailDeliveryWorker.java`) และ Template อีเมล 12 เหตุการณ์พัฒนาและผ่านการทดสอบแล้ว เหลือเพียงการตั้งค่า Environment Variable สำหรับ SMTP Relay จริง (`SPRING_MAIL_HOST`, `SPRING_MAIL_USERNAME`, `SPRING_MAIL_PASSWORD`) บนเครื่อง Server ปลายทาง
 
 ### 🟢 รายการที่พัฒนาเสร็จสมบูรณ์เพิ่มเติมแล้ว (Recently Completed):
@@ -231,8 +237,7 @@
    - ตัดการพัฒนา Dynamic Anti-Sniping อัตโนมัติ และ Deposit Credit Hold ออกจากขอบเขตประเมินเนื่องจากข้อจำกัดด้านเวลา (คงไว้เฉพาะกฎพื้นฐานเดิมในระบบ เช่น ห้ามเคาะการ์ดตนเอง และห้ามกดยกเลิกบิด)
 2. **US-23 (Product Categories & Advanced Filtering):**  
    - ตัดการขยายหมวดสินค้า Booster Pack, Booster Box และ Accessories ออกจากขอบเขตประเมิน โดยยืนยันให้ระบบมุ่งเน้นการซื้อขายเฉพาะการ์ดเดี่ยว (Single Cards) ตามสเปกหลักของแพลตฟอร์ม
-3. **US-26 (Out of Stock Alert & Smart Restock Prediction):**  
-   - ตัดระบบสมัครรับแจ้งเตือนสินค้ากลับมา (Back-in-stock Subscription ทั้ง In-App และ Email) และระบบ AI/สถิติพยากรณ์การเติมสต๊อกสินค้าออก เนื่องจากข้อจำกัดด้านเวลาและความซับซ้อนอยู่นอกขอบเขต
+   - *(หมายเหตุ: `US-26: Out of Stock Alert & Smart Restock Prediction` ได้รับมติใหม่ให้นำกลับเข้ามาพัฒนาในกลุ่ม Recommended to Develop เรียบร้อยแล้ว)*
 
 ---
 

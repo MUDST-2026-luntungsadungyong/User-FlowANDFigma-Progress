@@ -14,9 +14,10 @@
 3. [รายละเอียดเชิงลึก: กลุ่ม Must-Have — แกนหลักระบบประมูล (US-13, US-18)](#3-รายละเอียดเชิงลึก-กลุ่ม-must-have--แกนหลักระบบประมูล-us-13-us-18)
    - [หมวด US-13: การสร้างและจัดการรายการประมูล (Auction Listing & Setup)](#หมวด-us-13-การสร้างและจัดการรายการประมูล-auction-listing--setup)
    - [หมวด US-18: การเงิน ค่าธรรมเนียม และสถิติการประมูล (Auction Analytics & Financials)](#หมวด-us-18-การเงิน-ค่าธรรมเนียม-และสถิติการประมูล-auction-analytics--financials)
-4. [รายละเอียดเชิงลึก: กลุ่ม Recommended to Develop — ฟีเจอร์สำคัญที่เลือกพัฒนาเพิ่ม (US-20, US-24, US-27, US-29)](#4-รายละเอียดเชิงลึก-กลุ่ม-recommended-to-develop--ฟีเจอร์สำคัญที่เลือกพัฒนาเพิ่ม-us-20-us-24-us-27-us-29)
+4. [รายละเอียดเชิงลึก: กลุ่ม Recommended to Develop — ฟีเจอร์สำคัญที่เลือกพัฒนาเพิ่ม (US-20, US-24, US-26, US-27, US-29)](#4-รายละเอียดเชิงลึก-กลุ่ม-recommended-to-develop--ฟีเจอร์สำคัญที่เลือกพัฒนาเพิ่ม-us-20-us-24-us-26-us-27-us-29)
    - [หมวด US-20: ระบบรูปภาพและเกณฑ์การบังคับใส่ภาพถ่ายจริง (Card Image Upload Policy & Criteria Gate)](#หมวด-us-20-ระบบรูปภาพและเกณฑ์การบังคับใส่ภาพถ่ายจริง-card-image-upload-policy--criteria-gate)
    - [หมวด US-24: ระบบโปรโมชันและโค้ดส่วนลด (Promotions & Discount Codes Engine)](#หมวด-us-24-ระบบโปรโมชันและโค้ดส่วนลด-promotions--discount-codes-engine)
+   - [หมวด US-26: ระบบแจ้งเตือนสินค้าหมดและการทำนายสต๊อก (Out-of-Stock Alert & Smart Restock Prediction)](#หมวด-us-26-ระบบแจ้งเตือนสินค้าหมดและการทำนายสต๊อก-out-of-stock-alert--smart-restock-prediction)
    - [หมวด US-27: รายงานสรุปสต๊อกและกำไรรายสัปดาห์สำหรับแอดมิน (Weekly Stock & Profit Admin Report)](#หมวด-us-27-รายงานสรุปสต๊อกและกำไรรายสัปดาห์สำหรับแอดมิน-weekly-stock--profit-admin-report)
    - [หมวด US-29: ระบบการแจ้งเตือนหลายช่องทางและอีเมลอัตโนมัติ (Multi-Channel In-App & Email Notification System)](#หมวด-us-29-ระบบการแจ้งเตือนหลายช่องทางและอีเมลอัตโนมัติ-multi-channel-in-app--email-notification-system)
 5. [สรุปสาระสำคัญ: กลุ่ม Good to Have — วงจรการประมูลและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)](#5-สรุปสาระสำคัญ-กลุ่ม-good-to-have--วงจรการประมูลและการกำกับดูแล-us-14-us-15-us-16-us-17-us-19)
@@ -31,9 +32,9 @@
 จากการนำเสนอชุด Requirements สำหรับ Phase 2 ต่ออาจารย์ที่ปรึกษา ทางกลุ่มได้รับคำแนะนำและข้อสรุปในการจัดทิศทางการพัฒนา (Scoping Decision) ดังนี้:
 
 1. **แกนหลักที่ขาดไม่ได้ (Must-Have):** ได้แก่ **US-13** (การสร้างและตั้งค่าการประมูล) และ **US-18** (การเงิน สถิติ และค่าธรรมเนียมการประมูล) ซึ่งเป็นหัวใจสำคัญทางธุรกิจของการประมูลการ์ด
-2. **ฟีเจอร์ที่อาจารย์แนะนำให้พัฒนาเพิ่ม (Recommended to Develop):** ได้แก่ **US-20** (เกณฑ์การบังคับรูปถ่ายจริงตามมูลค่า/สภาพการ์ด), **US-24** (ระบบโค้ดส่วนลด/โปรโมชัน), **US-27** (รายงานสรุปสต๊อกและกำไรประจำสัปดาห์สำหรับแอดมิน), และ **US-29** (ระบบแจ้งเตือนหลายช่องทางทั้งในเว็บและอีเมลอัตโนมัติ 16 เหตุการณ์สำคัญ) เพื่อยกระดับความสมบูรณ์ของระบบ e-Commerce และเพิ่มคะแนนประเมิน
+2. **ฟีเจอร์ที่อาจารย์แนะนำให้พัฒนาเพิ่ม (Recommended to Develop):** ได้แก่ **US-20** (เกณฑ์การบังคับรูปถ่ายจริงตามมูลค่า/สภาพการ์ด), **US-24** (ระบบโค้ดส่วนลด/โปรโมชัน), **US-26** (ระบบแจ้งเตือนสินค้าหมดสต๊อกและการทำนายสต๊อกล่วงหน้า — ตามมติใหม่ของกลุ่ม), **US-27** (รายงานสรุปสต๊อกและกำไรประจำสัปดาห์สำหรับแอดมิน), และ **US-29** (ระบบแจ้งเตือนหลายช่องทางทั้งในเว็บและอีเมลอัตโนมัติ 16 เหตุการณ์สำคัญ) เพื่อยกระดับความสมบูรณ์ของระบบ e-Commerce และเพิ่มคะแนนประเมิน
 3. **ฟีเจอร์สนับสนุนที่ควรทำหากมีเวลาพอ (Good to Have):** ได้แก่ **US-14, US-15, US-16, US-17, US-19** ซึ่งเป็นระบบห้องประมูลสด กลไกการเคาะราคา Anti-Sniping การปิดออเดอร์โอนเข้า Personal Binder และการกำกับดูแล/ยกเลิกฉุกเฉินสำหรับแอดมิน
-4. **ฟีเจอร์ที่ข้ามไปก่อน (Deferred / Out of Scope):** ข้ออื่นๆ ในหมวด US-20 ถึง US-28 (`US-21, US-22, US-23, US-25, US-26, US-28`) ให้ตัดออกหรือยกยอดไปก่อน เพื่อควบคุมขนาดของงานและส่งมอบได้ทันกำหนด
+4. **ฟีเจอร์ที่ข้ามไปก่อน (Deferred / Out of Scope):** ข้ออื่นๆ ในหมวด US-20 ถึง US-28 (`US-21, US-22, US-23, US-25, US-28`) ให้ตัดออกหรือยกยอดไปก่อน เพื่อควบคุมขนาดของงานและส่งมอบได้ทันกำหนด (หมายเหตุ: `US-26` มีมติใหม่จากกลุ่มให้นำกลับเข้ามาพัฒนา)
 
 ---
 
@@ -45,6 +46,7 @@
 | **US-18** | **Auction Analytics & Financials** (คำนวณค่าธรรมเนียม, สถิติกำไรผู้ขาย/ผู้ซื้อ) | ⭐ **MUST HAVE** | 3 ข้อ | **Sprint 1 (Priority 1)** |
 | **US-20** | **Card Image Upload Policy & Criteria Gate** (เกณฑ์บังคับรูปจริง vs ตัวเลือกเสริม) | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 1 (Priority 1)** |
 | **US-24** | **Promotions & Discount Codes Engine** (ระบบคูปองและโค้ดส่วนลด Checkout) | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** |
+| **US-26** | **Out-of-Stock Alert & Smart Restock Prediction** (แจ้งเตือนสินค้าหมด In-App/Email & AI ทำนายสต๊อก) | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** |
 | **US-27** | **Weekly Stock & Profit Admin Report** (รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์) | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** |
 | **US-29** | **Multi-Channel Email & In-App Alerts** (แผนผังแจ้งเตือน 16 เหตุการณ์สำคัญ) | 🚀 **RECOMMENDED** | 3 ข้อ | **Sprint 2 (Priority 1)** |
 | **US-14** | **Auction Discovery & Live Arena** (หน้ารวมประมูล, WebSocket Room, Watchlist) | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** |
@@ -56,7 +58,6 @@
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | Phase 1 มี US-10-6 แล้ว |
 | `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | ใช้ตัวกรองเดิม US-02-1 |
 | `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | ยกยอดหลังส่งมอบหลัก |
-| `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | ซับซ้อนเกินกรอบเวลา |
 | `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | — | โบนัสเสริม ยกยอดไว้ก่อน |
 
 ---
@@ -234,6 +235,48 @@
 
 ---
 
+### หมวด US-26: ระบบแจ้งเตือนสินค้าหมดและการทำนายสต๊อก (Out-of-Stock Alert & Smart Restock Prediction)
+
+#### 🔹 US-26-1: Out of Stock Alert & Back-in-Stock Multi-Channel Notification (In-App & Email)
+* **User Story:**  
+  *ในฐานะผู้ขายและผู้ซื้อ (Seller / Buyer)*  
+  *ฉันต้องการรับการแจ้งเตือนผ่านทั้งระบบในแอปพลิเคชัน (In-App Notification) และผ่านทางอีเมล (Email Notification) เมื่อสินค้าในร้านหมดสต๊อก หรือเมื่อสินค้าที่ฉันสนใจกลับมามีสต๊อกพร้อมจำหน่ายใหม่*  
+  *เพื่อช่วยให้ผู้ขายเติมสินค้าเข้าคลังได้ทันท่วงที และผู้ซื้อไม่พลาดโอกาสในการสั่งซื้อการ์ดใบที่ต้องการ แม้ไม่ได้เปิดหน้าเว็บไซต์อยู่ ณ ขณะนั้น*
+* **Acceptance Criteria:**
+  - [x] **ฝั่งผู้ขาย (Low/Out of Stock Alert via In-App & Email):**
+    - เมื่อสต๊อกการ์ดของผู้ขายในร้านเหลือ 0 ใบ ระบบจะสร้าง In-App Notification แจ้งเตือนในระบบทันที *"การ์ด [ชื่อการ์ด] ของคุณในสต๊อกหมดลงแล้ว กรุณาเติมสต๊อก"*
+    - ระบบส่ง **Email แจ้งเตือนไปยังอีเมลของผู้ขายที่ลงทะเบียนไว้** ระบุรายละเอียดชื่อการ์ด, รหัสสินค้า, วันเวลาที่สินค้าหมด และมีปุ่มลิงก์ *"Manage Inventory"* ให้ผู้ขายกดเข้าสู่หน้าจัดการสต๊อกได้โดยตรง
+  - [x] **ฝั่งผู้ซื้อ (Notify Me When in Stock via In-App & Email):**
+    - สำหรับการ์ดที่สินค้าหมดสต๊อก (Out of Stock) ผู้ซื้อสามารถกดปุ่ม **"Notify Me When Available"** บนหน้ารายละเอียดการ์ดเพื่อเปิดใช้งานการติดตามสินค้า
+    - ระบบแสดงหน้าต่างยืนยันการรับแจ้งเตือน โดยใช้อีเมลที่ผูกกับบัญชีผู้ใช้ หรืออนุญาตให้ระบุอีเมลปลายทางที่ต้องการรับแจ้งเตือนได้ พร้อมตัวเลือกเปิด/ปิดรับอีเมล
+    - เมื่อมีผู้ขายรายใดลงขายการ์ดรุ่นดังกล่าวเพิ่มเข้าสู่ระบบ (Restocked):
+      1. ระบบส่ง **In-App Notification** ไปยังกล่องข้อความแจ้งเตือนของผู้ซื้อทันที
+      2. ระบบส่ง **Email แจ้งเตือนสินค้ากลับมามีสต๊อก (Back-in-Stock Email Alert)** ไปยังอีเมลของผู้ซื้อ ระบุชื่อการ์ด, รูปภาพ, สภาพการ์ด, ราคาเริ่มต้น และมีปุ่ม *"Buy Now"* / *"View Listing"* ให้ผู้ซื้อคลิกเพื่อเข้าสู่หน้าสั่งซื้อการ์ดได้ทันที
+  - [x] **การจัดการการรับแจ้งเตือน (Subscription Preferences & Unsubscribe):**
+    - ในทุกอีเมลแจ้งเตือนสต๊อกจะมีลิงก์ **"Unsubscribe"** ด้านล่างเพื่อให้ผู้ใช้ยกเลิกการติดตามการ์ดใบดังกล่าวได้โดยตรงจากอีเมล
+    - มีตัวเลือกในหน้าโปรไฟล์ผู้ใช้ (Notification Settings) สำหรับเปิด/ปิดการรับการแจ้งเตือนประเภท Email Alerts แยกจาก In-App Alerts
+* **API Endpoints:** 
+  - `POST /api/products/{id}/stock-subscription` (กดติดตามการ์ดที่หมดสต๊อก พร้อมระบุ payload `{ "email": "user@example.com", "notifyEmail": true }`)
+  - `DELETE /api/products/{id}/stock-subscription` (ยกเลิกการติดตามการ์ด)
+  - `GET /api/user/stock-subscriptions` (ดึงรายการการ์ดที่ผู้ซื้อกดติดตามแจ้งเตือนสต๊อกไว้)
+  - `GET /api/seller/inventory/stock-alerts` (ดึงรายการแจ้งเตือนสต๊อกสินค้าหมดของผู้ขาย)
+
+#### 🔹 US-26-2: [Bonus b] Smart Restock Prediction based on Sales Trends
+* **User Story:**  
+  *ในฐานะผู้ขาย (Verified Seller)*  
+  *ฉันต้องการให้ระบบช่วยวิเคราะห์แนวโน้มยอดขายและทำนายวันที่สินค้าจะหมดสต๊อกล่วงหน้า (Restock Prediction)*  
+  *เพื่อวางแผนจัดหาการ์ดมาเติมสต๊อกได้อย่างแม่นยำ ไม่เกิดภาวะสินค้าขาดมือ*
+* **Acceptance Criteria:**
+  - [x] ระบบนำสถิติความเร็วในการขาย (Sales Velocity: จำนวนชิ้นที่ขายได้ต่อวัน ในช่วง 7-30 วันที่ผ่านมา) มาคำนวณเปรียบเทียบกับสต๊อกปัจจุบัน
+  - [x] สูตรการทำนายพื้นฐาน: $\text{Days Until Out of Stock} = \frac{\text{Current Stock On-Hand}}{\text{Average Daily Sales Rate}}$
+  - [x] ในหน้าคลังสินค้าของผู้ขาย แสดงป้ายแจ้งเตือนอัจฉริยะ เช่น:
+    - 🔴 *"คาดว่าจะหมดสต๊อกภายใน 3 วัน"* (เมื่อวันคงเหลือ <= 3 วัน)
+    - 🟡 *"คาดว่าจะหมดสต๊อกภายใน 7 วัน"*
+  - [x] มีกราฟพยากรณ์ความต้องการ (Demand Trend Forecast) ประกอบการตัดสินใจ
+* **API Endpoints:** `GET /api/seller/inventory/restock-predictions`
+
+---
+
 ### หมวด US-27: รายงานสรุปสต๊อกและกำไรรายสัปดาห์สำหรับแอดมิน (Weekly Stock & Profit Admin Report)
 
 #### 🔹 US-27-1: Automated Weekly Stock & Profit Platform Governance Report
@@ -404,23 +447,25 @@
    *เหตุผล:* ระบบ Multi-filtering เดิมของการ์ดเดี่ยวใน Phase 1 (`US-02-1`) ครอบคลุมการค้นหาชุดการ์ด ความหายาก และสภาพการ์ดได้อย่างเพียงพอ
 4. **`US-25` (1-Click Reorder & Print Order as PDF):**  
    *เหตุผล:* ประวัติคำสั่งซื้อมีอยู่ใน `US-09-1` อยู่แล้ว การสั่งซื้อซ้ำและการพิมพ์ PDF จัดเป็นฟังก์ชันเสริมเพื่อความสะดวกสบาย (Nice-to-Have)
-5. **`US-26` (Out of Stock Alert & Smart Restock Prediction):**  
-   *เหตุผล:* การทำนายสต๊อกมีความซับซ้อนเชิงคณิตศาสตร์สูงเกินความจำเป็นสำหรับโครงงานในเฟสนี้
-6. **`US-28` (Typo-Tolerant Search & Multilingual Translation):**  
+5. **`US-28` (Typo-Tolerant Search & Multilingual Translation):**  
    *เหตุผล:* เป็นคะแนนโบนัสเสริม การค้นหาด้วยชื่อการ์ดมาตรฐานภาษาอังกฤษใน Phase 1 ใช้งานได้สมบูรณ์แล้ว
+
+> *(หมายเหตุ: `US-26: Out of Stock Alert & Smart Restock Prediction` ได้รับมติใหม่ของกลุ่มให้นำกลับเข้ามาพัฒนาในกลุ่ม Recommended to Develop เรียบร้อยแล้ว)*
 
 ---
 
 ## 7. สถาปัตยกรรมฐานข้อมูลที่ต้องเพิ่มใน Phase 2 (Target Database Schema Extension)
 
-เพื่อรองรับเฉพาะกลุ่ม **Must-Have** (`US-13, US-18`) และ **Recommended to Develop** (`US-20, US-24, US-27`) ฐานข้อมูล PostgreSQL จะได้รับการเพิ่มและปรับปรุงตารางดังนี้:
+เพื่อรองรับเฉพาะกลุ่ม **Must-Have** (`US-13, US-18`) และ **Recommended to Develop** (`US-20, US-24, US-26, US-27, US-29`) ฐานข้อมูล PostgreSQL จะได้รับการเพิ่มและปรับปรุงตารางดังนี้:
 
 ```mermaid
 erDiagram
     USERS ||--o{ AUCTIONS : "1:N (Seller creates)"
     USERS ||--o{ PROMOTION_REDEMPTIONS : "1:N (Redeems)"
+    USERS ||--o{ STOCK_SUBSCRIPTIONS : "1:N (Subscribes)"
     
     GLOBAL_CARDS ||--o{ AUCTIONS : "1:N"
+    GLOBAL_CARDS ||--o{ STOCK_SUBSCRIPTIONS : "1:N"
     LOCAL_CARDS ||--o| AUCTIONS : "1:1 (Physical Card)"
     
     PROMOTIONS ||--o{ PROMOTION_REDEMPTIONS : "1:N"
@@ -477,6 +522,17 @@ erDiagram
         timestamp redeemed_at
     }
 
+    STOCK_SUBSCRIPTIONS {
+        bigint id PK
+        bigint user_id FK "users.id"
+        bigint global_card_id FK "global_cards.id"
+        varchar email "Destination notification email"
+        boolean notify_email "Toggle email alert"
+        boolean is_active "Active until restocked or unsubscribed"
+        timestamp created_at
+        timestamp notified_at "Nullable"
+    }
+
     ADMIN_WEEKLY_REPORTS {
         bigint id PK
         date week_start_date
@@ -503,16 +559,17 @@ gantt
     US-18: Platform Fee & Profit Analytics    :active, s1_3, 2026-11-10, 5d
     section Sprint 2: Recommended & Good-to-Have
     US-24: Promotions & Promo Code Engine     :s2_1, 2026-11-15, 5d
+    US-26: Stock Alert & Restock Prediction   :s2_5, 2026-11-17, 5d
     US-27: Weekly Admin Governance Report     :s2_2, 2026-11-18, 4d
     US-14 to US-19: Auction Live Arena & Admin Governance (Good-to-Have):s2_3, 2026-11-17, 8d
     Testing, Integration & Defense Preparation:s2_4, 2026-11-23, 4d
 ```
 
 ### สรุปการแบ่งความรับผิดชอบในทีม (Pair Assignments):
-* **คู่ที่ 1 (Frontend Core):** พัฒนาหน้าสร้างห้องประมูล (`US-13`), Image Upload Gate Validation (`US-20`), และช่องใส่โค้ดส่วนลดใน Checkout (`US-24`)
-* **คู่ที่ 2 (Frontend Analytics & Admin):** พัฒนา Seller Auction Dashboard (`US-13-4`), กราฟกำไรและสถิติ (`US-18`), และหน้าแสดง Weekly Admin Report (`US-27`)
-* **คู่ที่ 3 (Backend Commerce & Fee Engine):** พัฒนาระบบคำนวณหักค่าธรรมเนียม (`US-18-2`), ระบบโค้ดส่วนลดและสิทธิ์การใช้ (`US-24`), และ API ตรวจสอบเกณฑ์รูปภาพ (`US-20-1`)
-* **คู่ที่ 4 (Backend Scheduler & Lifecycle):** พัฒนา Auction State Machine (`US-13`), Cron Job สรุปรายงานประจำสัปดาห์ (`US-27`), และ Automated Unit/Integration Tests
+* **คู่ที่ 1 (Frontend Core):** พัฒนาหน้าสร้างห้องประมูล (`US-13`), Image Upload Gate Validation (`US-20`), ช่องใส่โค้ดส่วนลดใน Checkout (`US-24`), และปุ่ม "Notify Me When Available" บนการ์ดที่หมดสต๊อก (`US-26-1`)
+* **คู่ที่ 2 (Frontend Analytics & Admin):** พัฒนา Seller Auction Dashboard (`US-13-4`), กราฟกำไรและสถิติ (`US-18`), หน้าแสดง Weekly Admin Report (`US-27`), และป้ายทำนายสต๊อกในหน้าคลังสินค้าผู้ขาย (`US-26-2`)
+* **คู่ที่ 3 (Backend Commerce & Fee Engine):** พัฒนาระบบคำนวณหักค่าธรรมเนียม (`US-18-2`), ระบบโค้ดส่วนลดและสิทธิ์การใช้ (`US-24`), API ตรวจสอบเกณฑ์รูปภาพ (`US-20-1`), และระบบ Stock Subscription & Alert Engine (`US-26`)
+* **คู่ที่ 4 (Backend Scheduler & Lifecycle):** พัฒนา Auction State Machine (`US-13`), Cron Job สรุปรายงานประจำสัปดาห์ (`US-27`), โมเดลวิเคราะห์ Sales Velocity (`US-26-2`), และ Automated Unit/Integration Tests
 
 ---
 > 📌 *เอกสารฉบับนี้เป็นข้อตกลงขอบเขตสุดท้าย (Final Scope Agreement) สำหรับการประเมินผลโครงการใน Phase 2 จัดเก็บอยู่ใน repository `User-FlowANDFigma-Progress` ตามมาตรฐานความต้องการของทีมและหลักสูตรอย่างสมบูรณ์*
