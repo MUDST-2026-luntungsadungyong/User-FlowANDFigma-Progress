@@ -4,7 +4,7 @@
 > **Repository:** `User-FlowANDFigma-Progress`  
 > **Directory:** `/User Story & Flow/check-process-phase2.md`  
 > **Target Branch:** `main`  
-> **วันจัดทำ/ปรับปรุง:** พฤศจิกายน 2026  
+> **วันจัดทำ/ปรับปรุงล่าสุด:** 11 พฤศจิกายน 2026 (23:05 น.)  
 
 ---
 
@@ -16,9 +16,10 @@
 5. [ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ (Detailed User Stories Feature Checklist)](#5-ตารางตรวจสอบรายฟีเจอร์อย่างละเอียดทุกข้อ-detailed-user-stories-feature-checklist)
    - [5.1 กลุ่ม Must-Have: แกนหลักระบบประมูล (US-13, US-18)](#51-กลุ่ม-must-have-แกนหลักระบบประมูล-us-13-us-18)
    - [5.2 กลุ่ม Recommended to Develop: ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์ (US-20, US-24, US-27)](#52-กลุ่ม-recommended-to-develop-ฟีเจอร์ยกระดับตามคำแนะนำอาจารย์-us-20-us-24-us-27)
-   - [5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)](#53-กลุ่ม-good-to-have-วงจรประมูลสดและการกำกับดูแล-us-14-us-15-us-16-us-17-us-19)
+   - [5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-17, US-19)](#53-กลุ่ม-good-to-have-วงจรประมูลสดและการกำกับดูแล-us-14-us-15-us-17-us-19)
    - [5.4 กลุ่ม Deferred / Out of Scope: การตรวจเช็กเทียบสเปก Phase 2 (US-21 ถึง US-28)](#54-กลุ่ม-deferred--out-of-scope-การตรวจเช็กเทียบสเปก-phase-2-us-21-ถึง-us-28)
 6. [สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก Phase 2 (Deficit Analysis & Action Plan)](#6-สรุปข้อบกพร่องและสิ่งที่ต้องพัฒนาเพิ่มตามสเปก-phase-2-deficit-analysis--action-plan)
+7. [สรุปสถานะการทดสอบระบบของ Phase 2 (Automated Testing & Quality Gates)](#7-สรุปสถานะการทดสอบระบบของ-phase-2-automated-testing--quality-gates)
 
 ---
 
@@ -39,15 +40,18 @@
    - `US-20` (Image Upload Policy & Zoom Magnifier): **ครบถ้วน 100%**
    - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
    - `US-27` (Weekly Stock & Profit Admin Report): **ยังไม่มีในระบบ (0%)**
-3. **กลุ่ม Good-to-Have (US-14, US-15, US-16, US-17, US-19): เสร็จ 85% (20.5/24 ข้อ)**  
+3. **กลุ่ม Good-to-Have (US-14, US-15, US-17, US-19): เสร็จเกือบสมบูรณ์ ~98% (19.5/20 ข้อ)**  
    - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ยกเลิกฉุกเฉินสำหรับแอดมิน (`US-19`) มีหน้าพิจารณาคำขอและ Audit Logs ครบถ้วน
-4. **กลุ่ม Deferred / Extended (US-21 ถึง US-28): ผลการตรวจเช็กเทียบสเปก Phase 2**  
+   - *(หมายเหตุ: `US-16` ถูกตัดออกจาก Scope ตามมติกลุ่มเพื่อบริหารเวลาอย่างมีประสิทธิภาพ)*
+4. **กลุ่ม Deferred / Extended (US-21, US-22, US-25, US-28): ผลการตรวจเช็กเทียบสเปก Phase 2**  
    - `US-21` (Middleman Escrow Fee & Monthly Dashboard): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (เพิ่ง merge เข้าสู่ `main` ล่าสุด — รองรับค่าธรรมเนียม Direct-Sale Checkout, ตารางนโยบาย `platform_fee_policy` (V21), แดชบอร์ดรายเดือน กราฟ 12 เดือน และปุ่ม Export CSV)
    - `US-25` (1-Click Reorder & PDF Invoice): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (merge เข้าสู่ `main` แล้ว)
    - `US-22` (Collection Privacy & Showcase): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (มีสวิตช์ Toggle Public/Private, บันทึกฐานข้อมูล V14, บล็อกสิทธิ์ 403, ปุ่มแชร์ URL, ตัวกรองชุดการ์ด, Secret Rare/Badges และฟังก์ชัน Card Comparison Helper ครบถ้วน)
-   - `US-28` (Multilingual Search): **🟡 พัฒนาแล้ว 50%** (มีระบบค้นหาการ์ดภาษาไทย TH Search ในฐานข้อมูล V19 แต่ขาด Typo-Tolerant Search)
-   - `US-23`: **❌ ยังไม่ครบ** (กรองได้แค่การ์ดเดี่ยว ขาดหมวด Booster Pack, Box และ Accessories)
-   - `US-26`: **🔴 ยังไม่มีในระบบ** (ขาด Low/Out of Stock Alert และ Prediction ตามที่ตัดออกจาก Scope)
+   - `US-28` (Tolerant & Multilingual Search): **🟢 พัฒนาเสร็จสมบูรณ์ 100%** (มี Typo-Tolerant Fuzzy Search (Edit Distance <= 2), Did-you-mean Banner พร้อมปุ่มค้นหาคำเดิม, ค้นหาภาษาไทย V19 และ Hybrid Search ภาษาไทย + หมายเลขการ์ด)
+5. **กลุ่มที่ตัดออกจาก Scope อย่างเป็นทางการ (De-scoped by Group Decision):**  
+   - `US-16` (Fair-Play & Anti-Fraud Controls): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงเหลือเฉพาะตรรกะพื้นฐานเดิม เช่น Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง และห้ามถอนบิด)
+   - `US-23` (Product Categories & Advanced Filtering): **⚪ ตัดออกจาก Scope** เนื่องจากข้อจำกัดด้านเวลา และระบบปัจจุบันรองรับการค้นหาและกรองการ์ดเดี่ยว (Single Cards) ได้อย่างสมบูรณ์แล้ว
+   - `US-26` (Out of Stock Alert & Smart Restock Prediction): **⚪ ตัดออกจาก Scope** เนื่องจากความซับซ้อนของโมเดลพยากรณ์และข้อจำกัดด้านเวลา จัดเป็นฟีเจอร์นอกขอบเขตหลัก
 
 ---
 
@@ -64,15 +68,15 @@
 | **US-27** | **Weekly Stock & Profit Admin Report**<br>*(รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์)* | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** | 🔴 **ยังไม่มี (0%)** | **ยังไม่มีในระบบ** ไม่มี Scheduled Sunday Cron, รายงาน Stagnant 60 วัน และปุ่ม Export |
 | **US-14** | **Auction Discovery & Live Arena**<br>*(หน้ารวมประมูล, WebSocket Room, Watchlist)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | หน้ารวมประมูลพร้อมแท็บด่วน, ห้องประมูลสด WebSocket, Mask Identity, Watchlist และ Badge การ์ดเกรด |
 | **US-15** | **Bidding Engine & Proxy Bids**<br>*(เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | ระบบเคาะ Manual, Proxy Bidding บิดสู้แทนอัตโนมัติ, บันไดราคา Dynamic Increment และแจ้งเตือน Outbid |
-| **US-16** | **Fair-Play & Anti-Fraud Controls**<br>*(Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟡 **มีบางส่วน (75%)** | มี Anti-Shill ป้องกันผู้ขายเคาะการ์ดตัวเอง, ห้ามถอนบิด แต่ Anti-Sniping ยังไม่ได้ต่อ Trigger ขยายเวลาอัตโนมัติ |
+| **US-16** | **Fair-Play & Anti-Fraud Controls**<br>*(Dynamic Anti-Sniping 3 นาที, ป้องกันปั่นราคา)* | ⚪ **OUT OF SCOPE**<br>*(ตัดออกจาก Scope)* | 4 ข้อ | **Sprint 2 (De-scoped)** | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** เนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงตรรกะพื้นฐานเดิม เช่น ห้ามเคาะการ์ดตัวเองและห้ามถอนบิด แต่ตัด Dynamic Anti-Sniping และ Deposit Hold ออก) |
 | **US-17** | **Resolution, Settlement & Ownership**<br>*(ตัดสินผู้ชนะ, ชำระเงิน 48 ชม., โอนเข้า Binder)* | 💡 **GOOD TO HAVE** | 6 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | มี Daemon ตัดสินผู้ชนะ, เคลียร์ Reserve Not Met, โอนการ์ดเข้า Binder อัตโนมัติ, Second-Chance Offer, และระบบลงโทษ Defaulting Bidder (`DefaultCasesPage.tsx`) |
 | **US-19** | **Auction Administration & Dispute Handling**<br>*(มอนิเตอร์สด, สั่งระงับ/ยกเลิกฉุกเฉิน, ตรวจสอบหลักฐาน)* | 💡 **GOOD TO HAVE** | 4 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **มีเกือบครบ (85%)** | • `AdminAuctionCancellationsPage.tsx`<br>• `AdminAuctionCancellationController.java`<br>• `AuctionCancellationService.java` (พิจารณาคำขอและตรวจหลักฐานภาพถ่าย)<br>• `AdminAuditLogsController.java` (`audit_logs`) |
 | `US-21` | *Middleman Escrow Fee & Monthly Dashboard* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | รวมอยู่ใน US-18 แล้ว | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** หัก Platform Fee ในคำสั่งซื้อทั่วไป (`GET /api/platform/fee-policy`), ตาราง `platform_fee_policy` (V21), หน้า Checkout แสดงค่าธรรมเนียม และ Seller Orders มี Monthly Dashboard พร้อมกราฟ 12 เดือน และ Export CSV |
 | `US-22` | *Collection Privacy & Showcase Viewer* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | Phase 1 มี US-10-6 แล้ว | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** สวิตช์ Toggle Public vs Private ใน `/my-collection` (`/collection`), บล็อก 403 Forbidden สำหรับอัลบั้ม Private, ปุ่มแชร์ URL, ตัวกรองชุดการ์ด, Secret Rare/Badges และ Card Comparison Helper (`/api/public/collections/{userId}/compare`) |
-| `US-23` | *Product Categories & Advanced Filtering* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ❌ **ยังไม่ครบตามสเปก** | **ไม่ครบ:** Phase 1 กรองได้เฉพาะการ์ดเดี่ยว (Single Cards) แต่**ไม่มีหมวด Booster Pack, Booster Box, Accessories** และไม่มี Dropdown บน Navbar |
+| `US-23` | *Product Categories & Advanced Filtering* | ⚪ *OUT OF SCOPE (ตัดออก)* | 1 ข้อ | ใช้ตัวกรองเดิม US-02-1 | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันรองรับเฉพาะแคตตาล็อกการ์ดเดี่ยว (Single Cards) ตามเดิม และตัดการขยายหมวด Booster Pack, Box, Accessories ออกเนื่องจากข้อจำกัดด้านเวลา |
 | `US-25` | *Order History & Reorder, PDF Summary Export* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ยกยอดหลังส่งมอบหลัก | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบตามสเปก:** `1-Click Reorder` (`POST /api/orders/{id}/reorder`), `Download PDF Invoice` (`GET /api/orders/{id}/invoice-pdf`), และ `OrderDetailPage.tsx` |
-| `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | 🔴 **ยังไม่มีในระบบ (0%)** | ไม่มีทั้ง Low/Out of Stock Alert, ปุ่ม Notify Me When Available และสูตรพยากรณ์ Restock |
-| `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | โบนัสเสริม ยกยอดไว้ก่อน | 🟡 **มีเฉพาะภาษาไทย (50%)** | **มีเฉพาะ US-28-2:** ค้นหาภาษาไทยผ่าน `card_search_names` (V19) แต่**ยังขาด Typo-Tolerant Fuzzy Search (US-28-1)** |
+| `US-26` | *Out of Stock Alert & Smart Restock Prediction* | ⚪ *OUT OF SCOPE (ตัดออก)* | 2 ข้อ | ซับซ้อนเกินกรอบเวลา | ⚪ **ตัดออกจาก Scope (De-scoped)** | **มติกลุ่มไม่พัฒนาต่อ:** ยืนยันตัดระบบแจ้งเตือนสินค้ากลับมาและ AI Restock Prediction ออกอย่างเป็นทางการ เนื่องจากข้อจำกัดด้านเวลาและความซับซ้อนอยู่นอกขอบเขต |
+| `US-28` | *Tolerant Search (Typo) & Multilingual Search* | ⏸️ *DEFERRED (ข้ามไปก่อน)* | 2 ข้อ | โบนัสเสริม ยกยอดไว้ก่อน | 🟢 **พัฒนาครบแล้ว (100%)** | **มีครบทั้งสองข้อย่อย:**<br>• `US-28-1`: Typo-Tolerant Fuzzy Search (Levenshtein Distance <= 2, แนะนำ Did-you-mean ใน CardDiscoveryPage และ API `/api/cards/search`)<br>• `US-28-2`: ค้นหาภาษาไทยผ่าน `card_search_names` (V19) + Hybrid Search (ไทย + เลขการ์ด) |
 
 ---
 
@@ -86,12 +90,12 @@
 | **US-21-2** | เมนู Seller Dashboard มีแท็บดูยอดขายรายเดือน พร้อม Dropdown เลือกเดือน/ปี, กราฟ 12 เดือน และปุ่ม Export CSV | พัฒนาใน Phase 2 เรียบร้อย (`SellerOrderService.java`, `SellerOrdersPage.tsx`, API `/api/seller/orders/monthly-dashboard`) | 🟢 **มีตามสเปก** | มี Dropdown เลือกเดือน/ปี, สรุป KPI ยอดขาย/ค่าธรรมเนียม/กำไรสุทธิ, กราฟแท่งรายรับ 12 เดือน และปุ่ม Export CSV |
 | **US-22-1** | ปุ่มสวิตช์ Toggle Public vs. Private ใน `/my-collection`, ถ้า Private ต้องซ่อนจาก Leaderboard และบล็อก URL สาธารณะ (HTTP 403) | พัฒนาครบถ้วนใน Phase 2 (`V14__add_collection_privacy_to_users.sql`, `CollectionController.java`, `MyCollectionPage.tsx`) | 🟢 **มีตามสเปก** | มีสวิตช์สลับสถานะในหน้า My Collection, บันทึกฟิลด์ `collection_privacy` และบล็อกผู้เยี่ยมชมด้วยหน้าจอ Private (403) |
 | **US-22-2** | หน้าชมคอลเลกชันคนอื่น พร้อมฟังก์ชัน **Card Comparison Helper** (ป้ายบอกว่าคุณมีแล้วกี่ใบ/ยังไม่มี) และปุ่มแชร์ลิงก์ | พัฒนาครบถ้วนใน Phase 2 (`PublicCollectionController.java`, `PublicCollectionService.java`, `PublicCollectionPage.tsx`, `CollectionCard.tsx`) | 🟢 **มีตามสเปก** | มีหน้า Showcase `/collections/:userId`, กรองชื่อ/ชุดการ์ด/ความหายาก, แสดง Secret Rare/Badges, ปุ่มแชร์ URL และป้ายเปรียบเทียบสด Card Comparison Helper |
-| **US-23-1** | สถาปัตยกรรม 4 หมวดหมู่ (Single Cards, Booster Packs, Booster Boxes, Accessories) พร้อม Dropdown บน Navbar และตัวกรอง Dynamic | Phase 1 เป็นแคตตาล็อกการ์ดเดี่ยว (Single Cards) เท่านั้น มีตัวกรองสภาพและราคา | ❌ **ยังไม่ครบ** | ขาดหมวดหมู่กล่อง ซอง และอุปกรณ์สะสม, ขาด Dropdown บน Navbar และ API หมวดหมู่แยก |
+| **US-23-1** | สถาปัตยกรรม 4 หมวดหมู่ (Single Cards, Booster Packs, Booster Boxes, Accessories) พร้อม Dropdown บน Navbar และตัวกรอง Dynamic | Phase 1 เป็นแคตตาล็อกการ์ดเดี่ยว (Single Cards) เท่านั้น มีตัวกรองสภาพและราคา | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ยึดการซื้อขายเฉพาะการ์ดเดี่ยว (Single Cards) ตามเดิม และตัดการขยายหมวดสินค้าอื่นเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก |
 | **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | พัฒนาใน Phase 2 เรียบร้อย (`CartService.java`, `OrderDetailPage.tsx`) | 🟢 **มีตามสเปก** | รองรับการตรวจสอบสต๊อกคงเหลือและดึงการ์ดเดิมเข้าตะกร้าพร้อมสั่งซื้อใหม่ |
 | **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | พัฒนาใน Phase 2 เรียบร้อย (`InvoicePdfService.java`, `BuyerOrderController.java`) | 🟢 **มีตามสเปก** | รองรับการดาวน์โหลดไฟล์ PDF ใบเสร็จสั่งซื้อที่มี QR Code ผ่าน API |
-| **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | ❌ **ยังไม่มี** | ขาดระบบสมัครรับแจ้งเตือนสินค้ากลับมา (Back-in-stock Subscription) ทั้ง Frontend/Backend |
-| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | ❌ **ยังไม่มี** | ขาดสูตรคำนวณและหน้า Dashboard แสดงป้ายเตือนการเติมสต๊อก |
-| **US-28-1** | Typo-Tolerant Search ค้นหาคำสะกดผิด เช่น `"pokamon"` แล้วแสดงผลของ `"pokemon"` พร้อมข้อความแนะนำ | Phase 1 ใช้การค้นหาแบบ `ILIKE` ตรงตัวอักษร หากสะกดผิดจะไม่พบผลลัพธ์ | ❌ **ยังไม่ครบ** | ขาด Fuzzy Search Engine (Trigram / Levenshtein Distance) |
+| **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก (ทั้ง In-App & Email) | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ตัดระบบแจ้งเตือนสินค้ากลับมาทั้ง In-App และ Email (Back-in-stock Subscription) ออกเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก |
+| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | ⚪ **ตัดออกจาก Scope (Out of Scope)** | **มติกลุ่มไม่พัฒนาต่อ:** ตัดการสร้างโมเดลคำนวณทำนายสต๊อกออกเนื่องจากอยู่นอกขอบเขตหลักและข้อจำกัดเวลา |
+| **US-28-1** | Typo-Tolerant Search ค้นหาคำสะกดผิด เช่น `"pokamon"` แล้วแสดงผลของ `"pokemon"` พร้อมข้อความแนะนำ | พัฒนาครบถ้วนใน Phase 2 (`CardFuzzySearchService.java`, `CardSearchPage.java`, `CardController.java`, `ProductService.java`, `CardDiscoveryPage.tsx`) | 🟢 **มีตามสเปก** | ค้นหาคำสะกดผิด (Edit Distance <= 2) เช่น `"pokamon"`, `"chairzard"`, `"pikashu"`, ส่ง `didYouMean` และแสดง Suggestion Banner ในหน้าผลการค้นหา พร้อมปุ่มค้นหาคำเดิม |
 | **US-28-2** | ค้นหาชื่อการ์ดภาษาไทยข้ามภาษา เช่น ค้นหา `"ลิซาร์ดอน"` แล้วพบการ์ดภาษาอังกฤษ `"Charizard"` | มีตาราง `card_search_names` (Migration V19) และฐานข้อมูลคำศัพท์ภาษาไทยกว่า 2,052 คำ | 🟢 **มีตามสเปก** | ใช้งานได้แล้วใน Backend Catalog Service |
 
 ---
@@ -125,7 +129,7 @@
 
 ---
 
-### 5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-16, US-17, US-19)
+### 5.3 กลุ่ม Good to Have: วงจรประมูลสดและการกำกับดูแล (US-14, US-15, US-17, US-19 — หมายเหตุ: US-16 ถูกตัดออกจาก Scope)
 
 | รหัส US | ชื่อฟีเจอร์ (Feature Title) | สถานะตามสเปก Phase 2 | รายละเอียดการ Implement ในระบบ |
 | :--- | :--- | :---: | :--- |
@@ -139,10 +143,10 @@
 | **US-15-3** | Instant Buy-It-Now Purchase Flow | 🟢 **ครบถ้วน** | `executeBuyout`, ปิดห้องประมูลและสร้าง Order ทันที (`BUYOUT_COMPLETED`) |
 | **US-15-4** | Instant Outbid In-App & Push Notification | 🟢 **ครบถ้วน** | `notifyOutbid`, ส่ง In-App Notification แจ้งเตือนผู้ที่โดนเคาะแซงทันที |
 | **US-15-5** | Bid Confirmation Modal & Increment Ladder Helper | 🟢 **ครบถ้วน** | Modal ยืนยันการเคาะราคาและปุ่มลัดสเต็ป (+฿50, +฿100, +฿500) |
-| **US-16-1** | Anti-Shill Bidding & Self-Bid Restrictions | 🟢 **ครบถ้วน** | ไม่อนุญาตให้ผู้ขายเคาะการ์ดของตนเอง (`You cannot bid on your own auction`) |
-| **US-16-2** | Dynamic Anti-Sniping Engine (3-Minute Soft Close) | 🟡 **มีโครงสร้าง** | State Machine รองรับสถานะ `EXTENDED` แต่ยังไม่ได้ต่อ Event ขยายเวลา +3 นาทีอัตโนมัติใน Service |
-| **US-16-3** | Bidder Eligibility & Deposit Credit Hold | 🟡 **มีโครงสร้าง** | ตรวจสอบสิทธิ์บัญชีผู้ใช้ แต่ยังไม่ได้บังคับล็อกวงเงินมัดจำเครดิต |
-| **US-16-4** | Strict Bid Retraction Policy Enforcement | 🟢 **ครบถ้วน** | ห้ามผู้ซื้อกดยกเลิกบิดที่เคาะแล้วทุกกรณี |
+| **US-16-1** | Anti-Shill Bidding & Self-Bid Restrictions | ⚪ **ตัดออกจาก Scope** | *(มีตรรกะพื้นฐานเดิม: ป้องกันผู้ขายเคาะการ์ดตนเอง)* มติกลุ่มตัด US-16 ออกจาก Scope การประเมินเนื่องจากข้อจำกัดด้านเวลา |
+| **US-16-2** | Dynamic Anti-Sniping Engine (3-Minute Soft Close) | ⚪ **ตัดออกจาก Scope** | มติกลุ่มไม่พัฒนาต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก (คงเหลือเฉพาะโครงสร้างสถานะ `EXTENDED` เดิม) |
+| **US-16-3** | Bidder Eligibility & Deposit Credit Hold | ⚪ **ตัดออกจาก Scope** | มติกลุ่มไม่พัฒนาต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก |
+| **US-16-4** | Strict Bid Retraction Policy Enforcement | ⚪ **ตัดออกจาก Scope** | *(มีตรรกะพื้นฐานเดิม: ห้ามกดยกเลิกบิด)* มติกลุ่มตัด US-16 ออกจาก Scope การประเมินเนื่องจากข้อจำกัดด้านเวลา |
 | **US-17-1** | Automated Closing & Winner Determination Service | 🟢 **ครบถ้วน** | `AuctionLifecycle.java` และ `AuctionSettlementService.java` ตัดสินผู้ชนะเมื่อหมดเวลา |
 | **US-17-2** | Settlement for Reserve-Not-Met & Unsold Auctions | 🟢 **ครบถ้วน** | ปิดสถานะ `RESERVE_NOT_MET` / `UNSOLD` และปลดล็อกการ์ดคืนสต๊อกผู้ขายอัตโนมัติ |
 | **US-17-3** | Winner Checkout & Payment Gateway Window | 🟢 **ครบถ้วน** | สร้าง Order เชื่อมต่อ Flow ชำระเงิน |
@@ -164,12 +168,12 @@
 | **US-21-2** | Monthly Sales Dashboard & CSV Export | `SellerOrdersPage.tsx` เพิ่ม Monthly Dashboard, เลือกเดือน/ปี, กราฟ 12 เดือน, ปุ่ม Export CSV | 🟢 **ครบถ้วน** |
 | **US-22-1** | Collection Privacy Toggle (Public vs Private) | `GET/PUT/PATCH /api/collection/privacy` (`/api/user/collection/privacy`), `MyCollectionPage.tsx`, บล็อก 403 Forbidden เมื่อ Private | 🟢 **ครบถ้วน** |
 | **US-22-2** | Community Showcase + Comparison Helper | หน้า `/collections/:userId`, สถิติ Secret Rare/Badges, กรองชุดการ์ด, ปุ่มแชร์ URL, และ Card Comparison Helper (`GET /api/public/collections/{userId}/compare`) | 🟢 **ครบถ้วน** |
-| **US-23-1** | Categories (Booster Pack, Box, Accessories) | มีแค่ Single Card ขาดกล่อง ซอง และอุปกรณ์เสริม | ❌ **ยังไม่ครบ** |
+| **US-23-1** | Categories (Booster Pack, Box, Accessories) | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลา ยึดตามแคตตาล็อกการ์ดเดี่ยว (Single Cards) ใน Phase 1 | ⚪ **ตัดออกจาก Scope** |
 | **US-25-1** | 1-Click Fast Reorder Flow | `POST /api/orders/{id}/reorder`, `CartService.java`, `OrderDetailPage.tsx` | 🟢 **ครบถ้วน** |
 | **US-25-2** | Print Order Summary as PDF | `GET /api/orders/{id}/invoice-pdf`, `InvoicePdfService.java` รองรับ QR Code และดาวน์โหลด PDF | 🟢 **ครบถ้วน** |
-| **US-26-1** | Out of Stock & Back-in-Stock Alert | ไม่มีทั้งฝั่งเตือนผู้ขาย และฝั่ง Notify Me ผู้ซื้อ | 🔴 **ยังไม่มี (0%)** |
-| **US-26-2** | Smart Restock Prediction based on Trends | ไม่มีสูตรพยากรณ์และหน้าวิเคราะห์แนวโน้ม | 🔴 **ยังไม่มี (0%)** |
-| **US-28-1** | Typo-Tolerant Search (Fuzzy Matching) | ค้นหาแบบ `ILIKE` ตรงตัว ขาด Fuzzy String Matching | ❌ **ยังไม่ครบ** |
+| **US-26-1** | Out of Stock & Back-in-Stock Alert (In-App & Email) | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก | ⚪ **ตัดออกจาก Scope** |
+| **US-26-2** | Smart Restock Prediction based on Trends | มติกลุ่มยืนยันไม่ทำต่อเนื่องจากข้อจำกัดด้านเวลาและอยู่นอกขอบเขตหลัก | ⚪ **ตัดออกจาก Scope** |
+| **US-28-1** | Typo-Tolerant Search (Fuzzy Matching) | `CardFuzzySearchService.java`, `CardSearchPage.java`, `CardController.java`, `CardDiscoveryPage.tsx` | 🟢 **ครบถ้วน** |
 | **US-28-2** | Multilingual Search (Thai Card Search) | มีตาราง `card_search_names` (V19) ค้นหาภาษาไทยได้จริง | 🟢 **ครบถ้วน** |
 
 ---
@@ -187,8 +191,43 @@
    - ต้องสร้างหน้า UI ในส่วนแอดมินสำหรับสร้างโค้ดคูปอง กำหนดประเภทส่วนลด วันหมดอายุ และโควตาสิทธิ์ใช้งาน
 
 ### 🟡 ระดับส่วนขยาย (หากต้องการเก็บตกกลุ่ม Deferred ให้ครบตามสเปก Phase 2):
-1. **US-28-1 (Typo Tolerance):** เสริม PostgreSQL `pg_trgm` ในระบบค้นหาเพื่อรองรับการพิมพ์คำสะกดผิด
-2. **US-23-1 (Category Expansion):** ขยายการจัดหมวดหมู่ให้รองรับ Booster Pack, Booster Box, Accessories บน Navbar และ Search Filters
+2. **US-28-1 (Typo Tolerance):** ✅ **พัฒนาเสร็จสมบูรณ์แล้ว** (ใช้ Levenshtein Distance Algorithm ใน Java Service รองรับทั้ง Postgres และ H2 In-Memory พร้อม Did-you-mean Banner ใน Frontend)
+
+### ⚪ รายการที่ตัดออกจาก Scope ตามมติกลุ่มอย่างเป็นทางการ (De-scoped Features):
+1. **US-16 (Fair-Play & Anti-Fraud Controls):**  
+   - ตัดการพัฒนา Dynamic Anti-Sniping อัตโนมัติ และ Deposit Credit Hold ออกจากขอบเขตประเมินเนื่องจากข้อจำกัดด้านเวลา (คงไว้เฉพาะกฎพื้นฐานเดิมในระบบ เช่น ห้ามเคาะการ์ดตนเอง และห้ามกดยกเลิกบิด)
+2. **US-23 (Product Categories & Advanced Filtering):**  
+   - ตัดการขยายหมวดสินค้า Booster Pack, Booster Box และ Accessories ออกจากขอบเขตประเมิน โดยยืนยันให้ระบบมุ่งเน้นการซื้อขายเฉพาะการ์ดเดี่ยว (Single Cards) ตามสเปกหลักของแพลตฟอร์ม
+3. **US-26 (Out of Stock Alert & Smart Restock Prediction):**  
+   - ตัดระบบสมัครรับแจ้งเตือนสินค้ากลับมา (Back-in-stock Subscription ทั้ง In-App และ Email) และระบบ AI/สถิติพยากรณ์การเติมสต๊อกสินค้าออก เนื่องจากข้อจำกัดด้านเวลาและความซับซ้อนอยู่นอกขอบเขต
 
 ---
-> 📌 *เอกสารฉบับนี้จัดทำขึ้นโดยยึดตามข้อกำหนด User Stories Phase 2 อย่างเคร่งครัด เพื่อใช้เป็นเกณฑ์ตัดสินความสมบูรณ์ของโครงงานก่อนการประเมินผล*
+
+## 7. สรุปสถานะการทดสอบระบบของ Phase 2 (Automated Testing & Quality Gates)
+
+เพื่อให้การส่งมอบโครงงานมีความน่าเชื่อถือและผ่านเกณฑ์การประเมินคุณภาพซอฟต์แวร์ ระบบได้รับการออกแบบและสร้างชุดทดสอบอัตโนมัติสำหรับฟีเจอร์ Phase 2 ดังนี้:
+
+### 7.1 Cypress End-to-End (E2E) Tests ฝั่ง Frontend
+| ชุดทดสอบ (Spec File) | ขอบเขต User Story ที่ครอบคลุม | สิ่งที่ทดสอบจริง | สถานะ |
+| :--- | :--- | :--- | :---: |
+| `15_live_auction_journey.cy.ts` | **US-13:** สร้าง/ตั้งค่าประมูล | สร้างห้องประมูลจากคลังสินค้า, ล็อกสต็อกการ์ด, เผยแพร่ (Publish) และกดยกเลิกคืนสต็อก | 🟢 พร้อมใช้งาน |
+| `18_live_auction_settlement.cy.ts` | **US-13, 14, 15, 17, 18:** วงจรประมูลสด | เชื่อมต่อ WebSocket สด, เสนอราคา, Watchlist, ซื้อทันที (Buy-It-Now), ตัดสินผู้ชนะ และสร้าง Order อัตโนมัติ | 🟢 พร้อมใช้งาน |
+| `design/07_auction_default_cases_http.cy.ts` | **US-17-6:** ผู้ชนะเบี้ยวประมูล | ตรวจสอบเคสเบี้ยวประมูล (Default Cases) ฝั่งผู้ขาย และการอนุมัติ/ปฏิเสธ/ย้อนคำตัดสินของแอดมิน | 🟢 ผ่าน 100% |
+| `design/06_auction_management_http.cy.ts` | **US-13 & US-19:** กำกับดูแลประมูล | การบันทึกฉบับร่างห้องประมูล (Draft Idempotency) และคำขอยกเลิกฉุกเฉิน | 🟢 ผ่าน 100% |
+| `17_actual_card_photos.cy.ts`<br>`design/05_actual_card_photos_http.cy.ts` | **US-20:** รูปถ่ายจริงหลายมุม | ตรวจสอบนโยบายบังคับแนบรูปถ่ายการ์ดจริงหน้า-หลัง (Mandatory Card Photos Policy) และแว่นขยาย | 🟢 ผ่าน 100% |
+| `10_collection_and_leaderboard.cy.ts` | **US-22:** คอลเลกชัน & ความเป็นส่วนตัว | การเข้าถึง Binder Collection และการเปิด/ปิดสิทธิ์แสดงผล (Public vs Private) | 🟢 ผ่าน 100% |
+
+> *หมายเหตุ: สำหรับ `15_live_auction_journey.cy.ts` และ `18_live_auction_settlement.cy.ts` มีการกำหนด Flag `AUCTION_LIVE_E2E=true` สำหรับการรัน Live End-to-End กับเซิร์ฟเวอร์และฐานข้อมูลจริง*
+
+### 7.2 Backend Integration & Concurrency Tests ฝั่ง Spring Boot
+| ชุดทดสอบ (Test Class) | ขอบเขตการทดสอบ | สิ่งที่ทดสอบจริง | สถานะ |
+| :--- | :--- | :--- | :---: |
+| `AuctionConcurrencyPostgresTests.java` | **US-15:** Concurrency เคาะราคา | ทดสอบ Race Condition และ Pessimistic Locking เมื่อมีผู้เสนอราคาพร้อมกันในระดับ PostgreSQL | 🟢 ผ่าน |
+| `BuyerAuctionIntegrationTests.java` | **US-14, 15, 18:** ระบบประมูลผู้ซื้อ | ทดสอบ Lifecycle ประมูลสด, WebSocket, Proxy Bid, Buy-it-now และหักค่าธรรมเนียม Platform Fee | 🟢 ผ่าน |
+| `BuyerOrderControllerIntegrationTests.java` | **US-25:** สั่งซื้อซ้ำ & ดาวน์โหลด PDF | ทดสอบ `POST /api/orders/{id}/reorder` (สต็อกขาด, ดึงเข้าตะกร้า) และ `GET /api/orders/{id}/invoice-pdf` (สิทธิ์เจ้าของ) | 🟢 ผ่าน |
+| `InvoicePdfServiceTest.java` | **US-25:** การสร้างไฟล์ PDF | ทดสอบความสมบูรณ์ของโครงสร้างไฟล์ PDF (%PDF Header, QR Code, Verification Layout) | 🟢 ผ่าน |
+| `VoucherServiceTest.java` & `CheckoutControllerIntegrationTests.java` | **US-24:** โค้ดส่วนลดโปรโมชัน | ทดสอบการคำนวณและหักส่วนลดโค้ดโปรโมชันในขั้นตอนชำระเงิน และบันทึกประวัติการใช้งาน | 🟢 ผ่าน |
+| `PlatformFeeServiceTest.java` & `SellerOrderServiceUnitTest.java` | **US-21:** ค่าตัวกลาง & แดชบอร์ดรายเดือน | ทดสอบกฎการคำนวณ Platform Fee 5% และการสรุปยอดขายรายเดือน 12 เดือนพร้อม Export | 🟢 ผ่าน |
+
+---
+> 📌 *เอกสารฉบับนี้จัดทำขึ้นและปรับปรุงตามมติของกลุ่ม โดยยึดตามข้อกำหนด User Stories Phase 2 อย่างเคร่งครัด เพื่อใช้เป็นเกณฑ์ตัดสินความสมบูรณ์ของโครงงานก่อนการประเมินผล*
