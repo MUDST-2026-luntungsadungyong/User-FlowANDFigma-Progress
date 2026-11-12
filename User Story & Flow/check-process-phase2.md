@@ -4,7 +4,7 @@
 > **Repository:** `User-FlowANDFigma-Progress`  
 > **Directory:** `/User Story & Flow/check-process-phase2.md`  
 > **Target Branch:** `main`  
-> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (14:30 น.)  
+> **วันจัดทำ/ปรับปรุงล่าสุด:** 12 พฤศจิกายน 2026 (20:00 น.)  
 
 ---
 
@@ -37,10 +37,10 @@
 
 1. **กลุ่ม Must-Have (US-13, US-18): เสร็จสมบูรณ์ 100% (8/8 ข้อ)**  
    - ระบบประมูลครบวงจร: สร้างห้อง, ตั้งเวลา, Reserve Price, Buy-It-Now, แดชบอร์ดผู้ขาย, การหัก Commission และพอร์ตประมูลของผู้ซื้อ
-2. **กลุ่ม Recommended to Develop (US-20, US-24, US-26, US-27): เสร็จ ~65% (4.5/7 ข้อ)**  
+2. **กลุ่ม Recommended to Develop (US-20, US-24, US-26, US-27): เสร็จสมบูรณ์ ~85% (6/7 ข้อ)**  
    - `US-20` (Image Upload Policy & Zoom Magnifier): **ครบถ้วน 100%**
-   - `US-24` (Promo/Voucher Engine): **ครบฝั่ง Buyer & Checkout (70%)** แต่ *ยังขาดหน้า Admin Promo Campaign UI (`US-24-2`)*
-   - `US-26` (Out of Stock Alert & Smart Restock Prediction): **🔴 มติใหม่ของกลุ่มนำกลับมาพัฒนา (0%)** วางแผนพัฒนาใน Sprint 2 (ระบบแจ้งเตือนสินค้าหมด In-App/Email, ปุ่ม "Notify Me When Available", และสูตรพยากรณ์ความเร็วการขาย Sales Velocity)
+   - `US-24` (Promo/Voucher Engine): **🟢 ครบถ้วน 100%** ทั้งฝั่งผู้ซื้อ Checkout (`CheckoutVoucherModal.tsx`) และฝั่งแอดมิน (`AdminVouchersPage.tsx`, `AdminVoucherController.java`, `AdminVoucherService.java`, Flyway V13) พร้อมชุดทดสอบ Cypress E2E 4 ชุด
+   - `US-26` (Out of Stock Alert & Smart Restock Prediction): **🟡 มีบางส่วน (50%)** — `US-26-2` (Smart Restock Prediction) **เสร็จสมบูรณ์ 100%** มีหน้ารายงานพยากรณ์สต๊อกสินค้า (`StockForecastPage.tsx`), Service คำนวณความเร็วการขาย Sales Velocity และ Moving Average (`StockForecastService.java`), API `GET /api/seller/products/stock-forecast`, ป้ายสถานะความด่วน (Out of Stock, Critical, Low, Safe) และปริมาณแนะนำเติมสต๊อก; เหลือเพียง `US-26-1` (ปุ่ม "Notify Me When Available" และ Email Back-in-Stock Alert)
    - `US-27` (Weekly Stock & Profit Admin Report): **🟢 พัฒนาฝั่ง Frontend ครบถ้วน 100% บน `main` (พร้อม Cypress E2E) / Backend พัฒนาครบแล้วใน Branch `fix/weekly-admin-reports`** มีหน้า `AdminWeeklyReportsPage.tsx`, Service `weeklyReports.ts`, กราฟสรุปรายสัปดาห์, การ์ด Top Revenue/Top Profit, ตาราง Stagnant Inventory (ค้างสต๊อกเกิน 60 วัน) และปุ่ม Export CSV
 3. **กลุ่ม Good-to-Have (US-14, US-15, US-17, US-19): เสร็จสมบูรณ์ 100% (20/20 ข้อ)**  
    - ระบบห้องประมูลสด WebSocket, กลไกเคาะราคา Manual/Proxy, Masked Identity, การตัดสินผู้ชนะ, โอนการ์ดเข้า Binder และการกำกับดูแล/ระงับฉุกเฉิน/จัดการข้อพิพาทสำหรับแอดมิน (`US-19`) **ครบถ้วน 100%** บน `main` (มี `AdminAuctionMonitorPage.tsx` สำหรับมอนิเตอร์กระดานประมูลสด, `AdminAuctionDisputesPage.tsx` & `ParticipantDisputesPage.tsx` สำหรับ Dispute Resolution Center ตรวจสอบสินค้าชำรุด/ของปลอม, `AuctionDisputeService.java`, `AuctionDisputeController.java`, ตาราง `auction_disputes`, `auction_emergency_controls` (V22) และ Audit Trail (V23))
@@ -70,8 +70,8 @@
 | **US-13** | **Auction Listing & Setup**<br>*(สร้าง/ตั้งค่าประมูล, Reserve, Buy-It-Now)* | ⭐ **MUST HAVE** | 5 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | มีครบทุกฟังก์ชันตาม Acceptance Criteria (Draft, Schedule, Cancel, Reserve, Buyout) |
 | **US-18** | **Auction Analytics & Financials**<br>*(คำนวณค่าธรรมเนียม, สถิติกำไรผู้ขาย/ผู้ซื้อ)* | ⭐ **MUST HAVE** | 3 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | มี Seller Analytics, Commission Deduction Policy และ Buyer Portfolio |
 | **US-20** | **Card Image Upload Policy & Criteria Gate**<br>*(เกณฑ์บังคับรูปจริง vs ตัวเลือกเสริม + แว่นขยาย)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 1 (Priority 1)** | 🟢 **ครบ 100%** | เกณฑ์ Mandatory/Optional ตรวจสอบเรียลไทม์ และแว่นขยาย Hover Zoom 2.5x ในหน้ารายละเอียดการ์ด |
-| **US-24** | **Promotions & Discount Codes Engine**<br>*(ระบบคูปองและโค้ดส่วนลด Checkout)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🟡 **มีบางส่วน (70%)** | ใช้งานใน Checkout ได้จริง (`US-24-1`) แต่**ยังขาดหน้า Admin จัดการแคมเปญ (`US-24-2`)** |
-| **US-26** | **Out of Stock Alert & Smart Restock Prediction**<br>*(ระบบแจ้งเตือนสินค้าหมด In-App/Email & AI ทำนายสต๊อก)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:**<br>• `US-26-1`: แจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม "Notify Me When Available" แจ้งเตือนเมื่อสินค้ากลับมามีสต๊อก (ผู้ซื้อ ทั้ง In-App & Email Alert)<br>• `US-26-2`: Smart Restock Prediction คำนวณ Sales Velocity ทำนายวันหมดสต๊อกล่วงหน้า |
+| **US-24** | **Promotions & Discount Codes Engine**<br>*(ระบบคูปองและโค้ดส่วนลด Checkout & Admin)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **ครบ 100%** | มีระบบคูปองครบวงจร: หน้าจัดการแคมเปญฝั่งแอดมิน (`AdminVouchersPage.tsx`, `AdminVoucherController.java`), ใช้งานใน Checkout (`CheckoutVoucherModal.tsx`), และชุดทดสอบ E2E 4 ไฟล์ (`08_admin_vouchers_management.cy.ts`, `13_buyer_vouchers_and_checkout.cy.ts`) |
+| **US-26** | **Out of Stock Alert & Smart Restock Prediction**<br>*(ระบบแจ้งเตือนสินค้าหมด In-App/Email & AI ทำนายสต๊อก)* | 🚀 **RECOMMENDED** | 2 ข้อ | **Sprint 2 (Priority 1)** | 🟡 **มีบางส่วน (50%)** | • `US-26-2`: **🟢 ครบ 100%** หน้ารายงานพยากรณ์สต๊อก (`StockForecastPage.tsx`), API `GET /api/seller/products/stock-forecast`, Service วิเคราะห์ความเร็วการขาย (`StockForecastService.java`)<br>• `US-26-1`: **🔴 รอดำเนินการ** ปุ่ม "Notify Me When Available" และ Email Back-in-Stock Alert |
 | **US-27** | **Weekly Stock & Profit Admin Report**<br>*(รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์)* | 🚀 **RECOMMENDED** | 1 ข้อ | **Sprint 2 (Priority 1)** | 🟢 **Frontend ครบ 100% บน main / Backend พร้อมใน branch** | Frontend มีหน้า `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, กราฟสรุป, ตารางสินค้าค้างสต๊อก 60 วัน, ปุ่มดาวน์โหลด CSV และ Cypress E2E `07_weekly_reports.cy.ts` / Backend โค้ดเสร็จสมบูรณ์ใน `fix/weekly-admin-reports` รอ Merge |
 | **US-14** | **Auction Discovery & Live Arena**<br>*(หน้ารวมประมูล, WebSocket Room, Watchlist)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | หน้ารวมประมูลพร้อมแท็บด่วน, ห้องประมูลสด WebSocket, Mask Identity, Watchlist และ Badge การ์ดเกรด |
 | **US-15** | **Bidding Engine & Proxy Bids**<br>*(เคาะสด, บิดอัตโนมัติ Max Bid, แจ้งเตือน Outbid)* | 💡 **GOOD TO HAVE** | 5 ข้อ | **Sprint 2 (Priority 2)** | 🟢 **ครบ 100%** | ระบบเคาะ Manual, Proxy Bidding บิดสู้แทนอัตโนมัติ, บันไดราคา Dynamic Increment และแจ้งเตือน Outbid |
@@ -101,7 +101,7 @@
 | **US-25-1** | ปุ่ม **"1-Click Reorder"** ในหน้ารายละเอียดออเดอร์ ดึงสินค้าเดิมเข้าตะกร้าพร้อมตรวจสอบสต๊อกปัจจุบัน | พัฒนาใน Phase 2 เรียบร้อย (`CartService.java`, `OrderDetailPage.tsx`) | 🟢 **มีตามสเปก** | รองรับการตรวจสอบสต๊อกคงเหลือและดึงการ์ดเดิมเข้าตะกร้าพร้อมสั่งซื้อใหม่ |
 | **US-25-2** | ปุ่ม **"Download PDF Invoice"** สร้างเอกสาร PDF ใบเสร็จพร้อม QR Code สแกนตรวจสอบสถานะออเดอร์ | พัฒนาใน Phase 2 เรียบร้อย (`InvoicePdfService.java`, `BuyerOrderController.java`) | 🟢 **มีตามสเปก** | รองรับการดาวน์โหลดไฟล์ PDF ใบเสร็จสั่งซื้อที่มี QR Code ผ่าน API |
 | **US-26-1** | ระบบแจ้งเตือนสต๊อกหมด (ผู้ขาย) และปุ่ม **"Notify Me When Available"** ให้ผู้ซื้อกดติดตามการ์ดที่หมดสต๊อก (ทั้ง In-App & Email) | Phase 1 แสดงเพียงสถานะ Out of Stock บนการ์ดที่จำนวนเหลือ 0 | 🔴 **รอดำเนินการ (มติใหม่นำกลับมาทำ)** | **มติใหม่ของกลุ่ม:** นำกลับมาพัฒนาใน Sprint 2 — ยังขาดปุ่ม "Notify Me When Available" ในหน้าการ์ด, ตาราง `stock_subscriptions`, และการส่ง Back-in-Stock Email Alert |
-| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | Phase 1 ไม่มีระบบวิเคราะห์แนวโน้ม | 🔴 **รอดำเนินการ (มติใหม่นำกลับมาทำ)** | **มติใหม่ของกลุ่ม:** นำกลับมาพัฒนาใน Sprint 2 — ยังขาด Service คำนวณ Sales Velocity (`Current Stock / Daily Sales Rate`) และป้ายเตือนสต๊อกหมดใน 3 วัน/7 วัน ใน Seller Inventory |
+| **US-26-2** | AI / Smart Restock Prediction คำนวณความเร็วในการขาย (Sales Velocity) ทำนายวันหมดสต๊อกล่วงหน้า | พัฒนาครบถ้วนใน Phase 2 (`StockForecastService.java`, `StockForecastPage.tsx`, `stockForecast.ts`, `StockForecastResponse.java`, `StockForecastServiceUnitTests.java`, `StockForecastPage.test.tsx`) | 🟢 **มีตามสเปก** | รองรับ Moving Average (Simple & Weighted), คำนวณ Sales Velocity, Days until stockout, ป้ายความด่วน (Out of Stock, Critical <= 3 วัน, Low <= 7 วัน, Safe) และปริมาณแนะนำเติมสต๊อก |
 | **US-28-1** | Typo-Tolerant Search ค้นหาคำสะกดผิด เช่น `"pokamon"` แล้วแสดงผลของ `"pokemon"` พร้อมข้อความแนะนำ | พัฒนาครบถ้วนใน Phase 2 (`CardFuzzySearchService.java`, `CardSearchPage.java`, `CardController.java`, `ProductService.java`, `CardDiscoveryPage.tsx`) | 🟢 **มีตามสเปก** | ค้นหาคำสะกดผิด (Edit Distance <= 2) เช่น `"pokamon"`, `"chairzard"`, `"pikashu"`, ส่ง `didYouMean` และแสดง Suggestion Banner ในหน้าผลการค้นหา พร้อมปุ่มค้นหาคำเดิม |
 | **US-28-2** | ค้นหาชื่อการ์ดภาษาไทยข้ามภาษา เช่น ค้นหา `"ลิซาร์ดอน"` แล้วพบการ์ดภาษาอังกฤษ `"Charizard"` | มีตาราง `card_search_names` (Migration V19) และฐานข้อมูลคำศัพท์ภาษาไทยกว่า 2,052 คำ | 🟢 **มีตามสเปก** | ใช้งานได้แล้วใน Backend Catalog Service |
 
@@ -131,9 +131,9 @@
 | **US-20-1** | Mandatory vs. Optional Real Card Image Upload Gate | 🟢 **ครบถ้วน** | `ListingImagePolicy.java`, `imagePolicy.ts`, ประเมินเกณฑ์เรียลไทม์ (ราคา >= ฿500, การ์ดเกรด, มีตำหนิ บังคับรูปจริง >= 2 รูป) |
 | **US-20-2** | High-Resolution Card Gallery with Zoom Magnifier | 🟢 **ครบถ้วน** | `CardPhotoMagnifierViewer.tsx`, `CardDetailPage.tsx` แท็บสลับ Official vs Actual Photos พร้อม Hover ซูม 2.5x |
 | **US-24-1** | Promo Code / Voucher Application at Checkout | 🟢 **ครบถ้วน** | `VoucherController.java` (`/api/vouchers/validate`), `CheckoutVoucherModal.tsx`, หักส่วนลดจาก Subtotal ก่อนสั่งซื้อ |
-| **US-24-2** | Admin Promo Campaign Management | 🟡 **มีบางส่วน (ขาด UI)** | มีตาราง `vouchers` (Flyway V13) และ Seed ในฐานข้อมูล แต่**ยังไม่มีหน้าเว็บ Admin UI สำหรับสร้างโค้ดใหม่** |
+| **US-24-2** | Admin Promo Campaign Management | 🟢 **ครบถ้วน** | `AdminVouchersPage.tsx`, `AdminVoucherController.java`, `AdminVoucherService.java`, `adminVouchers.ts`, Flyway V13, Cypress E2E `08_admin_vouchers_management.cy.ts` แอดมินสร้าง/แก้ไข/เปิด-ปิดการใช้งานคูปอง กำหนดประเภทส่วนลด วันหมดอายุ และดูสถิติ |
 | **US-26-1** | Out of Stock Alert & Back-in-Stock Multi-Channel Notification (In-App & Email) | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:**<br>• ผู้ขาย: แจ้งเตือน Low/Out-of-Stock Alert ทั้ง In-App และ Email เมื่อสต๊อกเหลือ 0 พร้อมลิงก์ไปหน้าจัดการคลัง<br>• ผู้ซื้อ: ปุ่ม "Notify Me When Available" บนหน้ารายละเอียดการ์ดที่หมดสต๊อก รับ In-App และ Email แจ้งเตือนเมื่อสินค้ากลับมามีสต๊อก (Restocked) พร้อมปุ่มสั่งซื้อทันที |
-| **US-26-2** | Smart Restock Prediction based on Sales Trends | 🔴 **รอดำเนินการ (0%)** | **มติใหม่ของกลุ่มนำกลับมาพัฒนา:** คำนวณความเร็วการขาย (Sales Velocity 7-30 วัน) สูตร $\text{Days} = \frac{\text{Current Stock}}{\text{Average Daily Sales Rate}}$ แสดงป้ายเตือนหมดสต๊อกล่วงหน้า 3 วัน/7 วันในคลังสินค้าผู้ขาย |
+| **US-26-2** | Smart Restock Prediction based on Sales Trends | 🟢 **ครบถ้วน** | `StockForecastPage.tsx`, `StockForecastService.java`, `stockForecast.ts`, `StockForecastResponse.java`, `StockForecastServiceUnitTests.java`, `StockForecastPage.test.tsx` เมนู Stock Forecast คำนวณ Moving Average (Simple/Weighted), Sales Velocity, Days until stockout, ป้ายความด่วน (Critical, Low, Safe) และ Restock Recommendation |
 | **US-27-1** | Automated Weekly Stock & Profit Platform Governance Report | 🟢 **Frontend ครบ / Backend พร้อม Merge** | • Frontend: `AdminWeeklyReportsPage.tsx`, `weeklyReports.ts`, `AdminWeeklyReportsPage.test.tsx`, Cypress E2E `07_weekly_reports.cy.ts` (สรุป Stock Added/Removed, Sold Units, Inventory Value, Top Revenue/Profit, Stagnant Inventory > 60 วัน, Export CSV)<br>• Backend: พร้อมสมบูรณ์ใน `fix/weekly-admin-reports` (`WeeklyReportScheduler.java`, `AdminWeeklyReportController.java`, `WeeklyReportService.java`, `WeeklyReportCsv.java`) |
 
 ---
@@ -213,24 +213,23 @@
 เมื่อยึดข้อกำหนดของ Phase 2 เป็นเกณฑ์หลัก รายการฟีเจอร์ที่ระบบของเรายังขาดและสิ่งที่ต้องดำเนินการเพิ่มเติม มีดังนี้:
 
 ### 🔴 ระดับสิ่งที่ยังค้างอยู่จริงใน Scope หลักของ Phase 2:
-1. **US-24-2 (Admin Promo Campaign Manager UI):**  
-   - มีฐานข้อมูล `vouchers` (Flyway V13) และ API ตรวจสอบโค้ดแล้ว แต่**ยังขาดหน้าเว็บ Admin UI สำหรับสร้าง แก้ไข และปิดการใช้งานแคมเปญคูปอง**
-2. **US-26 (Out of Stock Alert & Smart Restock Prediction — มติใหม่นำกลับมาพัฒนา):**  
+1. **US-26-1 (Out of Stock & Back-in-Stock Notification):**  
    - ต้องสร้างตาราง `stock_subscriptions` (บันทึก user_id, global_card_id, email, notify_email, is_active)
    - ต้องเพิ่มปุ่ม "Notify Me When Available" บนหน้ารายละเอียดการ์ดที่หมดสต๊อกใน Frontend
    - ต้องเชื่อมโยงเหตุการณ์เติมสต๊อก (Restocked) เข้ากับ `NotificationEmailService.java` เพื่อส่ง Back-in-Stock Email Alert และ In-App Notification
-   - ต้องสร้าง Service วิเคราะห์ความเร็วการขาย (Sales Velocity 7-30 วัน) และแสดงป้ายเตือนวันหมดสต๊อกล่วงหน้าใน Seller Inventory
-3. **US-27-1 Backend Main Integration:**  
+2. **US-27-1 Backend Main Integration:**  
    - โค้ด Backend สรุปยอดอัตโนมัติ (`WeeklyReportScheduler.java`), API (`AdminWeeklyReportController.java`) และ Export CSV (`WeeklyReportCsv.java`) พัฒนาเสร็จสมบูรณ์แล้วใน Branch `fix/weekly-admin-reports` **รอการ Merge เข้าสู่ Branch `main` ของ Backend** (Frontend บน `main` มีหน้า `AdminWeeklyReportsPage.tsx` และ Cypress E2E รองรับเรียบร้อยแล้ว)
-4. **US-29 Production Mail Relay Deployment:**  
+3. **US-29 Production Mail Relay Deployment:**  
    - ระบบ Transactional Outbox Worker (`NotificationEmailDeliveryWorker.java`) และ Template อีเมล 12 เหตุการณ์พัฒนาและผ่านการทดสอบแล้ว เหลือเพียงการตั้งค่า Environment Variable สำหรับ SMTP Relay จริง (`SPRING_MAIL_HOST`, `SPRING_MAIL_USERNAME`, `SPRING_MAIL_PASSWORD`) บนเครื่อง Server ปลายทาง
 
 ### 🟢 รายการที่พัฒนาเสร็จสมบูรณ์เพิ่มเติมแล้ว (Recently Completed):
-1. **US-19 (Auction Administration & Dispute Handling):** ✅ **ครบถ้วน 100%** (มีทั้งกระดาน Live Monitor `AdminAuctionMonitorPage.tsx`, ศูนย์จัดการข้อพิพาท `AdminAuctionDisputesPage.tsx`, และ Security Audit Trail ครบครัน)
-2. **US-28-1 & US-28-2 (Typo Tolerance & Thai Search):** ✅ **ครบถ้วน 100%** (ค้นหาคำสะกดผิด Levenshtein Distance <= 2, แนะนำคำค้น, และค้นหาการ์ดภาษาไทย)
-3. **US-21 (Platform Fee & Monthly Dashboard):** ✅ **ครบถ้วน 100%** (หักค่าตัวกลางคำสั่งซื้อทั่วไป และแดชบอร์ดรายรับ 12 เดือนของผู้ขาย)
-4. **US-22 (Collection Privacy & Showcase):** ✅ **ครบถ้วน 100%** (สวิตช์ Toggle Public/Private, บล็อก 403, และ Card Comparison Helper)
-5. **US-25 (1-Click Reorder & PDF Invoice):** ✅ **ครบถ้วน 100%** (สั่งซื้อซ้ำใน 1 คลิก และดาวน์โหลดใบเสร็จ PDF พร้อม QR Code)
+1. **US-24 (Promotions & Discount Codes Engine):** ✅ **ครบถ้วน 100%** (หน้า Checkout `CheckoutVoucherModal.tsx`, หน้า Admin จัดการแคมเปญ `AdminVouchersPage.tsx`, API `AdminVoucherController.java`, Service `AdminVoucherService.java`, และ Cypress E2E 4 ไฟล์)
+2. **US-26-2 (Smart Restock Prediction based on Sales Trends):** ✅ **ครบถ้วน 100%** (หน้ารายงานพยากรณ์สต๊อกสินค้า `StockForecastPage.tsx`, API `GET /api/seller/products/stock-forecast`, Service `StockForecastService.java` คำนวณ Sales Velocity, Moving Average, ป้ายความด่วน, และคำแนะนำเติมสต๊อก)
+3. **US-19 (Auction Administration & Dispute Handling):** ✅ **ครบถ้วน 100%** (มีทั้งกระดาน Live Monitor `AdminAuctionMonitorPage.tsx`, ศูนย์จัดการข้อพิพาท `AdminAuctionDisputesPage.tsx`, และ Security Audit Trail ครบครัน)
+4. **US-28-1 & US-28-2 (Typo Tolerance & Thai Search):** ✅ **ครบถ้วน 100%** (ค้นหาคำสะกดผิด Levenshtein Distance <= 2, แนะนำคำค้น, และค้นหาการ์ดภาษาไทย)
+5. **US-21 (Platform Fee & Monthly Dashboard):** ✅ **ครบถ้วน 100%** (หักค่าตัวกลางคำสั่งซื้อทั่วไป และแดชบอร์ดรายรับ 12 เดือนของผู้ขาย)
+6. **US-22 (Collection Privacy & Showcase):** ✅ **ครบถ้วน 100%** (สวิตช์ Toggle Public/Private, บล็อก 403, และ Card Comparison Helper)
+7. **US-25 (1-Click Reorder & PDF Invoice):** ✅ **ครบถ้วน 100%** (สั่งซื้อซ้ำใน 1 คลิก และดาวน์โหลดใบเสร็จ PDF พร้อม QR Code)
 
 ### ⚪ รายการที่ตัดออกจาก Scope ตามมติกลุ่มอย่างเป็นทางการ (De-scoped Features):
 1. **US-16 (Fair-Play & Anti-Fraud Controls):**  
@@ -247,7 +246,10 @@
 
 ### 7.1 Cypress End-to-End (E2E) Tests ฝั่ง Frontend
 | ชุดทดสอบ (Spec File) | ขอบเขต User Story ที่ครอบคลุม | สิ่งที่ทดสอบจริง | สถานะ |
-| :--- | :--- | :--- | :--- | :---: |
+| :--- | :--- | :--- | :---: |
+| `admin/08_admin_vouchers_management.cy.ts` | **US-24-2:** แอดมินจัดการแคมเปญคูปอง | ทดสอบสร้างโค้ดโปรโมชัน, กำหนดประเภทส่วนลด/ยอดขั้นต่ำ/วันหมดอายุ, เปิด-ปิดโค้ด, และตรวจสถิติการใช้งาน | 🟢 ผ่าน 100% |
+| `13_buyer_vouchers_and_checkout.cy.ts` | **US-24-1:** ผู้ซื้อใช้คูปองใน Checkout | ทดสอบกรอกโค้ดส่วนลดใน Checkout, ตรวจสอบเงื่อนไขยอดซื้อขั้นต่ำ, คำนวณหักส่วนลดสุทธิ, และป้องกันการใช้โค้ดหมดอายุ | 🟢 ผ่าน 100% |
+| `19_voucher_admin_buyer_sync.cy.ts` | **US-24:** ซิงก์โค้ด Admin และ Buyer | ทดสอบการซิงก์สถานะโค้ดแบบเรียลไทม์ระหว่าง Admin Dashboard และหน้า My Vouchers/Checkout | 🟢 ผ่าน 100% |
 | `07_weekly_reports.cy.ts` | **US-27:** รายงานสินค้าคงคลังและผลกำไรประจำสัปดาห์ | ตรวจสอบหน้าแดชบอร์ดสรุปรายสัปดาห์, การแสดงผลสต๊อกคงเหลือ, รายการ Stagnant Inventory > 60 วัน, การ์ด Top Performers และการดาวน์โหลดไฟล์ CSV | 🟢 ผ่าน 100% |
 | `15_live_auction_journey.cy.ts` | **US-13:** สร้าง/ตั้งค่าประมูล | สร้างห้องประมูลจากคลังสินค้า, ล็อกสต็อกการ์ด, เผยแพร่ (Publish) และกดยกเลิกคืนสต็อก | 🟢 พร้อมใช้งาน |
 | `18_live_auction_settlement.cy.ts` | **US-13, 14, 15, 17, 18:** วงจรประมูลสด | เชื่อมต่อ WebSocket สด, เสนอราคา, Watchlist, ซื้อทันที (Buy-It-Now), ตัดสินผู้ชนะ และสร้าง Order อัตโนมัติ | 🟢 พร้อมใช้งาน |
@@ -267,7 +269,9 @@
 | `AdminAuctionServiceTest.java` | **US-19:** มอนิเตอร์ & ระงับฉุกเฉิน | ทดสอบคำสั่ง Pause, Resume, และ Force Cancel ห้องประมูลฉุกเฉินจากฝั่ง Admin Console | 🟢 ผ่าน |
 | `BuyerOrderControllerIntegrationTests.java` | **US-25:** สั่งซื้อซ้ำ & ดาวน์โหลด PDF | ทดสอบ `POST /api/orders/{id}/reorder` (สต็อกขาด, ดึงเข้าตะกร้า) และ `GET /api/orders/{id}/invoice-pdf` (สิทธิ์เจ้าของ) | 🟢 ผ่าน |
 | `InvoicePdfServiceTest.java` | **US-25:** การสร้างไฟล์ PDF | ทดสอบความสมบูรณ์ของโครงสร้างไฟล์ PDF (%PDF Header, QR Code, Verification Layout) | 🟢 ผ่าน |
-| `VoucherServiceTest.java` & `CheckoutControllerIntegrationTests.java` | **US-24:** โค้ดส่วนลดโปรโมชัน | ทดสอบการคำนวณและหักส่วนลดโค้ดโปรโมชันในขั้นตอนชำระเงิน และบันทึกประวัติการใช้งาน | 🟢 ผ่าน |
+| `VoucherServiceTest.java` & `CheckoutControllerIntegrationTests.java` | **US-24-1:** โค้ดส่วนลดโปรโมชัน Checkout | ทดสอบการคำนวณและหักส่วนลดโค้ดโปรโมชันในขั้นตอนชำระเงิน และบันทึกประวัติการใช้งาน | 🟢 ผ่าน |
+| `AdminVoucherControllerIntegrationTests.java`<br>`AdminVoucherServiceUnitTest.java` | **US-24-2:** แอดมินจัดการแคมเปญโปรโมชัน | ทดสอบ CRUD โค้ดส่วนลด, การตรวจสอบสิทธิ์ Admin, เพดานส่วนลด และสถิติการใช้งาน | 🟢 ผ่าน |
+| `StockForecastServiceUnitTests.java` | **US-26-2:** พยากรณ์สต๊อกสินค้า | ทดสอบการคำนวณ Moving Average (Simple & Weighted), Sales Velocity, Days until stockout, และป้ายเตือนความด่วน | 🟢 ผ่าน |
 | `PlatformFeeServiceTest.java` & `SellerOrderServiceUnitTest.java` | **US-21:** ค่าตัวกลาง & แดชบอร์ดรายเดือน | ทดสอบกฎการคำนวณ Platform Fee 5% และการสรุปยอดขายรายเดือน 12 เดือนพร้อม Export | 🟢 ผ่าน |
 | `NotificationEmailDeliveryWorkerTest.java`<br>`NotificationEmailServiceTest.java` | **US-29:** ระบบส่งอีเมล Outbox | ทดสอบการดึงคิวอีเมล Outbox, การส่งซ้ำแบบ Exponential Backoff, Dead-letter handling และการแนบ PDF | 🟢 ผ่าน |
 | `WeeklyReportPostgresTests.java`<br>`WeeklyReportServiceTests.java` | **US-27:** การคำนวณรายงานและ CSV Export | ทดสอบการประมวลผลสรุปยอดขาย, ต้นทุน, กำไร, Stagnant Inventory เกิน 60 วัน และการสร้างไฟล์ CSV | 🟢 ผ่าน (บน branch) |
